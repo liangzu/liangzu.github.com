@@ -3,23 +3,30 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>See your data structures(c++)</title>
-<!-- 2016-04-27 周三 20:04 -->
+<!-- 2016-05-07 周六 09:05 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>See your data structures(c++)</title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Liangzu Peng" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
   .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -58,15 +65,14 @@
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
+  .footpara { display: inline; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -143,17 +149,17 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">Introduction</a></li>
-<li><a href="#sec-2">Advice</a>
+<li><a href="#orgheadline1">Introduction</a></li>
+<li><a href="#orgheadline6">Advice</a>
 <ul>
-<li><a href="#sec-2-1">what you should know before learning c/c++ version data structures</a></li>
+<li><a href="#orgheadline5">what you should know before learning c/c++ version data structures</a></li>
 </ul>
 </li>
-<li><a href="#sec-3"></a></li>
+<li><a href="#orgheadline7"></a></li>
 </ul>
 </div>
 </div>
-<div class="center">
+<div class="org-center">
 <p>
 <b><i>I see trees but not the forest.</i></b>
 </p>
@@ -163,19 +169,16 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Introduction</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">Introduction</h2>
+<div class="outline-text-2" id="text-orgheadline1">
 <p>
 There are some drawbacks that teaching data structures using c or c++:
 </p>
 <ul class="org-ul">
-<li>Manual management of memory brings some unnecessary complexity;
-</li>
-<li>The lack of boundry checking and unfamiliarity of c-style string always lead a well-known problem :"烫烫烫";
-</li>
-<li>There are no built-in 2-D graphic libraries in c or c++, and hence there are no visual method to debug your algorithm.
-</li>
+<li>Manual management of memory brings some unnecessary complexity;</li>
+<li>The lack of boundry checking and unfamiliarity of c-style string always lead some well-known problems, e.g., segment-fault, "烫烫烫";</li>
+<li>There are no built-in 2-D graphic libraries in c or c++, and hence there are no visual method to debug your algorithm.</li>
 </ul>
 
 <p>
@@ -186,41 +189,35 @@ but not data structures.
 </p>
 
 <p>
-This article shares some advice while facing data structures and provide a way visualizing your data structures.
+This article shares some advice while facing data structures and introduces a simple approach visualizing your data structures.
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Advice</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1">what you should know before learning c/c++ version data structures</h3>
-<div class="outline-text-3" id="text-2-1">
-</div><ul class="org-ul"><li><a id="sec-2-1-1" name="sec-2-1-1"></a>Understanding c-style string<br  /><div class="outline-text-4" id="text-2-1-1">
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6">Advice</h2>
+<div class="outline-text-2" id="text-orgheadline6">
+</div><div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5">what you should know before learning c/c++ version data structures</h3>
+<div class="outline-text-3" id="text-orgheadline5">
+</div><ul class="org-ul"><li><a id="orgheadline2"></a>Understanding c-style string<br  /><div class="outline-text-4" id="text-orgheadline2">
 <p>
 implement some string-related library functions, e.g., <i>strcpy</i>, <i>strlen</i>, <i>strcmp</i>, <i>atoi</i>, <i>itoa</i>.
 </p>
-</div>
-</li>
-<li><a id="sec-2-1-2" name="sec-2-1-2"></a>Understanding c pointer<br  /><div class="outline-text-4" id="text-2-1-2">
+</div></li>
+<li><a id="orgheadline3"></a>Understanding c pointer<br  /><div class="outline-text-4" id="text-orgheadline3">
 <p>
 implement some pointer-related functions:
 </p>
 <ul class="org-ul">
-<li>rewrite your function using pointers instead of arrays.
-</li>
-<li>implement <code>Swap(void* a, void* b, size_t n)</code>, where a and b are the same type, and n is the size of a( or b). your implementation should work while the type of a is <code>char**</code> and <code>int</code>, respectively. As a hint, try to use <code>memcpy</code>.
-</li>
-<li>implement <code>Compare(void*a, void* b, size_t n)</code>. <code>hint</code>:  use <code>memcmp</code>;
-</li>
-<li>(optional) implement <code>qsort(void** v, int left, int right, int (*comp) (void *, void *))</code>
-</li>
+<li>rewrite your function using pointers instead of arrays.</li>
+<li>implement <code>Swap(void* a, void* b, size_t n)</code>, where a and b are the same type, and n is the size of a( or b). your implementation should work while the type of a is <code>char**</code> and <code>int</code>, respectively. As a hint, try to use <code>memcpy</code>.</li>
+<li>implement <code>Compare(void*a, void* b, size_t n)</code>. <code>hint</code>:  use <code>memcmp</code>;</li>
+<li>(optional) implement <code>qsort(void** v, int left, int right, int (*comp) (void *, void *))</code></li>
 </ul>
-</div>
-</li>
+</div></li>
 
-<li><a id="sec-2-1-3" name="sec-2-1-3"></a>Understanding memory leaks.<br  /><div class="outline-text-4" id="text-2-1-3">
+<li><a id="orgheadline4"></a>Understanding memory leaks.<br  /><div class="outline-text-4" id="text-orgheadline4">
 <p>
 It always has been heard that a dummy programmer wrote some naive code and leaked the memory, resulting in great losses of his company.
 We got a plausible impression from this story: "memory leak is evil, we should be careful of it.".
@@ -236,34 +233,37 @@ Let me illustrate this idea with some examples:
 </p>
 
 <ul class="org-ul">
-<li>What memory leak looks like?
-</li>
+<li>What memory leak looks like?</li>
 </ul>
-<pre class="example">
-void ugly()
-{
-	int* leaker = new int();
+<div class="org-src-container">
 
-	use_leaker();
-	
-	
-	// don't delete leaker when exit
-}
+<pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">ugly</span><span style="color: #4f97d7;">()</span>
+<span style="color: #4f97d7;">{</span>
+  <span style="color: #ce537a; font-weight: bold;">int</span>* <span style="color: #7590db;">leaker</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #bc6ec5;">()</span>;
+
+  use_leaker<span style="color: #bc6ec5;">()</span>;
+
+  <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">forget to delete leaker when exit</span>
+<span style="color: #4f97d7;">}</span>
 </pre>
+</div>
 <p>
 There is no way to reference <code>leaker</code> when <code>ugly()</code> exits, but the memory being <code>new</code> will never return to the system util the program is over.
 We call this phenomenon <i>memory leak</i>.
 What if <code>ugly()</code> is called many times?
 </p>
-<pre class="example">
-void uglier()
-{
-	while(true)
-	{
-		ugly();
-	}
-}
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">uglier</span><span style="color: #4f97d7;">()</span>
+<span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">while</span><span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">true</span><span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">{</span>
+    ugly<span style="color: #2d9574;">()</span>;
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
 </pre>
+</div>
+
 <p>
 obviously, <code>uglier()</code> 'eat' all memory that it can see util your program crumbles.
 </p>
@@ -271,56 +271,59 @@ obviously, <code>uglier()</code> 'eat' all memory that it can see util your prog
 <p>
 We can prohibit it by <code>delete leaker</code>, or if  <code>leaker</code> may be used by other function, we can return the address of <code>leaker</code>:
 </p>
-<pre class="example">
-int* ugly()
-{
-	int* leaker = new int();
+<div class="org-src-container">
 
-	use_leaker();
-	
-        // delete leaker;
-	return leaker; 
-}
+<pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">int</span>* <span style="color: #bc6ec5; font-weight: bold;">ugly</span><span style="color: #4f97d7;">()</span>
+<span style="color: #4f97d7;">{</span>
+  <span style="color: #ce537a; font-weight: bold;">int</span>* <span style="color: #7590db;">leaker</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #bc6ec5;">()</span>;
+
+  use_leaker<span style="color: #bc6ec5;">()</span>;
+
+  <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">delete leaker;</span>
+  <span style="color: #4f97d7; font-weight: bold;">return</span> leaker; 
+<span style="color: #4f97d7;">}</span>
 </pre>
+</div>
 <p>
 new qustions arise: what if <code>use_leaker()</code> throw a <i>exception</i>? 
 What if the caller of <code>ugly()</code> has no idea about <code>leaker</code> and ignores its return value?
 </p>
 
 <ul class="org-ul">
-<li>Does memory leak matter in your data structure practice?
-</li>
+<li>Does memory leak matter in your data structure practice?</li>
 </ul>
 <p>
 Consider the below function:
 </p>
-<pre class="example">
-private:
-	Node* Insert(Node *x, keyType k, valType v) const
-	{
-		if (x == nullptr)
-			return new Node(k, v);
-		if (k &lt; x-&gt;key)
-		{
-			x-&gt;left = Insert(x-&gt;left, k, v);
-		}
-		else if (k &gt; x-&gt;key)
-		{
-			x-&gt;right = Insert(x-&gt;right, k, v);
-		}
-		else
-		{   // the key to be inserted already exists...
-			x-&gt;val = v;
-		}
-		x-&gt;size = Size(x-&gt;left) + Size(x-&gt;right) + 1;
-		return x;
-	}
-public:
-	void Insert(keyType k, valType v)
-	{
-		root = Insert(root, k, v);
-	}
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">private</span>:
+  <span style="color: #ce537a; font-weight: bold;">Node</span>* <span style="color: #bc6ec5; font-weight: bold;">Insert</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">Node</span> *<span style="color: #7590db;">x</span>, <span style="color: #ce537a; font-weight: bold;">keyType</span> <span style="color: #7590db;">k</span>, <span style="color: #ce537a; font-weight: bold;">valType</span> <span style="color: #7590db;">v</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7; font-weight: bold;">const</span>
+  <span style="color: #4f97d7;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span>x == <span style="color: #a45bad;">nullptr</span><span style="color: #bc6ec5;">)</span>
+      <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Node</span><span style="color: #bc6ec5;">(</span>k, v<span style="color: #bc6ec5;">)</span>;
+    <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span>k &lt; x-&gt;key<span style="color: #bc6ec5;">)</span>
+    <span style="color: #bc6ec5;">{</span>
+      x-&gt;left = Insert<span style="color: #2d9574;">(</span>x-&gt;left, k, v<span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+    <span style="color: #4f97d7; font-weight: bold;">else</span> <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span>k &gt; x-&gt;key<span style="color: #bc6ec5;">)</span>
+    <span style="color: #bc6ec5;">{</span>
+      x-&gt;right = Insert<span style="color: #2d9574;">(</span>x-&gt;right, k, v<span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+    <span style="color: #4f97d7; font-weight: bold;">else</span>
+    <span style="color: #bc6ec5;">{</span> <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">the key to be inserted already exists...</span>
+      x-&gt;val = v;
+    <span style="color: #bc6ec5;">}</span>
+    x-&gt;size = Size<span style="color: #bc6ec5;">(</span>x-&gt;left<span style="color: #bc6ec5;">)</span> + Size<span style="color: #bc6ec5;">(</span>x-&gt;right<span style="color: #bc6ec5;">)</span> + <span style="color: #a45bad;">1</span>;
+    <span style="color: #4f97d7; font-weight: bold;">return</span> x;
+  <span style="color: #4f97d7;">}</span>
+<span style="color: #4f97d7; font-weight: bold;">public</span>:
+  <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">Insert</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">keyType</span> <span style="color: #7590db;">k</span>, <span style="color: #ce537a; font-weight: bold;">valType</span> <span style="color: #7590db;">v</span><span style="color: #4f97d7;">)</span>
+  <span style="color: #4f97d7;">{</span>
+    root = Insert<span style="color: #bc6ec5;">(</span>root, k, v<span style="color: #bc6ec5;">)</span>;
+  <span style="color: #4f97d7;">}</span>
 </pre>
+</div>
 <p>
 <code>Insert</code> is a method in <i>BinaryTree</i>, do you see the fifth line: <b>return new Node(k, v);</b>? <code>private: Insert</code> drops the 'responsibility'
 of memory management to its caller, while the <code>public: Insert</code> says: <b>root = Insert(root, k, v)</b>, that is, "let <code>root</code> memorize the location
@@ -338,17 +341,18 @@ My answer is, data structure cares about the structure/orgnization of data in th
 how to <b>insert</b> items into the structure, how to <b>delete</b> the specified items, how to <b>traverse</b> them, what's the cost of traversal or other operations?
 What's the <b>trade-off</b> between different data stuctures or algorithms?
 </p>
+</div></li></ul>
 </div>
-</li></ul>
 </div>
-</div>
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"></h2>
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"></h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
-<p class="date">Date: 2016-04-27 周三 20:04</p>
+<p class="date">Date: </p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.0.50.1 (<a href="http://orgmode.org">Org</a> mode 8.3.4)</p>
+<p class="validation"></p>
 </div>
 </body>
 </html>
