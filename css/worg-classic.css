@@ -1,8 +1,8 @@
  body {
     font-family: "Microsoft YaHei", Lucida, sans-serif, monospace;
     font-size: 12px;
-    font-align: justify;
-    line-height: 1.2em;
+    width: 50%;
+    line-height: 150%;
   }
 
    #table-of-contents {
