@@ -5,6 +5,8 @@
     margin: 3% 20% 3% 20%;
     padding: 2% 2% 2% 2%;
     border: 1px solid Gainsboro;
+    width: 50%;
+    line-height: 120%;
 }
 
 blockquote {
@@ -14,24 +16,27 @@ blockquote {
 }
 .title {
     font-family: "Courier New", "Palatino Linotype", serif;
-    font-size: 200%;
     color: #990000;
     margin-bottom: 30px;
+    line-height: 120%;
     border-bottom: 2px solid Gainsboro;
 }
 
 h2 {
     font-family: "Courier New", "Palatino Linotype", serif;
     border-bottom: 1px solid Gainsboro;
+    line-height: 120%;
     margin-bottom: 0;
 }
 
 h3 {
     font-family: "Courier New", "Palatino Linotype", serif;
+    line-height: 120%;
 }
 
 h4 {
     font-family: "Courier New", "Palatino Linotype", serif;
+    line-height: 120%;
 }
 
 a {
@@ -55,7 +60,7 @@ li {
 
 code {
     font-family: Monaco, Consolas, monospace;
-    font-size: 100%;
+    font-size: 75%;
     background-color: white;
     color: gray;
 }
