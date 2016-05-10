@@ -2,10 +2,10 @@
  body {
     font-family: Verdana ,"Microsoft YaHei", Lucida, sans-serif, monospace;
     font-size: 15px;
-    margin: 3% 20% 3% 20%;
+    margin: 3% 20% 3% 0%;
     padding: 2% 5% 5% 5%;
     border: 1px solid Gainsboro;
-    width: 50%;
+    width: 75%;
     line-height: 90%;
 }
 
@@ -63,15 +63,15 @@ a:hover {
 
 li {
     margin-left: 3px;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 p {
-    font-size: 13px;
+    font-size: 12px;
 }
 code {
     font-family: Monaco, Consolas, monospace;
-    font-size: 75%;
+    font-size: 12px;
     background-color: white;
     color: gray;
 }
