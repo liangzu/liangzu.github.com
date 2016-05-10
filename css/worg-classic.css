@@ -12,7 +12,7 @@
 blockquote {
     text-align: right;
     margin-bottom: 50px;
-    font-family: "Courier New";
+    font-family: "Times New", "Courier New";
 }
 .title {
     font-family: "Courier New", "Palatino Linotype", serif;
@@ -133,7 +133,9 @@ pre {
 }
 
 .org-center {
-    font-family: Courier ,"Courier New", "Palatino Linotype", serif;
+    font-family: "Times New" ,Courier ,"Courier New", "Palatino Linotype", serif;
+    font-size: 10px;
+    line-height: 90%;
 }
 
 }
