@@ -1,13 +1,14 @@
-@media all
-{
-  body {
-    margin: 3% 22% 10% 22%;
+ body {
+    margin: 5% 20% 5% 20%;
     font-family: "Microsoft YaHei", Lucida, sans-serif;
     font-size: 11pt;
     padding: 1px;
     line-height: 1.2em;
   }
-  #table-of-contents {
+
+@media all
+{
+   #table-of-contents {
 	    font-size: 10pt;
 	    position: fixed;
 	    right: 0em;
