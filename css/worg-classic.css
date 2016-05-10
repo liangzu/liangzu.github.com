@@ -1,57 +1,55 @@
 body {
     font-family: "Microsoft YaHei", Lucida, sans-serif, monospace;
-    font-size: 12px;
-    line-height: 150%;
+    font-size: 14px;
+    margin: 3% 20% 3% 20%;
+    padding: 2em 2em 2em 2em;
+    border: 1px solid Gainsboro;
 }
 
-h1 {
-    font-size: 12pt;
+blockquote {
+    text-align: right;
+    margin-bottom: 50px;
+    font-family: "Courier New";
 }
-
 .title {
-    font-family: "Palatino Linotype", Perpetua, Palatino, serif;
-    font-size: 18pt;
+    font-family: "Courier New", "Palatino Linotype", serif;
+    font-size: 200%;
     color: #990000;
-    padding-bottom: 7px;
     margin-bottom: 30px;
-    border-bottom: 2px solid #222;
+    border-bottom: 2px solid Gainsboro;
 }
 
 h2 {
-    font-family: "Palatino Linotype", Perpetua, Palatino, serif;
-    font-size: 12pt;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
-    border-bottom: 2px solid #DDD;
-    color: #DDD;
+    font-family: "Courier New", "Palatino Linotype", serif;
+    border-bottom: 1px solid Gainsboro;
+    margin-bottom: 0;
 }
 
 h3 {
-    font-family: "Palatino Linotype", Perpetua, Palatino, serif;
-    font-size: 11pt;
-    color: #333333;
+    font-family: "Courier New", "Palatino Linotype", serif;
 }
 
 h4 {
-    font-size: 9pt;
+    font-family: "Courier New", "Palatino Linotype", serif;
 }
 
 a {
     text-decoration: none;
-    color: #000999
+    color: #000999;
 }
 
 a:visited {
     text-decoration: none;
-    color: #009999
+    color: #009999;
 }
 
 a:hover {
     text-decoration: underline;
-    color: #003333
+    color: #003333;
 }
 
 li {
+    margin-left: 3px;
 }
 
 code {
@@ -63,7 +61,7 @@ code {
 
 pre {
       background-color: #FFFACD;
-      border: 1px solid grey;
+      border: 1px solid Gainsboro;
       font-family: Monaco, Consolas, monospace;
       font-size: 75%;
       color: black;
@@ -72,17 +70,60 @@ pre {
 }
 #postamble {
 	    font-size: 75%;
-	    margin-top: 10px;
-	    padding: .2em;
-	    border: 1px solid gray;
+	    margin-top: 50px;
+	    border: 1px solid Gainsboro;
 	    background-color: #FFFACD;
-	    z-index: -1000;
 }
 
 .todo {
     color: #990000;
+    font-weight: bold;
 }
- 
 .done {
     color: #006666;
+    font-weight: bold;
 }
+
+#table-of-contents {
+    position: fixed;
+    font-size: 10px;
+    right: 0em;
+    top: 0em;
+    text-align: right;
+    overflow: auto;
+    background: white;
+    box-shadow: 0 0 1em #777777;
+	  -webkit-box-shadow: 0 0 1em #777777;
+	  -moz-box-shadow: 0 0 1em #777777;
+	  -webkit-border-bottom-left-radius: 5px;
+	  -moz-border-radius-bottomleft: 5px;
+    max-height: 80%;
+}
+#table-of-contens h2 {
+	  font-size: 13pt;
+	  max-width: 9em;
+	  border: 0;
+	  font-weight: normal;
+  	padding-left: 0.5em;
+	  padding-right: 0.5em;
+ 	  padding-top: 0.05em;
+	  padding-bottom: 0.05em;
+}
+
+#table-of-contents #text-table-of-contents {
+    border: 0;
+	  display: none;
+	  text-align: left;
+}
+#table-of-contents:hover #text-table-of-contents {
+  	display: block;
+  	padding: 0.5em;
+	  margin-top: -1.5em;
+}
+
+
+.org-center {
+    font-family: Courier ,"Courier New", "Palatino Linotype", serif;
+}
+
+
