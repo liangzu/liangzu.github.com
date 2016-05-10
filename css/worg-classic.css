@@ -1,77 +1,67 @@
- body {
+body {
     font-family: "Microsoft YaHei", Lucida, sans-serif, monospace;
     font-size: 12px;
     line-height: 150%;
-  }
+}
 
-  h1 {
+h1 {
     font-size: 12pt;
-  }
+}
 
-  .title {
+.title {
     font-family: "Palatino Linotype", Perpetua, Palatino, serif;
     font-size: 18pt;
     color: #990000;
     padding-bottom: 7px;
     margin-bottom: 30px;
     border-bottom: 2px solid #222;
-  }
+}
 
-  h2 {
+h2 {
     font-family: "Palatino Linotype", Perpetua, Palatino, serif;
     font-size: 12pt;
     padding-bottom: 5px;
     margin-bottom: 5px;
     border-bottom: 2px solid #DDD;
     color: #DDD;
-  }
+}
 
-  h3 {
+h3 {
     font-family: "Palatino Linotype", Perpetua, Palatino, serif;
     font-size: 11pt;
     color: #333333;
-  }
+}
 
-  h4 {
+h4 {
     font-size: 9pt;
-  }
+}
 
-  a {
+a {
     text-decoration: none;
     color: #000999
-  }
+}
 
-  a:visited {
+a:visited {
     text-decoration: none;
     color: #009999
-  }
+}
 
-  a:hover {
+a:hover {
     text-decoration: underline;
     color: #003333
-  }
+}
 
-  .todo {
-    color: #990000;
-  }
+li {
+}
 
-  .done {
-    color: #006666;
-  }
-
-
-  li {
-    margin: .3em;
-  }
-
-  code {
+code {
     font-family: Monaco, Consolas, monospace;
     font-size: 100%;
     background-color: white;
     color: gray;
-  }
+}
 
-  pre {
+pre {
       background-color: #FFFACD;
       border: 1px solid grey;
       font-family: Monaco, Consolas, monospace;
@@ -79,13 +69,20 @@
       color: black;
       overflow: auto;
       padding: 1em;
-  }
-
-  #postamble {
+}
+#postamble {
 	    font-size: 75%;
 	    margin-top: 10px;
 	    padding: .2em;
 	    border: 1px solid gray;
 	    background-color: #FFFACD;
 	    z-index: -1000;
-  }
+}
+
+.todo {
+    color: #990000;
+}
+ 
+.done {
+    color: #006666;
+}
