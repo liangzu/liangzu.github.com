@@ -7,6 +7,11 @@
     border: 1px solid Gainsboro;
     width: 75%;
     line-height: 110%;
+    box-shadow: 0 0 1em #777777;
+	  -webkit-box-shadow: 0 0 1em #777777;
+	  -moz-box-shadow: 0 0 1em #777777;
+	  -webkit-border-bottom-left-radius: 5px;
+	  -moz-border-radius-bottomleft: 5px;
 }
 
 blockquote {
@@ -16,8 +21,7 @@ blockquote {
 }
 .title {
     font-family: "Courier New", "Palatino Linotype", serif;
-    margin-top: 0;
-    font-size: 20px;
+    font-size: 19px;
     color: #990000;
     margin-bottom: 30px;
     border-bottom: 2px solid Gainsboro;
@@ -27,9 +31,12 @@ h2 {
     font-family: "Courier New", "Palatino Linotype", serif;
     border-bottom: 1px solid Gainsboro;
     line-height: 110%;
-    padding: 3px;
+    padding-bottom: 0.1em;
+    padding-left: 0.2em;
+    padding-right: -0.5em;
     font-size: 17px;
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 h3 {
@@ -88,6 +95,11 @@ pre {
 	    margin-top: 50px;
 	    border: 1px solid Gainsboro;
 	    background-color: #FFFACD;
+      box-shadow: 0 0 1em #777777;
+	    -webkit-box-shadow: 0 0 1em #777777;
+	    -moz-box-shadow: 0 0 1em #777777;
+	    -webkit-border-bottom-left-radius: 5px;
+	    -moz-border-radius-bottomleft: 5px;
 }
 
 .todo {
@@ -101,7 +113,6 @@ pre {
 
 #table-of-contents {
     position: fixed;
-    font-size: 10pt;
     right: 0em;
     top: 0em;
     text-align: right;
