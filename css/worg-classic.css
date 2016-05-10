@@ -3,7 +3,7 @@
     font-family: Verdana ,"Microsoft YaHei", Lucida, sans-serif, monospace;
     font-size: 15px;
     margin: 3% 20% 3% 20%;
-    padding: 2% 2% 2% 2%;
+    padding: 2% 5% 5% 5%;
     border: 1px solid Gainsboro;
     width: 50%;
     line-height: 120%;
@@ -26,12 +26,15 @@ h2 {
     font-family: "Courier New", "Palatino Linotype", serif;
     border-bottom: 1px solid Gainsboro;
     line-height: 120%;
+    padding: 3px;
     margin-bottom: 0;
 }
 
 h3 {
     font-family: "Courier New", "Palatino Linotype", serif;
     line-height: 120%;
+    
+    margin-bottom: 0;
 }
 
 h4 {
