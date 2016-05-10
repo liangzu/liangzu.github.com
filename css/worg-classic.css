@@ -1,12 +1,12 @@
 @media all {
  body {
-    font-family: Verdana ,"Microsoft YaHei", Lucida, sans-serif, monospace;
-    font-size: 15px;
+    font-family: "Microsoft YaHei", Lucida, sans-serif, monospace;
+    font-size: 12px;
     margin: 5% 10% 5% 8%;
     padding: 2% 2% 2% 2%;
     border: 1px solid Gainsboro;
     width: 80%;
-    line-height: 110%;
+    line-height: 150%;
     box-shadow: 0 0 1em #777777;
 	  -webkit-box-shadow: 0 0 1em #777777;
 	  -moz-box-shadow: 0 0 1em #777777;
@@ -17,10 +17,17 @@
 blockquote {
     text-align: right;
     margin-bottom: 50px;
-    font-family: "Times New", "Courier New";
+    font-family: "Segoe Print","Times New", "Courier New", serif;
+    padding-right: 5px;
+	  border: 1px dashed Gainsboro;
+    box-shadow: 0 0 1em #777777;
+	  -webkit-box-shadow: 0 0 1em #777777;
+    -moz-box-shadow: 0 0 1em #777777;
+	  -webkit-border-bottom-left-radius: 5px;
+	  -moz-border-radius-bottomleft: 5px;
 }
 .title {
-    font-family: "Courier New", "Palatino Linotype", serif;
+    font-family: "Segoe Print","Courier New", "Palatino Linotype", serif;
     font-size: 19px;
     color: #990000;
     margin-bottom: 30px;
@@ -30,24 +37,24 @@ blockquote {
 h2 {
     font-family: "Courier New", "Palatino Linotype", serif;
     border-bottom: 1px solid Gainsboro;
-    line-height: 110%;
     padding-bottom: 0.1em;
-    padding-left: 0.2em;
-    padding-right: -0.5em;
+    padding-left: 0.3em;
+    padding-right: -1em;
     font-size: 17px;
     margin-bottom: 0;
     margin-top: 0;
 }
 
 h3 {
-    font-family: "Courier New", "Palatino Linotype", serif;
+    font-family: "Segoe Print", "Courier New", "Palatino Linotype", serif;
     padding: 3px;
     font-size: 15px;
-    margin-bottom: 0;
+    margin-top: 50px;
+    margin-botton: 0;
 }
 
 h4 {
-    font-family: "Courier New", "Palatino Linotype", serif;
+    font-family: "Segoe Print", "Courier New", "Palatino Linotype", serif;
     line-height: 110%;
 }
 
@@ -68,12 +75,8 @@ a:hover {
 
 li {
     margin-left: 3px;
-    font-size: 12px;
 }
 
-p {
-    font-size: 12px;
-}
 code {
     font-family: Monaco, Consolas, monospace;
     font-size: 12px;
@@ -91,15 +94,14 @@ pre {
       padding: 1em;
 }
 #postamble {
-	    font-size: 75%;
-	    margin-top: 50px;
-	    border: 1px solid Gainsboro;
-	    background-color: #FFFACD;
-      box-shadow: 0 0 1em #777777;
-	    -webkit-box-shadow: 0 0 1em #777777;
-	    -moz-box-shadow: 0 0 1em #777777;
-	    -webkit-border-bottom-left-radius: 5px;
-	    -moz-border-radius-bottomleft: 5px;
+    font-family: "Segoe Print", "Courier New", "Palatino Linotype", serif;
+	  margin-top: 50px;
+	  border: 1px dashed Gainsboro;
+    box-shadow: 0 0 1em #777777;
+	  -webkit-box-shadow: 0 0 1em #777777;
+    -moz-box-shadow: 0 0 1em #777777;
+	  -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
 }
 
 .todo {
@@ -126,7 +128,7 @@ pre {
     max-height: 80%;
 }
 #table-of-contens h2 {
-	  font-size: 13pt;
+	  font-size: 17pt;
 	  max-width: 9em;
 	  border: 0;
 	  font-weight: normal;
@@ -144,7 +146,7 @@ pre {
 }
 
 .org-center {
-    font-family: "Times New" ,Courier ,"Courier New", "Palatino Linotype", serif;
+    font-family: "Times New", "Courier New", "Palatino Linotype", serif;
     font-size: 10px;
     font-style: italic;
 }
