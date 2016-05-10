@@ -6,7 +6,7 @@
     padding: 2% 5% 5% 5%;
     border: 1px solid Gainsboro;
     width: 50%;
-    line-height: 120%;
+    line-height: 90%;
 }
 
 blockquote {
@@ -16,24 +16,28 @@ blockquote {
 }
 .title {
     font-family: "Courier New", "Palatino Linotype", serif;
+    margin-top: 0;
+    font-size: 20px;
     color: #990000;
     margin-bottom: 30px;
-    line-height: 120%;
+    line-height: 90%;
     border-bottom: 2px solid Gainsboro;
 }
 
 h2 {
     font-family: "Courier New", "Palatino Linotype", serif;
     border-bottom: 1px solid Gainsboro;
-    line-height: 120%;
+    line-height: 90%;
     padding: 3px;
+    font-size: 18px;
     margin-bottom: 0;
 }
 
 h3 {
     font-family: "Courier New", "Palatino Linotype", serif;
-    line-height: 120%;
-    
+    line-height: 90%;
+    padding: 3px;
+    font-size: 16px;
     margin-bottom: 0;
 }
 
@@ -59,8 +63,12 @@ a:hover {
 
 li {
     margin-left: 3px;
+    font-size: 13px;
 }
 
+p {
+    font-size: 13px;
+}
 code {
     font-family: Monaco, Consolas, monospace;
     font-size: 75%;
@@ -128,10 +136,6 @@ pre {
   	display: block;
   	padding: 0.5em;
 	  margin-top: -1.5em;
-}
-
-p {
-    font-size: 13px;
 }
 
 .org-center {
