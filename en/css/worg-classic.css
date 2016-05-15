@@ -1,4 +1,3 @@
-@media all {
  body {
     font-family: "Microsoft YaHei", Lucida, sans-serif, monospace;
     font-size: 18px;
@@ -6,7 +5,7 @@
     padding: 2% 2% 2% 2%;
     border: 1px solid Gainsboro;
     width: 80%;
-    line-height: 150%;
+    line-height: 130%;
     box-shadow: 0 0 1em #777777;
 	  -webkit-box-shadow: 0 0 1em #777777;
 	  -moz-box-shadow: 0 0 1em #777777;
@@ -18,25 +17,22 @@ blockquote {
     text-align: right;
     margin-bottom: 50px;
     font-size: 10px;
-    font-family: "Segoe Print","Times New", "Courier New", serif;
+    font-family: "Times New", "Courier New", serif;
     padding-right: 5px;
     margin-right: 0%;
 }
 .title {
     font-family: "Segoe Print","Courier New", "Palatino Linotype", serif;
-    font-size: 19px;
     color: #990000;
     margin-bottom: 30px;
     border-bottom: 2px solid Gainsboro;
+    text-align: left;
 }
 
 h2 {
     font-family: "Segoe Print","Courier New", "Palatino Linotype", serif;
     border-bottom: 1px solid Gainsboro;
-    padding-bottom: 0.25em;
-    padding-left: 0.1em;
-    padding-right: -1em;
-    font-size: 17px;
+    font-size: 15px;
     margin-bottom: 0;
     margin-top: 0;
 }
@@ -44,9 +40,9 @@ h2 {
 h3 {
     font-family: "Segoe Print", "Courier New", "Palatino Linotype", serif;
     padding: 3px;
-    font-size: 15px;
-    margin-top: 50px;
-    margin-botton: 0;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 h4 {
@@ -71,6 +67,9 @@ a:hover {
 
 li {
     margin-left: 3px;
+    padding-top: 3px;
+    font-size: 14px;
+    line-height: 120%;
 }
 
 code {
@@ -79,19 +78,26 @@ code {
     background-color: white;
     color: gray;
 }
+p {
+    font-size: 14px;
+    line-height: 120%;
+}
+
 
 pre {
       background-color: #FFFACD;
       border: 1px solid Gainsboro;
       font-family: Monaco, Consolas, monospace;
-      font-size: 12px;
+      font-size: 11px;
+      line-height: 120%;
       color: black;
       overflow: auto;
       padding: 1em;
 }
 #postamble {
-    font-family: "Segoe Print", "Courier New", "Palatino Linotype", serif;
+    font-family: "Courier New", "Palatino Linotype", serif;
     background-color: #FFFACD;
+    font-size: 14px;
 	  margin-top: 50px;
 	  border: 1px dashed Gainsboro;
     box-shadow: 0 0 1em #777777;
@@ -147,5 +153,5 @@ pre {
     font-size: 10px;
     font-style: italic;
 }
-}
+
 
