@@ -1,7 +1,7 @@
 @media all {
  body {
     font-family: "Microsoft YaHei", Lucida, sans-serif, monospace;
-    font-size: 12px;
+    font-size: 18px;
     margin: 5% 10% 5% 8%;
     padding: 2% 2% 2% 2%;
     border: 1px solid Gainsboro;
@@ -147,6 +147,5 @@ pre {
     font-size: 10px;
     font-style: italic;
 }
-
 }
 
