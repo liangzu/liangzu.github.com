@@ -1,10 +1,12 @@
- body {
-    font-family: "Microsoft YaHei", Lucida, sans-serif, monospace;
-    margin: 5% 10% 5% 8%;
-    padding: 2% 2% 2% 2%;
+@media all
+{
+body {
+    font-family: Georgia, "Microsoft YaHei", Lucida, sans-serif, monospace;
+    margin: 5% 15% 5% 15%;
+    padding: 2% 5% 2% 5%;
+
     border: 1px solid Gainsboro;
-    width: 80%;
-    line-height: 130%;
+    line-height: 150%;
     box-shadow: 0 0 1em #777777;
 	  -webkit-box-shadow: 0 0 1em #777777;
 	  -moz-box-shadow: 0 0 1em #777777;
@@ -14,40 +16,36 @@
 
 blockquote {
     text-align: right;
-    margin-bottom: 50px;
-    font-size: 10px;
-    font-family: "Times New", "Courier New", serif;
+    margin-bottom: 100px;
+    font-family: Georgia, "Courier New", serif;
     padding-right: 5px;
-    margin-right: 0%;
 }
 .title {
-    font-family: "Segoe Print","Courier New", "Palatino Linotype", serif;
+    font-family: "Segoe Print","Courier New", serif;
     color: #990000;
-    font-size: 16px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     border-bottom: 2px solid Gainsboro;
-    text-align: left;
 }
 
 h2 {
     font-family: "Segoe Print","Courier New", "Palatino Linotype", serif;
+    color: #990000;
     border-bottom: 1px solid Gainsboro;
-    font-size: 15px;
-    margin-bottom: 0;
-    margin-top: 0;
+    margin-bottom: 40px;
+    padding-left: 1%;
 }
 
 h3 {
     font-family: "Segoe Print", "Courier New", "Palatino Linotype", serif;
+    color: #990000;
     padding: 3px;
-    font-size: 14px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
 h4 {
     font-family: "Segoe Print", "Courier New", "Palatino Linotype", serif;
-    line-height: 110%;
+    line-height: 100%;
 }
 
 a {
@@ -68,19 +66,15 @@ a:hover {
 li {
     margin-left: 3px;
     padding-top: 3px;
-    font-size: 14px;
     line-height: 120%;
 }
 
 code {
     font-family: Monaco, Consolas, monospace;
-    font-size: 12px;
     background-color: white;
     color: gray;
 }
 p {
-    font-size: 14px;
-    line-height: 120%;
 }
 
 
@@ -89,7 +83,6 @@ pre {
       border: 1px solid Gainsboro;
       font-family: Monaco, Consolas, monospace;
       font-size: 11px;
-      line-height: 120%;
       color: black;
       overflow: auto;
       padding: 1em;
@@ -117,10 +110,12 @@ pre {
 }
 
 #table-of-contents {
+    font-size: 10px;
     position: fixed;
     right: 0em;
     top: 0em;
     text-align: right;
+    max-height: 80%;
     overflow: auto;
     background: white;
     box-shadow: 0 0 1em #777777;
@@ -128,30 +123,38 @@ pre {
 	  -moz-box-shadow: 0 0 1em #777777;
 	  -webkit-border-bottom-left-radius: 5px;
 	  -moz-border-radius-bottomleft: 5px;
-    max-height: 80%;
 }
 #table-of-contens h2 {
-	  font-size: 13pt;
-	  max-width: 9em;
-	  border: 0;
-	  font-weight: normal;
+    max-width: 8em;
+    font-weight: normal;
+    padding: 0.5em;
+
 }
 
 #table-of-contents #text-table-of-contents {
-    border: 0;
 	  display: none;
 	  text-align: left;
 }
 #table-of-contents:hover #text-table-of-contents {
   	display: block;
   	padding: 0.5em;
-	  margin-top: -1.5em;
+	  margin-top: -2em;
 }
 
 .org-center {
-    font-family: "Times New", "Courier New", "Palatino Linotype", serif;
-    font-size: 10px;
+    font-size: 14px;
     font-style: italic;
 }
+}
 
+@media screen
+{
+    #table-of-contents {
+    float: right;
+    border: 1px solid #CCC;
+    max-width: 50%;
+    overflow: auto;
+  }
+
+}
 
