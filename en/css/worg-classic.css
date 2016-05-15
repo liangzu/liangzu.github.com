@@ -1,6 +1,5 @@
  body {
     font-family: "Microsoft YaHei", Lucida, sans-serif, monospace;
-    font-size: 18px;
     margin: 5% 10% 5% 8%;
     padding: 2% 2% 2% 2%;
     border: 1px solid Gainsboro;
@@ -24,6 +23,7 @@ blockquote {
 .title {
     font-family: "Segoe Print","Courier New", "Palatino Linotype", serif;
     color: #990000;
+    font-size: 16px;
     margin-bottom: 30px;
     border-bottom: 2px solid Gainsboro;
     text-align: left;
