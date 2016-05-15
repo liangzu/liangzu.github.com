@@ -154,12 +154,7 @@ img{
 	  -webkit-border-bottom-left-radius: 5px;
 	  -moz-border-radius-bottomleft: 5px;
     max-height:180px;
-    margin-right: 100%;
-}
-img.displayed {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 90%;
 }
 
 }
