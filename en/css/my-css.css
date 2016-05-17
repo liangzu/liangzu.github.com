@@ -1,6 +1,7 @@
 body {
     background-color: #dddddd;
     font-family: Georgia, "Microsoft YaHei", Lucida, sans-serif, monospace;
+    font-size: 18px;
     margin: 5% 20% 5% 20%;
 }
 #content {
@@ -43,7 +44,6 @@ h3 {
 
 h4 {
     font-family: Georgia, "Courier New", serif;
-    font-size: 13px;
     padding-left: 1%;
 }
 
@@ -63,7 +63,6 @@ a:hover {
 }
 
 li {
-    font-size: 16px;
     padding: 5px;
 }
 
@@ -74,10 +73,6 @@ code {
     font-style: italic;
     color: gray;
 }
-p {
-    font-size: 16px;
-}
-
 
 pre {
     background-color: #FFFACD;
@@ -97,7 +92,6 @@ pre {
 #postamble {
     font-family: Georgia, "Courier New", serif;
     background-color: #FFFACD;
-    font-size: 14px;
 	  margin-top: 50px;
 	  border: 1px dashed Gainsboro;
     box-shadow: 0 0 1em #777777;
