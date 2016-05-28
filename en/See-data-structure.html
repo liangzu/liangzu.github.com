@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-05-23 一 22:34 -->
+<!-- 2016-05-28 六 21:02 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <title>See your data structures(c++)</title>
 <meta  name="generator" content="Org-mode" />
@@ -149,12 +149,14 @@ for the JavaScript code in this tag.
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#orgheadline1">Introduction</a></li>
-<li><a href="#orgheadline6">Advice</a>
+<li><a href="#orgheadline7">Advice</a>
 <ul>
-<li><a href="#orgheadline5">what you should know before learning c/c++ version data structures</a></li>
+<li><a href="#orgheadline2">Understanding c-style string</a></li>
+<li><a href="#orgheadline3">Understanding c pointer</a></li>
+<li><a href="#orgheadline4">Understanding memory leaks.</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline7"></a></li>
+<li><a href="#orgheadline8">Visualization</a></li>
 </ul>
 </div>
 </div>
@@ -194,30 +196,35 @@ This article shares some advice while facing data structures and introduces a si
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6">Advice</h2>
-<div class="outline-text-2" id="text-orgheadline6">
-</div><div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5">what you should know before learning c/c++ version data structures</h3>
-<div class="outline-text-3" id="text-orgheadline5">
-</div><ul class="org-ul"><li><a id="orgheadline2"></a>Understanding c-style string<br  /><div class="outline-text-4" id="text-orgheadline2">
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7">Advice</h2>
+<div class="outline-text-2" id="text-orgheadline7">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2">Understanding c-style string</h3>
+<div class="outline-text-3" id="text-orgheadline2">
 <p>
-implement some string-related library functions, e.g., <i>strcpy</i>, <i>strlen</i>, <i>strcmp</i>, <i>atoi</i>, <i>itoa</i>.
+try to implement some string-related library functions, e.g., <i>strcpy</i>, <i>strlen</i>, <i>strcmp</i>, <i>atoi</i>, <i>itoa</i>.
 </p>
-</div></li>
-<li><a id="orgheadline3"></a>Understanding c pointer<br  /><div class="outline-text-4" id="text-orgheadline3">
+</div>
+</div>
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3">Understanding c pointer</h3>
+<div class="outline-text-3" id="text-orgheadline3">
 <p>
 implement some pointer-related functions:
 </p>
 <ul class="org-ul">
 <li>rewrite your function using pointers instead of arrays.</li>
 <li>implement <code>Swap(void* a, void* b, size_t n)</code>, where a and b are the same type, and n is the size of a( or b). your implementation should work while the type of a is <code>char**</code> and <code>int</code>, respectively. As a hint, try to use <code>memcpy</code>.</li>
-<li>implement <code>Compare(void*a, void* b, size_t n)</code>. <code>hint</code>:  use <code>memcmp</code>;</li>
+<li>implement <code>Compare(void*a, void* b, size_t n)</code>. hint:  use <code>memcmp</code>;</li>
 <li>(optional) implement <code>qsort(void** v, int left, int right, int (*comp) (void *, void *))</code></li>
 </ul>
-</div></li>
+</div>
+</div>
 
-<li><a id="orgheadline4"></a>Understanding memory leaks.<br  /><div class="outline-text-4" id="text-orgheadline4">
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4">Understanding memory leaks.</h3>
+<div class="outline-text-3" id="text-orgheadline4">
 <p>
 It always has been heard that a dummy programmer wrote some naive code and leaked the memory, resulting in great losses of his company.
 We got a plausible impression from this story: "memory leak is evil, we should be careful of it.".
@@ -231,10 +238,9 @@ data structures in hundreds of lines code. We should focus on the things itself 
 <p>
 Let me illustrate this idea with some examples:
 </p>
+</div>
 
-<ul class="org-ul">
-<li>What memory leak looks like?</li>
-</ul>
+<ul class="org-ul"><li><a id="orgheadline5"></a>What memory leak looks like?<br  /><div class="outline-text-4" id="text-orgheadline5">
 <div class="org-src-container">
 
 <pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">ugly</span><span style="color: #4f97d7;">()</span>
@@ -265,7 +271,7 @@ What if <code>ugly()</code> is called many times?
 </div>
 
 <p>
-obviously, <code>uglier()</code> 'eat' all memory that it can see util your program crumbles.
+Once being called, obviously, <code>uglier()</code> will 'eat' all memory that it can see util your program crumbles.
 </p>
 
 <p>
@@ -288,69 +294,94 @@ We can prohibit it by <code>delete leaker</code>, or if  <code>leaker</code> may
 new qustions arise: what if <code>use_leaker()</code> throw a <i>exception</i>? 
 What if the caller of <code>ugly()</code> has no idea about <code>leaker</code> and ignores its return value?
 </p>
+</div></li>
 
+<li><a id="orgheadline6"></a>Does memory leak matter in your data structure practice?<br  /><div class="outline-text-4" id="text-orgheadline6">
+<p>
+What's data structure? My answer is, data structure cares about the structures and the operations of data in the memory:
+</p>
 <ul class="org-ul">
-<li>Does memory leak matter in your data structure practice?</li>
+<li>How to <b>create</b> the specified structure in the memory?</li>
+<li>How to <b>insert</b> items into the structure?</li>
+<li>How to <b>delete</b> the specified items,</li>
+<li>How to <b>traverse</b> them?</li>
+<li>What's the <b>cost</b> of these operations? and most importantly,</li>
+<li>What's the <b>trade-off</b> between different data stuctures or algorithms?</li>
 </ul>
 <p>
-Consider the below function:
-</p>
-<div class="org-src-container">
-
-<pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">private</span>:
-  <span style="color: #ce537a; font-weight: bold;">Node</span>* <span style="color: #bc6ec5; font-weight: bold;">Insert</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">Node</span> *<span style="color: #7590db;">x</span>, <span style="color: #ce537a; font-weight: bold;">keyType</span> <span style="color: #7590db;">k</span>, <span style="color: #ce537a; font-weight: bold;">valType</span> <span style="color: #7590db;">v</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7; font-weight: bold;">const</span>
-  <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span>x == nullptr<span style="color: #bc6ec5;">)</span>
-      <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Node</span><span style="color: #bc6ec5;">(</span>k, v<span style="color: #bc6ec5;">)</span>;
-    <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span>k &lt; x-&gt;key<span style="color: #bc6ec5;">)</span>
-    <span style="color: #bc6ec5;">{</span>
-      x-&gt;left = Insert<span style="color: #2d9574;">(</span>x-&gt;left, k, v<span style="color: #2d9574;">)</span>;
-    <span style="color: #bc6ec5;">}</span>
-    <span style="color: #4f97d7; font-weight: bold;">else</span> <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span>k &gt; x-&gt;key<span style="color: #bc6ec5;">)</span>
-    <span style="color: #bc6ec5;">{</span>
-      x-&gt;right = Insert<span style="color: #2d9574;">(</span>x-&gt;right, k, v<span style="color: #2d9574;">)</span>;
-    <span style="color: #bc6ec5;">}</span>
-    <span style="color: #4f97d7; font-weight: bold;">else</span>
-    <span style="color: #bc6ec5;">{</span> <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">the key to be inserted already exists...</span>
-      x-&gt;val = v;
-    <span style="color: #bc6ec5;">}</span>
-    x-&gt;size = Size<span style="color: #bc6ec5;">(</span>x-&gt;left<span style="color: #bc6ec5;">)</span> + Size<span style="color: #bc6ec5;">(</span>x-&gt;right<span style="color: #bc6ec5;">)</span> + <span style="color: #a45bad;">1</span>;
-    <span style="color: #4f97d7; font-weight: bold;">return</span> x;
-  <span style="color: #4f97d7;">}</span>
-<span style="color: #4f97d7; font-weight: bold;">public</span>:
-  <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">Insert</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">keyType</span> <span style="color: #7590db;">k</span>, <span style="color: #ce537a; font-weight: bold;">valType</span> <span style="color: #7590db;">v</span><span style="color: #4f97d7;">)</span>
-  <span style="color: #4f97d7;">{</span>
-    root = Insert<span style="color: #bc6ec5;">(</span>root, k, v<span style="color: #bc6ec5;">)</span>;
-  <span style="color: #4f97d7;">}</span>
-</pre>
-</div>
-<p>
-<code>Insert</code> is a method in <i>BinaryTree</i>, do you see the fifth line: <b>return new Node(k, v);</b>? <code>private: Insert</code> drops the 'responsibility'
-of memory management to its caller, while the <code>public: Insert</code> says: <b>root = Insert(root, k, v)</b>, that is, "let <code>root</code> memorize the location
-of all nodes".
-</p>
-
-<p>
-When to release the memory of all nodes? Good question for serious programmer, but not good enough. 
-You should ask yourself first:"Must I release the memory?". 
-</p>
-
-<p>
-Keep in mind that we are practicing data structure! What's data structure?
-My answer is, data structure cares about the structure/orgnization of data in the memory: how to create the specified structure in the memory?
-how to <b>insert</b> items into the structure, how to <b>delete</b> the specified items, how to <b>traverse</b> them, what's the cost of traversal or other operations?
-What's the <b>trade-off</b> between different data stuctures or algorithms?
+People who are studying data structures should focus on designing their algorithms, memory leaks can be ignored. You will learn that how
+to manage the memory in the other courses. 
 </p>
 </div></li></ul>
 </div>
 </div>
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"></h2>
+
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8">Visualization</h2>
+<div class="outline-text-2" id="text-orgheadline8">
+<p>
+There is no doubt that the best way to debug is the way that let you "see" something in the memory, or concretely: graphical method.
+</p>
+
+<p>
+I'd like to introduce a magical software, which used to be my secret weapon. its name is <a href="http://www.graphviz.org/"><i>Graphviz</i></a>! 
+</p>
+
+
+
+<p>
+I used to write a program, reading a Pascal source file and storing it as an <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST</a> into the momery. I used <i>Graphviz</i> to draw my AST for debugging purpose.
+Let me show its power to you.
+</p>
+
+<p>
+The below is what my program reads:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-pascal"><span style="color: #4f97d7; font-weight: bold;">program</span> <span style="color: #bc6ec5; font-weight: bold;">hello</span>;
+<span style="color: #ce537a; font-weight: bold;">var</span> 
+  ans : <span style="color: #ce537a; font-weight: bold;">integer</span>;
+
+<span style="color: #4f97d7; font-weight: bold;">function</span> <span style="color: #bc6ec5; font-weight: bold;">gcd</span><span style="color: #4f97d7;">(</span>a, b : <span style="color: #ce537a; font-weight: bold;">integer</span><span style="color: #4f97d7;">)</span> : <span style="color: #ce537a; font-weight: bold;">integer</span>;
+<span style="color: #4f97d7; font-weight: bold;">begin</span>
+  <span style="color: #4f97d7; font-weight: bold;">if</span> b = <span style="color: #a45bad;">0</span> <span style="color: #4f97d7; font-weight: bold;">then</span> <span style="color: #4f97d7; font-weight: bold;">begin</span>
+    gcd := a;
+  <span style="color: #4f97d7; font-weight: bold;">end</span>
+  <span style="color: #4f97d7; font-weight: bold;">else</span> <span style="color: #4f97d7; font-weight: bold;">begin</span>
+    gcd := gcd<span style="color: #4f97d7;">(</span>b , a mod b<span style="color: #4f97d7;">)</span>;
+  <span style="color: #4f97d7; font-weight: bold;">end</span>
+  ;
+<span style="color: #4f97d7; font-weight: bold;">end</span>
+;
+
+<span style="color: #4f97d7; font-weight: bold;">begin</span>
+  ans := gcd<span style="color: #4f97d7;">(</span><span style="color: #a45bad;">9</span> , <span style="color: #a45bad;">36</span><span style="color: #4f97d7;">)</span> * gcd<span style="color: #4f97d7;">(</span><span style="color: #a45bad;">3</span> , <span style="color: #a45bad;">6</span><span style="color: #4f97d7;">)</span>;
+  writeln<span style="color: #4f97d7;">(</span>ans<span style="color: #4f97d7;">)</span>;
+<span style="color: #4f97d7; font-weight: bold;">end</span>
+.
+</pre>
+</div>
+
+<p>
+<a href="./dot.pdf">This link</a> is what I get.
+</p>
+
+<p>
+In fact, this program can read more complicated Pascal source file and produce the correct image(in many other file format).
+</p>
+
+<div class="org-center">
+<p>
+if interested in it, You should learn to use it through the online document, but not here.
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
-<p class="date">Date: 2016-05-19 四 12:27</p>
+<p class="date">Date: 2016-05-28 六 21:02</p>
 </div>
 </body>
 </html>
