@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-05-28 六 19:43 -->
+<!-- 2016-05-28 六 20:12 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <title>Oh my std::string</title>
 <meta  name="generator" content="Org-mode" />
@@ -179,8 +179,7 @@ for the JavaScript code in this tag.
 <div class="outline-text-2" id="text-orgheadline1">
 <p>
 C++ hasn't found its place in web applications, partly because there are no built-in string-operation libraries. 
-You say what? <code>std::string</code>? Oh my god! <code>std::string</code> is something terrible and sometimes leads a subtly buggy program.
-and also it is hard to use and impossible to love.
+You say what? <code>std::string</code>? Oh my god! <code>std::string</code> is something hard to use and sometimes leads a subtly buggy program.
 </p>
 
 <p>
@@ -269,6 +268,10 @@ a little bit effort.
 
 <p>
 We can also <code>insert</code> <i>substr A</i> before/behind <i>substr B</i> with the combination of built-in <code>string::insert</code> and <code>string::find</code>.
+</p>
+
+<p>
+Maybe you've found also there aren't <code>join</code>, <code>spite</code> operations in <code>std::string</code>, you can implement you own one by using templates.
 </p>
 </div>
 </div>
@@ -376,7 +379,7 @@ And, sometime we can also write constructor like this:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
-<p class="date">Date: 2016-05-28 六 19:42</p>
+<p class="date">Date: 2016-05-28 六 20:02</p>
 </div>
 </body>
 </html>
