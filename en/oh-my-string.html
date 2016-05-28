@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-05-28 六 19:43 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Oh my std::string</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Liangzu Peng" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="./css/my-css.css" type="text/css"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Oh my std::string</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">Introduction</a></li>
+<li><a href="#orgheadline2">Tips</a>
+<ul>
+<li><a href="#orgheadline3">replace <i>substr A</i> with <i>substr B</i> in <i>string X</i>.</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline4">Traps</a></li>
+<li><a href="#orgheadline5">Conclusion</a></li>
+</ul>
+</div>
+</div>
+<blockquote>
+<p>
+"fgmndrbt1238KUHK!*(G$@_)_%&amp;cdhaasdasd5425ndl"
+</p>
+
+<p>
+"asdhasdbewnvr^^%%$*(0912313biua98sd7adbhjer"
+</p>
+
+<p>
+&#x2014;&#x2014; qzptrvm
+</p>
+</blockquote>
+
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">Introduction</h2>
+<div class="outline-text-2" id="text-orgheadline1">
+<p>
+C++ hasn't found its place in web applications, partly because there are no built-in string-operation libraries. 
+You say what? <code>std::string</code>? Oh my god! <code>std::string</code> is something terrible and sometimes leads a subtly buggy program.
+and also it is hard to use and impossible to love.
+</p>
+
+<p>
+This article introduces some conventional usages of <code>std::string</code> and tells people that don't be stupid with <code>std::string</code>. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2">Tips</h2>
+<div class="outline-text-2" id="text-orgheadline2">
+<p>
+we always want to do something interesting with strings. e.g.:
+</p>
+</div>
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3">replace <i>substr A</i> with <i>substr B</i> in <i>string X</i>.</h3>
+<div class="outline-text-3" id="text-orgheadline3">
+<p>
+how we do this in some other programming languages? <code>X.Replace(A, B);</code>, right? that's all we need to code.
+but things are different in c++. Let's check the API of <code>string</code>, so many member functions but none of them are what I want!
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #bc6ec5; font-weight: bold;">replace</span> <span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">pos</span>,        <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">len</span>,        <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #7590db;">str</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #bc6ec5; font-weight: bold;">replace</span> <span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">const_iterator</span> <span style="color: #7590db;">i1</span>, <span style="color: #ce537a; font-weight: bold;">const_iterator</span> <span style="color: #7590db;">i2</span>, <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #7590db;">str</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #bc6ec5; font-weight: bold;">replace</span> <span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">pos</span>,        <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">len</span>,        <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #7590db;">str</span>,
+                 <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">subpos</span>, <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">sublen</span> = npos<span style="color: #4f97d7;">)</span>;
+<span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #bc6ec5; font-weight: bold;">replace</span> <span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">pos</span>,        <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">len</span>,        <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span>* <span style="color: #7590db;">s</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #bc6ec5; font-weight: bold;">replace</span> <span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">const_iterator</span> <span style="color: #7590db;">i1</span>, <span style="color: #ce537a; font-weight: bold;">const_iterator</span> <span style="color: #7590db;">i2</span>, <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span>* <span style="color: #7590db;">s</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #bc6ec5; font-weight: bold;">replace</span> <span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">pos</span>,        <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">len</span>,        <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span>* <span style="color: #7590db;">s</span>, <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">n</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #bc6ec5; font-weight: bold;">replace</span> <span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">const_iterator</span> <span style="color: #7590db;">i1</span>, <span style="color: #ce537a; font-weight: bold;">const_iterator</span> <span style="color: #7590db;">i2</span>, <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span>* <span style="color: #7590db;">s</span>, <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">n</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #bc6ec5; font-weight: bold;">replace</span> <span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">pos</span>,        <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">len</span>,        <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">n</span>, <span style="color: #ce537a; font-weight: bold;">char</span> <span style="color: #7590db;">c</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #bc6ec5; font-weight: bold;">replace</span> <span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">const_iterator</span> <span style="color: #7590db;">i1</span>, <span style="color: #ce537a; font-weight: bold;">const_iterator</span> <span style="color: #7590db;">i2</span>, <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">n</span>, <span style="color: #ce537a; font-weight: bold;">char</span> <span style="color: #7590db;">c</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #4f97d7; font-weight: bold;">template</span> <span style="color: #4f97d7;">&lt;</span><span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">InputIterator</span><span style="color: #4f97d7;">&gt;</span>
+<span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #bc6ec5; font-weight: bold;">replace</span> <span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">const_iterator</span> <span style="color: #7590db;">i1</span>, <span style="color: #ce537a; font-weight: bold;">const_iterator</span> <span style="color: #7590db;">i2</span>,
+                   <span style="color: #ce537a; font-weight: bold;">InputIterator</span> <span style="color: #7590db;">first</span>, <span style="color: #ce537a; font-weight: bold;">InputIterator</span> <span style="color: #7590db;">last</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #bc6ec5; font-weight: bold;">replace</span> <span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">const_iterator</span> <span style="color: #7590db;">i1</span>, <span style="color: #ce537a; font-weight: bold;">const_iterator</span> <span style="color: #7590db;">i2</span>, <span style="color: #ce537a; font-weight: bold;">initializer_list</span><span style="color: #bc6ec5;">&lt;</span><span style="color: #ce537a; font-weight: bold;">char</span><span style="color: #bc6ec5;">&gt;</span> <span style="color: #7590db;">il</span><span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+
+<p>
+And then, we try to find our own solution. the pseudocode may simply looks like:
+</p>
+<pre class="example">
+len = A.size()
+pos = X.find(A)
+X.replace(pos, len, B);
+</pre>
+<p>
+OK! the <code>size</code> of A is something A itself already knew. our problem becomes:
+</p>
+<div class="org-center">
+<p>
+How to find A in X.
+</p>
+</div>
+<p>
+There seems a built-in <code>find</code> function in <code>std::string</code>, let's have a look!
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #bc6ec5; font-weight: bold;">find</span> <span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">string</span>&amp; <span style="color: #7590db;">str</span>, <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">pos</span> = <span style="color: #a45bad;">0</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">noexcept</span>;
+<span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #bc6ec5; font-weight: bold;">find</span> <span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span>* <span style="color: #7590db;">s</span>, <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">pos</span> = <span style="color: #a45bad;">0</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7; font-weight: bold;">const</span>;
+<span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #bc6ec5; font-weight: bold;">find</span> <span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span>* <span style="color: #7590db;">s</span>, <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">pos</span>, <span style="color: #ce537a; font-weight: bold;">size_type</span> <span style="color: #7590db;">n</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7; font-weight: bold;">const</span>;
+<span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #bc6ec5; font-weight: bold;">find</span> <span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">char</span> <span style="color: #7590db;">c</span>, <span style="color: #ce537a; font-weight: bold;">size_t</span> <span style="color: #7590db;">pos</span> = <span style="color: #a45bad;">0</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">noexcept</span>;
+</pre>
+</div>
+<p>
+luckily, there are something what we need: the first one. Now we can develop our own <code>replace</code> function:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">replace_first</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">X</span>, <span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">A</span>, <span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">B</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7;">{</span>
+  X.replace<span style="color: #bc6ec5;">(</span>X.find<span style="color: #2d9574;">(</span>A<span style="color: #2d9574;">)</span>, A.size<span style="color: #2d9574;">()</span>, B<span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+
+<p>
+looks verbose, right? That's the way c++ looks like. Its aim is not providing high-level operation and let
+the programmer code just like a API caller. Nevertheless, C++ provides you the room to develop your own abstraction with 
+a little bit effort.
+</p>
+
+<p>
+We can also <code>insert</code> <i>substr A</i> before/behind <i>substr B</i> with the combination of built-in <code>string::insert</code> and <code>string::find</code>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4">Traps</h2>
+<div class="outline-text-2" id="text-orgheadline4">
+<p>
+Sometimes we may want to build our own types, with <code>std::string</code> serving as a member variable:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">struct</span> <span style="color: #ce537a; font-weight: bold;">MyType</span>
+<span style="color: #4f97d7;">{</span>
+    <span style="color: #a45bad;">std</span>::<span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">str</span>;
+<span style="color: #4f97d7;">}</span>;
+</pre>
+</div>
+<p>
+Of course constructors are needed, how do we implement our constructors? there is an intuitive way:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">struct</span> <span style="color: #ce537a; font-weight: bold;">MyType</span>
+<span style="color: #4f97d7;">{</span>
+    <span style="color: #a45bad;">std</span>::<span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">str</span>;
+
+    <span style="color: #bc6ec5; font-weight: bold;">MyType</span><span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span>* <span style="color: #7590db;">s</span><span style="color: #bc6ec5;">)</span>
+        :
+        str<span style="color: #bc6ec5;">{</span>s<span style="color: #bc6ec5;">}</span>
+    <span style="color: #bc6ec5;">{}</span>
+<span style="color: #4f97d7;">}</span>;
+</pre>
+</div>
+<p>
+This program is plausible, or seriously, it's wrong!!! what happens if we construct <code>MyType</code> with a stupid argument <code>nullptr</code>?
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">PossibleUsage</span><span style="color: #4f97d7;">()</span>
+<span style="color: #4f97d7;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">auto</span> <span style="color: #ce537a; font-weight: bold;">t</span> = MyType<span style="color: #bc6ec5;">(</span>nullptr<span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+The compiler won't catch this situation, because <code>const char*</code> as an argument is legal for <code>std::string</code> and the type of <code>nullptr</code> is 
+a pointer(maybe <code>void*</code>?). This program, however, will crash in runtime, with an exception ignored:
+</p>
+<pre class="example">
+terminate called after throwing an instance of 'std::logic_error'
+  what():  basic_string::_M_construct null not valid
+</pre>
+<p>
+<code>std::string</code> drops the responsibility of checking the illegal argument to the user. I don't know if it's a good design or not. But we should
+always check the pointers
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">PossibleUsage</span><span style="color: #4f97d7;">()</span>
+<span style="color: #4f97d7;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span>* <span style="color: #7590db;">s</span> = DoSomething<span style="color: #bc6ec5;">()</span>;
+
+    <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span>s != nullptr<span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+        <span style="color: #4f97d7; font-weight: bold;">auto</span> <span style="color: #ce537a; font-weight: bold;">t</span> = MyType<span style="color: #2d9574;">(</span>s<span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+And, sometime we can also write constructor like this:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">struct</span> <span style="color: #ce537a; font-weight: bold;">MyType</span>
+<span style="color: #4f97d7;">{</span>
+    <span style="color: #a45bad;">std</span>::<span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">str</span>;
+
+    <span style="color: #bc6ec5; font-weight: bold;">MyType</span><span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span>* <span style="color: #7590db;">s</span><span style="color: #bc6ec5;">)</span>
+    <span style="color: #bc6ec5;">{</span>
+        <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #2d9574;">(</span>s == nullptr<span style="color: #2d9574;">)</span> <span style="color: #2d9574;">{</span>
+          <span style="color: #4f97d7; font-weight: bold;">return</span>; 
+        <span style="color: #2d9574;">}</span>
+        <span style="color: #4f97d7; font-weight: bold;">else</span> <span style="color: #2d9574;">{</span>
+            str = s;
+        <span style="color: #2d9574;">}</span>
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5">Conclusion</h2>
+<div class="outline-text-2" id="text-orgheadline5">
+<ul class="org-ul">
+<li>Be smart with =std::string.</li>
+<li>Be aware of pointers: checking before using.</li>
+<li>Understand <code>std::string</code> and its pal: <code>(const) char*</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
+<p class="date">Date: 2016-05-28 六 19:42</p>
+</div>
+</body>
+</html>

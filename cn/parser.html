@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-05-28 六 19:11 -->
+<!-- 2016-05-28 六 19:43 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <title>编译器中的数据结构</title>
 <meta  name="generator" content="Org-mode" />
@@ -578,7 +578,7 @@ struct While: Statement
 对于代码生成的建议是(感觉这个可能是最难的点了)：
 </p>
 <ul class="org-ul">
-<li>最简单的做法是采用<a href="https://en.wikipedia.org/wiki/Stack_machine">Stack Machine</a>模型：只使用一个寄存器和一个临时变量，维持一个栈invariant, 这样就不需要考虑寄存器分配算法了。</li>
+<li>最简单的做法是采用<a href="https://en.wikipedia.org/wiki/Stack_machine">Stack Machine</a>模型：只使用一个寄存器和一个临时变量，维持栈invariant, 这样就不需要考虑寄存器分配算法了。</li>
 <li>自底向上地代码生成：从简单表达式的代码生成，(e.g., plus, minus), 到各种循环语句，再到函数调用。</li>
 <li>您可能需要再回顾mips的一些指令.</li>
 <li>需要使用mips的模拟器。</li>
@@ -777,7 +777,7 @@ struct While: Statement
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
-<p class="date">Date: 2016-05-28 六 19:11</p>
+<p class="date">Date: 2016-05-28 六 19:40</p>
 </div>
 </body>
 </html>
