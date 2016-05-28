@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-05-23 一 22:39 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>文档</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Liangzu Peng" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="./css/my-css.css" type="text/css"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">文档</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">common.h</a></li>
+<li><a href="#orgheadline2">SymbolTable.h/.cpp</a></li>
+<li><a href="#orgheadline3">lex.l</a></li>
+<li><a href="#orgheadline4">syntax.ypp</a></li>
+<li><a href="#orgheadline5">Tree.h/.cpp</a></li>
+<li><a href="#orgheadline6">其它文件</a></li>
+<li><a href="#orgheadline7"><span class="todo TODO">TODO</span> 我还需要完善的地方</a></li>
+<li><a href="#orgheadline8">总结</a></li>
+<li><a href="#orgheadline9">附：修改后的pascal cfg</a></li>
+</ul>
+</div>
+</div>
+<p>
+这篇短文是我写的代码的文档，它包括：
+</p>
+<ul class="org-ul">
+<li>用lex、bison写的parser</li>
+<li>语法树</li>
+<li>符号表</li>
+</ul>
+
+<p>
+下面按照一个一个文件分别对它们作介绍。
+</p>
+
+<p>
+需要强调的是，你们仍然、并且一定要去看代码。
+</p>
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">common.h</h2>
+<div class="outline-text-2" id="text-orgheadline1">
+<p>
+这个头文件include了一些常用的头文件，并定义了一些简单的数据
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">template</span><span style="color: #4f97d7;">&lt;</span><span style="color: #4f97d7; font-weight: bold;">typename</span> <span style="color: #ce537a; font-weight: bold;">T</span><span style="color: #4f97d7;">&gt;</span>
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">using Ptr = std::shared_ptr&lt;T&gt;;</span>
+<span style="color: #4f97d7; font-weight: bold;">using</span> <span style="color: #ce537a; font-weight: bold;">Ptr</span> = T*;
+
+<span style="color: #4f97d7; font-weight: bold;">template</span><span style="color: #4f97d7;">&lt;</span><span style="color: #4f97d7; font-weight: bold;">typename</span> <span style="color: #ce537a; font-weight: bold;">T</span><span style="color: #4f97d7;">&gt;</span>
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">using List = std::vector&lt;Ptr&lt;T&gt;&gt;;</span>
+<span style="color: #4f97d7; font-weight: bold;">using</span> <span style="color: #ce537a; font-weight: bold;">List</span> = <span style="color: #a45bad;">std</span>::<span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #4f97d7;">&lt;</span><span style="color: #ce537a; font-weight: bold;">T</span>*<span style="color: #4f97d7;">&gt;</span>;
+
+<span style="color: #4f97d7; font-weight: bold;">template</span><span style="color: #4f97d7;">&lt;</span><span style="color: #4f97d7; font-weight: bold;">typename</span> <span style="color: #ce537a; font-weight: bold;">T</span><span style="color: #4f97d7;">&gt;</span>
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">using ListPtr = Ptr&lt;std::vector&lt;Ptr&lt;T&gt;&gt;&gt;;</span>
+<span style="color: #4f97d7; font-weight: bold;">using</span> <span style="color: #ce537a; font-weight: bold;">ListPtr</span> = <span style="color: #a45bad;">std</span>::<span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #4f97d7;">&lt;</span><span style="color: #ce537a; font-weight: bold;">T</span>*<span style="color: #4f97d7;">&gt;</span>*;
+</pre>
+</div>
+<p>
+以上数据是在我的代码中一直有使用的别名，开始用 <code>shared_ptr</code> 搞的，结果写.y文件的时候编译不了，所以改成了现在这个奇怪的样子:裸指针。
+</p>
+
+<p>
+common.h文件中还定义了一个 <code>Symbol</code> 类，作为identifier或者是符号表里的key.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2">SymbolTable.h/.cpp</h2>
+<div class="outline-text-2" id="text-orgheadline2">
+<p>
+显然这就是符号表所在之处了。需要说明的是，符号表首先是一个栈(<code>Stack</code>),栈顶代表当前的作用域(<code>Scope</code>),退出、进入作用域就相当于对栈顶元素的操作了。
+栈里的元素是 <code>std::map</code>, 意思是每个作用域都有一个自己的符号表。
+</p>
+
+<p>
+这份数据结构的接口是:
+</p>
+<dl class="org-dl">
+<dt><code>void EnterScope()</code></dt><dd>进入作用域。</dd>
+<dt><code>void ExitScope()</code></dt><dd>退出作用域。</dd>
+<dt><code>Lookup(Symbol s)</code></dt><dd>从栈顶开始查找符号 <code>s</code>, 搜索整个作用域。</dd>
+<dt><code>Probe(Symbol s)</code> </dt><dd>查找符号 <code>s</code>, 只搜索当前作用域。</dd>
+</dl>
+
+<p>
+里边还定义了 <code>EmptyScopeException</code> 异常类, 用来发现对符号表的错误操作的情况。 
+</p>
+
+<p>
+最后需要说的是，其实在.l和.y文件中遇到某些token的时候可以直接把他们放进符号表。可是我暂时还没来得及搞这个。
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3">lex.l</h2>
+<div class="outline-text-2" id="text-orgheadline3">
+<p>
+这是flex的文件，里面没什么好说的，现在我暂时没做错误处理，也没有把常量放到符号表，还没有处理STRING常量，这个挺麻烦的……后头补全。
+</p>
+
+<p>
+这里面没有 <code>SYS_PROC</code> 、 <code>SYS_FUNC</code> 这种奇葩的不得了的东西是因为没有必要。他们会和identifier一起被识别，而且和函数调用语法一致，只要在
+做语义分析之前把它们加到符号表里面去就可以了。
+</p>
+
+<p>
+使用方法：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">flex -o <span style="color: #4f97d7;">[</span>output-filename<span style="color: #4f97d7;">]</span> lex.l
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4">syntax.ypp</h2>
+<div class="outline-text-2" id="text-orgheadline4">
+<p>
+这是bison语法文件，我改了一些老师给的CFG，比如去掉奇葩的 <code>goto</code>, <code>label</code>, 然后把其它的部分改的好写了很多，不过基本上没有改变它原本的含义，
+写完后有5个shift-reduce冲突（其实是3个), 由于bison默认选择shift,而shift恰好是我们所希望的语义，所以没什么问题。
+</p>
+
+<p>
+修整后的语法放在 <b>文末</b> ，大家应该把它和老师给的那个对比一下。由于我在bison文件里手动指定优先级，所以expr的cfg不会产生歧义。
+</p>
+
+<p>
+使用方法：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">bison syntax.ypp -v -g -d
+</pre>
+</div>
+<p>
+注:
+</p>
+<ul class="org-ul">
+<li>.ypp的意思是生成cpp文件，而不是c文件(.y)。</li>
+<li>-v的意思是verbose, 这样它会产生一个后缀为.output的文件，里面有详细的状态机的信息</li>
+<li>-d是指同时生成头文件。此时 <b>必须</b> 在.hpp文件里手动包含 <code>Tree.h</code> ，因为在.ypp文件里写的 #include "Tree.h"会被放到.cpp里。</li>
+<li>-g是指生成.dot文件，用来画图的，dot是一门简单的脚本语言，对此感兴趣的可以搜 <b>graphviz</b> （软件名）。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5">Tree.h/.cpp</h2>
+<div class="outline-text-2" id="text-orgheadline5">
+<p>
+这就是语法树了，写语法树是比较简单但是又特别繁琐的事情。很多都是重复的工作。
+</p>
+
+<p>
+我在这里简单说明一下它的结构。由于语法树是根据文法写的，所以这里我也以文法为例介绍我的做法。
+</p>
+<pre class="example">
+for_stmt: FOR IDENTIFIER ASSIGNMENT expr TO expr DO stmt
+</pre>
+<p>
+以for循环的语法为例，这里FOR, ASSIGNMENT是为了表示程序结构的，语法树完全不需要存储他们的信息。
+</p>
+
+<p>
+而我对应的代码是:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">enum</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Direction</span><span style="color: #4f97d7;">{</span><span style="color: #7590db;">TO</span>, <span style="color: #7590db;">DOWNTO</span><span style="color: #4f97d7;">}</span>;
+<span style="color: #4f97d7; font-weight: bold;">struct</span> <span style="color: #ce537a; font-weight: bold;">For</span>: <span style="color: #ce537a; font-weight: bold;">Statement</span>
+<span style="color: #4f97d7;">{</span>
+    <span style="color: #ce537a; font-weight: bold;">Ptr</span><span style="color: #bc6ec5;">&lt;</span>Symbol<span style="color: #bc6ec5;">&gt;</span> <span style="color: #7590db;">id</span>;
+    <span style="color: #ce537a; font-weight: bold;">Ptr</span><span style="color: #bc6ec5;">&lt;</span>Expr<span style="color: #bc6ec5;">&gt;</span> <span style="color: #7590db;">start</span>;
+    <span style="color: #ce537a; font-weight: bold;">Direction</span> <span style="color: #7590db;">direction</span>;
+    <span style="color: #ce537a; font-weight: bold;">Ptr</span><span style="color: #bc6ec5;">&lt;</span>Expr<span style="color: #bc6ec5;">&gt;</span> <span style="color: #7590db;">end</span>;
+    <span style="color: #ce537a; font-weight: bold;">Ptr</span><span style="color: #bc6ec5;">&lt;</span>Statement<span style="color: #bc6ec5;">&gt;</span> <span style="color: #7590db;">stmt</span>;
+
+    <span style="color: #bc6ec5; font-weight: bold;">For</span><span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span>* <span style="color: #7590db;">i</span>, <span style="color: #ce537a; font-weight: bold;">Ptr</span><span style="color: #2d9574;">&lt;</span>Expr<span style="color: #2d9574;">&gt;</span> <span style="color: #7590db;">s</span>, <span style="color: #ce537a; font-weight: bold;">Direction</span> <span style="color: #7590db;">d</span>,
+        <span style="color: #ce537a; font-weight: bold;">Ptr</span><span style="color: #2d9574;">&lt;</span>Expr<span style="color: #2d9574;">&gt;</span> <span style="color: #7590db;">e</span>, <span style="color: #ce537a; font-weight: bold;">Ptr</span><span style="color: #2d9574;">&lt;</span>Statement<span style="color: #2d9574;">&gt;</span> <span style="color: #7590db;">st</span><span style="color: #bc6ec5;">)</span>
+            :
+            id<span style="color: #bc6ec5;">{</span><span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Symbol</span><span style="color: #2d9574;">(</span>i<span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">}</span>, start<span style="color: #bc6ec5;">{</span>s<span style="color: #bc6ec5;">}</span>, direction<span style="color: #bc6ec5;">{</span>d<span style="color: #bc6ec5;">}</span>,
+            end<span style="color: #bc6ec5;">{</span>e<span style="color: #bc6ec5;">}</span>, stmt<span style="color: #bc6ec5;">{</span>st<span style="color: #bc6ec5;">}</span>
+    <span style="color: #bc6ec5;">{}</span>
+<span style="color: #4f97d7;">}</span>;
+</pre>
+</div>
+<p>
+需要注意的是如下几点:
+</p>
+<ul class="org-ul">
+<li><code>id</code>, <code>start</code>, <code>direction</code>, <code>end</code>, <code>stmt</code> 这成员变量分别代表文法右边的需要存储的信息。</li>
+<li>成员变量的类型基本上都是指针（此处direction不是），因为在语法树中，有些结点是前置声明的，我们没法在它定义前知道它的大小。</li>
+</ul>
+<p>
+另外，值类型的变量在继承层次中向上转化就被切片了，而且后面做语义分析和代码生成时候值类型根本没法利用虚函数。
+</p>
+
+<p>
+再举个例子。 cfg:
+</p>
+<pre class="example">
+stmt: assign_stmt
+      | proc_stmt
+      | compound_stmt
+      | if_stmt
+      | repeat_stmt
+      | while_stmt
+      | for_stmt
+      | case_stmt
+</pre>
+<p>
+对于这样的语法，可以在 <code>stmt</code> 结点里面搞一个枚举，记录所保存结点的类型，然后访问它的时候一遍又一遍的问它“你是 <code>for_stmt</code> 吗"，再采取相应的动作。
+但是这样 <code>stmt</code> 就会变得很“臃肿”，从美学角度上来说就很难看了。所以一般的（我所采用的)做法是：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">struct</span> <span style="color: #ce537a; font-weight: bold;">Assign</span>: <span style="color: #ce537a; font-weight: bold;">Statement</span><span style="color: #4f97d7;">{}</span>;
+<span style="color: #4f97d7; font-weight: bold;">struct</span> <span style="color: #ce537a; font-weight: bold;">Proc</span>: <span style="color: #ce537a; font-weight: bold;">Statement</span><span style="color: #4f97d7;">{}</span>;
+<span style="color: #4f97d7; font-weight: bold;">struct</span> <span style="color: #ce537a; font-weight: bold;">Compound</span>: <span style="color: #ce537a; font-weight: bold;">Statement</span><span style="color: #4f97d7;">{}</span>;
+</pre>
+</div>
+<p>
+这样就想要操作 <code>stmt</code> 就要用虚函数，在各个子类里实现同样的方法(比如 <code>CodeGeneration</code>, <code>SemantChecker</code>)，由于每个子类的成员都是清晰的，所以我们要做什么也很清楚。
+</p>
+
+<p>
+我不知道我讲明白没有，大家一定要去看下代码。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6">其它文件</h2>
+<div class="outline-text-2" id="text-orgheadline6">
+<dl class="org-dl">
+<dt>automaton,jpg</dt><dd>.y文件生成的自动机的图(20多M)，仅供欣赏。</dd>
+<dt>CMAKEList.txt</dt><dd>cmake语法文件</dd>
+<dt>makefile</dt><dd>只写了一半……暂时用不了</dd>
+<dt>lex.cpp</dt><dd>flex生成文件</dd>
+<dt>main.cpp</dt><dd>不用理它</dd>
+<dt>syntax.dot/.output/.tab.cpp/.tab.hpp</dt><dd>bison生成文件</dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="todo TODO">TODO</span> 我还需要完善的地方</h2>
+<div class="outline-text-2" id="text-orgheadline7">
+<p>
+由于各位可能也尽快开展自己的工作，但是没有数据结构是没办法写算法的，所以我提早地把自己写的、 <b>未经检验</b> 的代码传给大家……
+</p>
+
+<p>
+现在符号表基本上完成了，语法树的结构基本上画出来了，.l,.y文件也完成了，可以成功通过编译。大家可以去熟悉我的代码了。
+</p>
+
+<p>
+但是我还没来得及做的事情有：
+</p>
+<ul class="org-ul">
+<li>词法分析部分：字符串常量、错误提示信息, 构建部分符号表</li>
+<li>暂时还没有写打印语法树的方法，所以也就无从检验我的代码是否能真正构建语法树。我的计划是用dot直接生成语法树图片，这样debug起来才爽。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8">总结</h2>
+<div class="outline-text-2" id="text-orgheadline8">
+<p>
+我会尽快完善自己的工作，希望大家能够认真看我的代码，利用它完成后面的部分～
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-2">
+<h2 id="orgheadline9">附：修改后的pascal cfg</h2>
+<div class="outline-text-2" id="text-orgheadline9">
+<pre class="example">
+  1 program: 
+            PROGRAM 
+            IDENTIFIER
+            SEMI
+            const_part
+            type_part
+            var_part
+            routine_part
+            routine_body
+            DOT
+
+  2 sub_routine: 
+            const_part 
+            type_part
+            var_part
+            routine_part
+            routine_body
+
+  3 const_part: CONST const_expr_list
+  4           | %empty
+
+  5 const_expr_list: const_expr_list IDENTIFIER EQUAL const_value SEMI
+  6                | IDENTIFIER EQUAL const_value SEMI
+
+  7 const_value: INTEGER
+  8            | REAL
+  9            | STRING
+ 10            | BOOL
+ 11            | MAXINT
+
+ 12 type_part: TYPE type_decl_list
+ 13          | %empty
+
+ 14 type_decl_list: type_decl_list IDENTIFIER EQUAL type_decl SEMI
+ 15               | IDENTIFIER EQUAL type_decl SEMI
+
+ 16 type_decl: simple_type_decl
+ 17          | array_type_decl
+ 18          | record_type_decl
+
+ 19 simple_type_decl: SYS_TYPE
+ 20                 | IDENTIFIER
+ 21                 | LP name_list RP
+ 22                 | INTEGER DOTDOT INTEGER
+ 23                 | MINUS INTEGER DOTDOT INTEGER
+ 24                 | MINUS INTEGER DOTDOT MINUS INTEGER
+ 25                 | IDENTIFIER DOTDOT IDENTIFIER
+
+ 26 array_type_decl: ARRAY LB simple_type_decl RB OF type_decl
+
+ 27 record_type_decl: RECORD field_decl_list PEND
+
+ 28 field_decl_list: field_decl_list field_decl
+ 29                | field_decl
+
+ 30 field_decl: name_list COLON type_decl SEMI
+
+ 31 name_list: name_list COMMA IDENTIFIER
+ 32          | IDENTIFIER
+
+ 33 var_part: VAR var_decl_list
+ 34         | %empty
+
+ 35 var_decl_list: var_decl_list name_list COLON type_decl SEMI
+ 36              | name_list COLON type_decl SEMI
+
+ 37 routine_part: routine_part function
+ 38             | routine_part procedure
+ 39             | function
+ 40             | procedure
+ 41             | %empty
+
+ 42 function: FUNCTION IDENTIFIER parameters COLON simple_type_decl SEMI sub_routine SEMI
+
+ 43 procedure: PROCEDURE IDENTIFIER parameters SEMI sub_routine SEMI
+
+ 44 parameters: LP para_decl_list RP
+ 45           | %empty
+
+ 46 para_decl_list: para_decl_list SEMI para_type_list
+ 47               | para_type_list
+
+ 48 para_type_list: VAR name_list COLON simple_type_decl
+ 49               | name_list COLON simple_type_decl
+
+ 50 routine_body: compound_stmt
+
+ 51 stmt_list: stmt_list stmt SEMI
+ 52          | %empty
+
+ 53 stmt: assign_stmt
+ 54     | proc_stmt
+ 55     | compound_stmt
+ 56     | if_stmt
+ 57     | repeat_stmt
+ 58     | while_stmt
+ 59     | for_stmt
+ 60     | case_stmt
+
+ 61 assign_stmt: IDENTIFIER ASSIGNMENT expr
+ 62            | IDENTIFIER LB expr RB ASSIGNMENT expr
+ 63            | IDENTIFIER DOT IDENTIFIER ASSIGNMENT expr
+
+ 64 proc_stmt: IDENTIFIER
+ 65          | IDENTIFIER LP expr_list RP
+
+ 66 compound_stmt: PBEGIN stmt_list PEND
+
+ 67 if_stmt: IF expr THEN stmt else_clause
+
+ 68 else_clause: ELSE stmt
+ 69            | %empty
+
+ 70 repeat_stmt: REPEAT stmt_list UNTIL expr
+
+ 71 while_stmt: WHILE expr DO stmt
+
+ 72 for_stmt: FOR IDENTIFIER ASSIGNMENT expr TO expr DO stmt
+ 73         | FOR IDENTIFIER ASSIGNMENT expr DOWNTO expr DO stmt
+
+ 74 case_stmt: CASE expr OF case_expr_list PEND
+
+ 75 case_expr_list: case_expr_list case_expr
+ 76               | case_expr
+
+ 77 case_expr: const_value COLON stmt SEMI
+ 78          | IDENTIFIER COLON stmt SEMI
+
+ 79 expr_list: expr_list COMMA expr
+ 80          | expr
+
+ 81 expr: expr GE expr
+ 82     | expr GT expr
+ 83     | expr LE expr
+ 84     | expr LT expr
+ 85     | expr EQUAL expr
+ 86     | expr UNEQUAL expr
+ 87     | expr PLUS expr
+ 88     | expr MINUS expr
+ 89     | expr OR expr
+ 90     | expr MUL expr
+ 91     | expr DIV expr
+ 92     | expr MOD expr
+ 93     | expr AND expr
+ 94     | IDENTIFIER
+ 95     | IDENTIFIER LP expr_list RP
+ 96     | const_value
+ 97     | LP expr RP
+ 98     | NOT expr
+ 99     | MINUS expr
+100     | IDENTIFIER LB expr RB
+101     | IDENTIFIER DOT IDENTIFIER
+</pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
+<p class="date">Date: 2016-05-23 一 22:39</p>
+</div>
+</body>
+</html>
