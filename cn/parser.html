@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-05-28 六 19:43 -->
+<!-- 2016-06-23 Thu 09:58 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <title>编译器中的数据结构</title>
 <meta  name="generator" content="Org-mode" />
@@ -140,28 +140,6 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -211,7 +189,7 @@ for the JavaScript code in this tag.
 </blockquote>
 
 <p>
-跟完编译器课程后，用cool project自带的语法树完成编译器的语义分析和代码生成还是挺爽的。可是后来我看了这么多各种各样的语法树，我突然对自己说：“彭良祖，您应该拥有自己的语法树”。所以
+后来我看了这么多各种各样的语法树，我突然对自己说：“彭良祖，您应该拥有自己的语法树”。所以
 在本校编译器课程的这次团队作业中呢，我选择了做语法树的任务。我发现给队友写的parser文档除了具有纪念价值外还有教育意义。故将它放出来。对编译器感兴趣的入门级读者应关注:
 </p>
 <ul class="org-ul">
@@ -313,7 +291,7 @@ lex程序会生成 <code>yylex()</code> 函数，该函数将源程序解析成�
 </p>
 <ul class="org-ul">
 <li>不含对 "goto" 这个token的提取。</li>
-<li>无法识别转义的字符串。例如，lex程序遇到 'abc\nabc' 的时候，其实把 '\n' 读到内存里变成了 '\\n'，而我们清楚地知道它的实际含义是换行符, 即在内存里应该是 '\n'。</li>
+<li>没有对错误的字符串进行处理</li>
 </ul>
 </div>
 </div>
@@ -368,7 +346,7 @@ dot -Tjpg -o <span style="color: #4f97d7;">[</span>your-favorite-output-filename
 </div>
 
 <p>
-注意： 因为文法被我改了，语法树节点不再有优先级信息，所以我打印出来的表达式都是前缀表达式。但是后来我想……其实中缀表达式也是可以的，因为语法树的结构已经是那个样子了。不过我懒得改回中缀表达式了:P
+注意： 因为文法被我改了，语法树节点虽然有优先级信息，但是如果没有括号的话，以中缀表达式打印出来之后人眼是观察不出来的。所以我打印出来的表达式都是前缀表达式。
 </p>
 </div>
 </div>
@@ -777,7 +755,7 @@ struct While: Statement
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
-<p class="date">Date: 2016-05-28 六 19:40</p>
+<p class="date">Date: 2016-06-23 Thu 09:58</p>
 </div>
 </body>
 </html>
