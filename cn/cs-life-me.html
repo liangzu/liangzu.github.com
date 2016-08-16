@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>计算机与生活与我</title>
+<!-- 2016-08-15 Mon 12:25 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Liangzu Peng" />
+<link rel="stylesheet" href="./css/my-css.css" type="text/css"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<p><a href="http://www.zju.edu.cn">ZJU</a>  |  <a href="http://www.liangzu.org">Liangzu</a>  |  <a href="http://">Sina Weibo</a>  |  <a href="http://isocpp.org">C++</a></p>
+</div>
+<div id="content">
+<h1 class="title">计算机与生活与我</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Misunderstood locality</a></li>
+<li><a href="#sec-2">No more characters, no more tokens! I need AST!</a></li>
+<li><a href="#sec-3">Value your cache，please</a></li>
+</ul>
+</div>
+</div>
+<blockquote>
+<p>
+<i>天与云与山与水，上下一白</i>
+</p>
+
+<p>
+&#x2014;&#x2014; <i>湖心亭看雪</i>
+</p>
+</blockquote>
+
+
+<p>
+计算机专业的知识与生活相互映射后会产生许多有趣，这就是我想要分享的。
+</p>
+
+<p>
+由于本文讨论的是 <code>计算机与生活与我</code>, 所以本文的目标读者应该至少爱计算机，爱生活，和爱我。
+</p>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Misunderstood locality</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+局部性原理(<code>principle of locality</code>)最为处理器设计者所津津乐道，而人们对它的误解甚至蔓延到了生活当中:把碗叠在一起然后分别洗干净并不会增加效率！本来碗里头是脏而外头是干净，收拾餐桌时，如果把N个碗叠在一起，则会弄脏N-1个碗的外头。所以您的工作量凭空增加了近一倍，这是不明智的。
+</p>
+
+<p>
+把碗叠在一起看似利用了局部性原理，把“数据”聚集到一起再做处理。实际上，我们所要处理的“数据”并不是碗，而是油渍。由于把碗叠在一起，油渍在碗间被"扩散"了，因此也就破坏了局部性。所以请那些喜欢把碗叠在一起搬到厨房，而且又喜欢叫我洗碗的家长仔细思考自己的做法是否合乎计算机思维，时不时把自己的工作量增加一倍的代价并不是每个人都能承受。
+</p>
+
+<p>
+这个简单的问题有着同样简单的解决方案，聪明的同学早已经想到了。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">No more characters, no more tokens! I need AST!</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+编程语言的 <code>scanning</code> 和 <code>parsing</code> 已经被完全理解，有许多自动化的工具(<code>parser generator</code>)可供使用。但是许多教育工作者，包括教编译器课程的教授，似乎并没有能够将 <code>scanning</code> 和 <code>parsing</code> 带来的思考运用于他们的教学当中。老师教授课程的过程大部分都是产生 <code>characters</code>, <code>tokens</code> 和 <code>key-value pairs</code> 。由于人脑并没有自动化的 <code>parser generator</code>, 所以不得已地需要“手动”地 <code>parsing</code> 老师讲的内容，然后在大脑中存储成类似于抽象语法树的结构，便于理解和记忆。又因为不同的教师授课所用的 <code>context-free grammer</code> 基本不一样，这大大地加重学生理解课程精华的难度，正这么嘀嘀嗒嗒地 <code>parsing</code> 呢，哪知道什么时候才能生成属于自己大脑的"代码"？
+</p>
+
+<p>
+提高自己教学水平的关键是要降低学生 <code>parsing</code> 课程内容的难度，具体可从以下三点着手：
+</p>
+<ul class="org-ul">
+<li>先使用学生熟悉的语言，再转换成专业词汇;而不是先讲授专业词汇，再对它进行解释。
+</li>
+<li>把知识点组织成深度大于等于3的树形结构。
+</li>
+<li>每完成一个知识点，向下一个知识点迈进的同时要让学生知道他处于树的哪个节点。
+</li>
+</ul>
+
+<p>
+具有以上特点的课程使我的 <code>parsing</code> 速度无与伦比，经过一系列的"去其糟粕，取其精华"(<code>type checking, optimization</code>)的过程后，我很快地就生成了属于自己大脑的代码。在我的大脑设计完自动化的 <code>parser generator</code> 之前，我不再乐意去学习其它不具备这些特点的课程。
+</p>
+
+<p>
+优秀的教学应使用类似lisp的语法，它具有天然的树形结构。在这样的一致而又简单的语法里，学习起来就更加容易。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Value your cache，please</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
+<p class="date">Date: 2016-08-15 Mon 12:25</p>
+</div>
+</body>
+</html>
