@@ -6,9 +6,13 @@
           padding: 2px; font-size: 80%; font-weight: normal; }
 .timestamp { color: #bebebe; }
 .timestamp-kwd { color: #5f9ea0; }
-.right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+.right  { margin-left: auto; margin-right: 0px;  text-align: right;}
 .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-.center { margin-left: auto; margin-right: auto; text-align: center; }
+.center { margin-left: auto; margin-right: auto; text-align: center; font-style: italic;}
+.org-center {
+    font-size: 16px;
+    font-style: italic;
+}
 .underline { text-decoration: underline; }
 #postamble p, #preamble p { font-size: 90%; margin: .2em; }
 p.verse { margin-left: 3%; }
@@ -65,10 +69,10 @@ caption.t-bottom { caption-side: bottom; }
 td, th { vertical-align:top;  }
 th.right  { text-align: center;  }
 th.left   { text-align: center;   }
-th.center { text-align: center; }
+th.center { text-align: center; font-style: normal;}
 td.right  { text-align: right;  }
 td.left   { text-align: left;   }
-td.center { text-align: center; }
+td.center { text-align: center; font-style: normal;}
 dt { font-weight: bold; }
 .footpara:nth-child(2) { display: inline; }
 .footpara { display: block; }
@@ -223,10 +227,6 @@ code {
     font-weight: bold;
 }
 
-.org-center {
-    font-size: 16px;
-    font-style: italic;
-}
 
 .org-ul {
 }

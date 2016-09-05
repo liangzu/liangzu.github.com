@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>计算机与生活与我</title>
-<!-- 2016-08-15 Mon 12:25 -->
+<!-- 2016-08-31 Wed 09:43 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Liangzu Peng" />
@@ -67,8 +67,20 @@ for the JavaScript code in this tag.
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#sec-1">Misunderstood locality</a></li>
-<li><a href="#sec-2">No more characters, no more tokens! I need AST!</a></li>
-<li><a href="#sec-3">Value your cache，please</a></li>
+<li><a href="#sec-2">Parsing</a>
+<ul>
+<li><a href="#sec-2-1">No more characters, no more tokens! I need AST!</a></li>
+<li><a href="#sec-2-2">AST，cont.</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">Interpreting Is Interesting</a>
+<ul>
+<li><a href="#sec-3-1">It's full of &#x2026; values！</a></li>
+<li><a href="#sec-3-2">Continuation: there were just no turning back.</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">Stack and Queue</a></li>
+<li><a href="#sec-5">Value your cache, please</a></li>
 </ul>
 </div>
 </div>
@@ -110,8 +122,11 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">No more characters, no more tokens! I need AST!</h2>
+<h2 id="sec-2">Parsing</h2>
 <div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">No more characters, no more tokens! I need AST!</h3>
+<div class="outline-text-3" id="text-2-1">
 <p>
 编程语言的 <code>scanning</code> 和 <code>parsing</code> 已经被完全理解，有许多自动化的工具(<code>parser generator</code>)可供使用。但是许多教育工作者，包括教编译器课程的教授，似乎并没有能够将 <code>scanning</code> 和 <code>parsing</code> 带来的思考运用于他们的教学当中。老师教授课程的过程大部分都是产生 <code>characters</code>, <code>tokens</code> 和 <code>key-value pairs</code> 。由于人脑并没有自动化的 <code>parser generator</code>, 所以不得已地需要“手动”地 <code>parsing</code> 老师讲的内容，然后在大脑中存储成类似于抽象语法树的结构，便于理解和记忆。又因为不同的教师授课所用的 <code>context-free grammer</code> 基本不一样，这大大地加重学生理解课程精华的难度，正这么嘀嘀嗒嗒地 <code>parsing</code> 呢，哪知道什么时候才能生成属于自己大脑的"代码"？
 </p>
@@ -137,14 +152,76 @@ for the JavaScript code in this tag.
 </p>
 </div>
 </div>
-
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">AST，cont.</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+当然，并不是所有的语言都直接使用抽象语法树交流会更好，parsing也有parsing的趣味。在作家写作时，往往会列出自己的提纲，再转化成文字（token流）。真正优秀的文学作品是带歧义的语言，一千个读者能解析出一千个哈姆雷特，同一个读者在不同的时空中阅读又有不一样的感受。在这模棱两可和似是而非之间，我们感受到文字的魅力和智慧。遗憾的是，只有极具天才者才能辨别出语言的歧义，找到与原作者相同的语法树，从而与原作者共享同一份大局观。他们仅在阅读中就能够学会写作。
+</p>
+</div>
+</div>
+</div>
 <div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">Value your cache，please</h2>
+<h2 id="sec-3">Interpreting Is Interesting</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+解释器是简单、有趣而又充满哲理的, 但你需要变得简单而有趣，才能体会到它的哲学。
+</p>
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">It's full of &#x2026; values！</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+生物老师时常会对我们强调说，“生物与环境是一个整体”，但似乎鲜少有人意识到，我们人也是生物。谁管他那么多的猪鸭鱼呢？这句话说的就是我们自己啊！人生变幻不过是对自己求值的过程，从数学角度上来说，它是求自己的极限、导数、极值和拐点，从计算机科学的角度来看，它是对自己进行解释分析，求自己的复杂度、实际运行时间和最终结果。不论从哪方面看，求值都是需要环境的。令人遗憾的是，环境仅由上帝所操控而不以人的心情为转移，生命中的遭遇大多只能归为自己活该。聪明的朋友会在大环境中构造自己的小环境，或许是在想象中的，或许是真正地付出实践，以此来达到自释 (self-explaination)。可是我们最好的朋友，表达式(expression)，有那么聪明吗？
+</p>
+
+<p>
+为解释器编程时我就是上帝。为了让这个世界井然有序和正常工作，我小心翼翼地计算着每一个表达式 (variable, conditional, procedure, etc.) 以及它们所处的环境。我强迫他们在我所附加的环境里求值，然而他们并不完全按照我的思路行事，时常会有自己的小阴谋(scheme)。我把过程与环境绑定在一起，组成闭包(closure)，它却趁机偷吃这个世界的内存。有些表达式比较懒惰，把自己伪装成thunk，在求值时混水摸鱼，不到万不得已不进行真正的计算。有些表达式在交税(procedure call)前先把自己的财富全部藏起来，捏造一个新身份(call by value)，而我原先的指令是交税时一定要上缴自己的妹妹(call by reference)。这些荒唐的事情我竟然一直没有发现，因为他们在进行（类型）检查时毫无异象。我发现我构造的世界渐渐偏离我最初的愿望，于是把它拍碎重来。世界又回到了最初的样子：简单而又无邪，只有朴实而又智慧的数字常量表达式。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">Continuation: there were just no turning back.</h3>
+<div class="outline-text-3" id="text-3-2">
+<div class="center">
+<p>
+Oh, will he ever return?
+</p>
+
+<p>
+No, he'll never return,
+</p>
+
+<p>
+and his fate is still unlearned.
+</p>
+
+<p>
+He will ride forever,
+</p>
+
+<p>
+'neath the streets of Boston,
+</p>
+
+<p>
+he's a man who'll never return.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Stack and Queue</h2>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Value your cache, please</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
-<p class="date">Date: 2016-08-15 Mon 12:25</p>
+<p class="date">Date: 2016-08-31 Wed 09:43</p>
 </div>
 </body>
 </html>
