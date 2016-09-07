@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>编译器中的数据结构</title>
-<!-- 2016-08-15 Mon 11:58 -->
+<!-- 2016-09-07 Wed 15:56 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Liangzu Peng" />
@@ -57,9 +57,6 @@ for the JavaScript code in this tag.
 </script>
 </head>
 <body>
-<div id="preamble" class="status">
-<p><a href="http://www.zju.edu.cn">ZJU</a>  |  <a href="http://www.liangzu.org">Liangzu</a>  |  <a href="http://">Sina Weibo</a>  |  <a href="http://isocpp.org">C++</a></p>
-</div>
 <div id="content">
 <h1 class="title">编译器中的数据结构</h1>
 <div id="table-of-contents">
@@ -290,8 +287,8 @@ lex程序会生成 <code>yylex()</code> 函数，该函数将源程序解析成�
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">dot -Tpdf -o tree.pdf tree.dot <span style="color: #ff7f24;">#</span><span style="color: #ff7f24;">or</span>
-dot -Tjpg -o <span style="color: #8c8c8c;">[</span>your-favorite-output-filename<span style="color: #8c8c8c;">]</span> <span style="color: #8c8c8c;">[</span>input-dot-file<span style="color: #8c8c8c;">]</span>
+<pre class="src src-sh">dot -Tpdf -o tree.pdf tree.dot <span style="color: #a5a5a5;">#</span><span style="color: #a5a5a5;">or</span>
+dot -Tjpg -o <span style="color: #e91e63;">[</span>your-favorite-output-filename<span style="color: #e91e63;">]</span> <span style="color: #e91e63;">[</span>input-dot-file<span style="color: #e91e63;">]</span>
 </pre>
 </div>
 
@@ -325,7 +322,7 @@ dot -Tjpg -o <span style="color: #8c8c8c;">[</span>your-favorite-output-filename
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #00ffff;">auto</span> <span style="color: #98fb98;">root</span> = Parse<span style="color: #8c8c8c;">(</span>filename<span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c++"><span style="color: #5FB7CC;">auto</span> <span style="color: #7FFFD4;">root</span> = Parse<span style="color: #e91e63;">(</span>filename<span style="color: #e91e63;">)</span>;
 </pre>
 </div>
 </div>
@@ -387,39 +384,39 @@ dot -Tjpg -o <span style="color: #8c8c8c;">[</span>your-favorite-output-filename
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #ff7f24;">/* </span><span style="color: #ff7f24;">c-style AST */</span>
-<span style="color: #98fb98;">Statement</span>* <span style="color: #87cefa;">NewStmtNode</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">kind</span> <span style="color: #eedd82;">nodeKind</span>, <span style="color: #ff7f24;">/*</span><span style="color: #ff7f24;">some other arguments*/</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #ff7f24;">// </span><span style="color: #ff7f24;">InitAndReturn();</span>
-<span style="color: #8c8c8c;">}</span>
-<span style="color: #00ffff;">struct</span> <span style="color: #98fb98;">Statement</span>
-<span style="color: #8c8c8c;">{</span>
-    <span style="color: #00ffff;">enum</span> <span style="color: #98fb98;">kind</span> <span style="color: #93a8c6;">{</span> <span style="color: #eedd82;">IF</span>, <span style="color: #eedd82;">WHILE</span> <span style="color: #ff7f24;">/* </span><span style="color: #ff7f24;">and other stmts */</span> <span style="color: #93a8c6;">}</span>
+<pre class="src src-c++"><span style="color: #a5a5a5;">/* </span><span style="color: #a5a5a5;">c-style AST */</span>
+<span style="color: #7FFFD4;">Statement</span>* <span style="color: #1D68C4;">NewStmtNode</span><span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">kind</span> <span style="color: #ffffaa;">nodeKind</span>, <span style="color: #a5a5a5;">/*</span><span style="color: #a5a5a5;">some other arguments*/</span><span style="color: #e91e63;">)</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #a5a5a5;">// </span><span style="color: #a5a5a5;">InitAndReturn();</span>
+<span style="color: #e91e63;">}</span>
+<span style="color: #5FB7CC;">struct</span> <span style="color: #7FFFD4;">Statement</span>
+<span style="color: #e91e63;">{</span>
+    <span style="color: #5FB7CC;">enum</span> <span style="color: #7FFFD4;">kind</span> <span style="color: #1565C0;">{</span> <span style="color: #ffffaa;">IF</span>, <span style="color: #ffffaa;">WHILE</span> <span style="color: #a5a5a5;">/* </span><span style="color: #a5a5a5;">and other stmts */</span> <span style="color: #1565C0;">}</span>
 
-    <span style="color: #ff7f24;">// </span><span style="color: #ff7f24;">other members.</span>
-<span style="color: #8c8c8c;">}</span>;
-<span style="color: #ff7f24;">// </span><span style="color: #ff7f24;">the below function is used to do something with statement node</span>
-<span style="color: #98fb98;">void</span> <span style="color: #87cefa;">DoSomething</span><span style="color: #8c8c8c;">(</span><span style="color: #ff7f24;">/*</span><span style="color: #ff7f24;">arguments*/</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span>
-    <span style="color: #00ffff;">if</span> <span style="color: #93a8c6;">(</span>kind == IF<span style="color: #93a8c6;">)</span>
-        <span style="color: #ff7f24;">// </span><span style="color: #ff7f24;">do something..</span>
-    <span style="color: #00ffff;">else</span> <span style="color: #00ffff;">if</span> <span style="color: #93a8c6;">(</span>kind == WHILE<span style="color: #93a8c6;">)</span>
-        <span style="color: #ff7f24;">// </span><span style="color: #ff7f24;">do something else</span>
-<span style="color: #8c8c8c;">}</span>
+    <span style="color: #a5a5a5;">// </span><span style="color: #a5a5a5;">other members.</span>
+<span style="color: #e91e63;">}</span>;
+<span style="color: #a5a5a5;">// </span><span style="color: #a5a5a5;">the below function is used to do something with statement node</span>
+<span style="color: #7FFFD4;">void</span> <span style="color: #1D68C4;">DoSomething</span><span style="color: #e91e63;">(</span><span style="color: #a5a5a5;">/*</span><span style="color: #a5a5a5;">arguments*/</span><span style="color: #e91e63;">)</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #5FB7CC;">if</span> <span style="color: #1565C0;">(</span>kind == IF<span style="color: #1565C0;">)</span>
+        <span style="color: #a5a5a5;">// </span><span style="color: #a5a5a5;">do something..</span>
+    <span style="color: #5FB7CC;">else</span> <span style="color: #5FB7CC;">if</span> <span style="color: #1565C0;">(</span>kind == WHILE<span style="color: #1565C0;">)</span>
+        <span style="color: #a5a5a5;">// </span><span style="color: #a5a5a5;">do something else</span>
+<span style="color: #e91e63;">}</span>
 
-<span style="color: #ff7f24;">/* </span><span style="color: #ff7f24;">OO-style AST */</span>
-<span style="color: #00ffff;">struct</span> <span style="color: #98fb98;">Statement</span>
-<span style="color: #8c8c8c;">{</span>
-    <span style="color: #00ffff;">virtual</span> <span style="color: #98fb98;">void</span> <span style="color: #87cefa;">DoSomething</span><span style="color: #93a8c6;">()</span> <span style="color: #93a8c6;">{}</span>;
-<span style="color: #8c8c8c;">}</span>;
-<span style="color: #00ffff;">struct</span> <span style="color: #98fb98;">If</span>: <span style="color: #98fb98;">Statement</span>
-<span style="color: #8c8c8c;">{</span>
-    <span style="color: #00ffff;">virtual</span> <span style="color: #98fb98;">void</span> <span style="color: #87cefa;">DoSomething</span><span style="color: #93a8c6;">()</span> <span style="color: #93a8c6;">{}</span>;
+<span style="color: #a5a5a5;">/* </span><span style="color: #a5a5a5;">OO-style AST */</span>
+<span style="color: #5FB7CC;">struct</span> <span style="color: #7FFFD4;">Statement</span>
+<span style="color: #e91e63;">{</span>
+    <span style="color: #5FB7CC;">virtual</span> <span style="color: #7FFFD4;">void</span> <span style="color: #1D68C4;">DoSomething</span><span style="color: #1565C0;">()</span> <span style="color: #1565C0;">{}</span>;
+<span style="color: #e91e63;">}</span>;
+<span style="color: #5FB7CC;">struct</span> <span style="color: #7FFFD4;">If</span>: <span style="color: #7FFFD4;">Statement</span>
+<span style="color: #e91e63;">{</span>
+    <span style="color: #5FB7CC;">virtual</span> <span style="color: #7FFFD4;">void</span> <span style="color: #1D68C4;">DoSomething</span><span style="color: #1565C0;">()</span> <span style="color: #1565C0;">{}</span>;
 
-    <span style="color: #87cefa;">If</span><span style="color: #93a8c6;">(</span><span style="color: #ff7f24;">/* </span><span style="color: #ff7f24;">some other arguments */</span><span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{}</span>;
-<span style="color: #8c8c8c;">}</span>;
-<span style="color: #00ffff;">struct</span> <span style="color: #98fb98;">While</span>: <span style="color: #98fb98;">Statement</span>
-<span style="color: #8c8c8c;">{</span>
-    <span style="color: #ff7f24;">// </span><span style="color: #ff7f24;">the same structure as If, with different arguments.</span>
-<span style="color: #8c8c8c;">}</span>
+    <span style="color: #1D68C4;">If</span><span style="color: #1565C0;">(</span><span style="color: #a5a5a5;">/* </span><span style="color: #a5a5a5;">some other arguments */</span><span style="color: #1565C0;">)</span> <span style="color: #1565C0;">{}</span>;
+<span style="color: #e91e63;">}</span>;
+<span style="color: #5FB7CC;">struct</span> <span style="color: #7FFFD4;">While</span>: <span style="color: #7FFFD4;">Statement</span>
+<span style="color: #e91e63;">{</span>
+    <span style="color: #a5a5a5;">// </span><span style="color: #a5a5a5;">the same structure as If, with different arguments.</span>
+<span style="color: #e91e63;">}</span>
 </pre>
 </div>
 <p>
@@ -738,7 +735,7 @@ dot -Tjpg -o <span style="color: #8c8c8c;">[</span>your-favorite-output-filename
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
-<p class="date">Date: 2016-08-15 Mon 11:58</p>
+<p class="date">Date: 2016-09-07 Wed 15:55</p>
 </div>
 </body>
 </html>

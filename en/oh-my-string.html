@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Oh my std::string</title>
-<!-- 2016-08-15 Mon 12:35 -->
+<!-- 2016-09-07 Wed 15:56 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Liangzu Peng" />
@@ -57,9 +57,6 @@ for the JavaScript code in this tag.
 </script>
 </head>
 <body>
-<div id="preamble" class="status">
-<p><a href="http://www.zju.edu.cn">ZJU</a>  |  <a href="http://www.liangzu.org">Liangzu</a>  |  <a href="http://">Sina Weibo</a>  |  <a href="http://isocpp.org">C++</a></p>
-</div>
 <div id="content">
 <h1 class="title">Oh my std::string</h1>
 <div id="table-of-contents">
@@ -122,20 +119,20 @@ but things are different in c++. Let's check the API of <code>string</code>, so 
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #98fb98;">string</span>&amp; <span style="color: #87cefa;">replace</span> <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">pos</span>,        <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">len</span>,        <span style="color: #00ffff;">const</span> <span style="color: #98fb98;">string</span>&amp; <span style="color: #eedd82;">str</span><span style="color: #8c8c8c;">)</span>;
-<span style="color: #98fb98;">string</span>&amp; <span style="color: #87cefa;">replace</span> <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">const_iterator</span> <span style="color: #eedd82;">i1</span>, <span style="color: #98fb98;">const_iterator</span> <span style="color: #eedd82;">i2</span>, <span style="color: #00ffff;">const</span> <span style="color: #98fb98;">string</span>&amp; <span style="color: #eedd82;">str</span><span style="color: #8c8c8c;">)</span>;
-<span style="color: #98fb98;">string</span>&amp; <span style="color: #87cefa;">replace</span> <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">pos</span>,        <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">len</span>,        <span style="color: #00ffff;">const</span> <span style="color: #98fb98;">string</span>&amp; <span style="color: #eedd82;">str</span>,
-                 <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">subpos</span>, <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">sublen</span> = npos<span style="color: #8c8c8c;">)</span>;
-<span style="color: #98fb98;">string</span>&amp; <span style="color: #87cefa;">replace</span> <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">pos</span>,        <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">len</span>,        <span style="color: #00ffff;">const</span> <span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">s</span><span style="color: #8c8c8c;">)</span>;
-<span style="color: #98fb98;">string</span>&amp; <span style="color: #87cefa;">replace</span> <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">const_iterator</span> <span style="color: #eedd82;">i1</span>, <span style="color: #98fb98;">const_iterator</span> <span style="color: #eedd82;">i2</span>, <span style="color: #00ffff;">const</span> <span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">s</span><span style="color: #8c8c8c;">)</span>;
-<span style="color: #98fb98;">string</span>&amp; <span style="color: #87cefa;">replace</span> <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">pos</span>,        <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">len</span>,        <span style="color: #00ffff;">const</span> <span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">s</span>, <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">n</span><span style="color: #8c8c8c;">)</span>;
-<span style="color: #98fb98;">string</span>&amp; <span style="color: #87cefa;">replace</span> <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">const_iterator</span> <span style="color: #eedd82;">i1</span>, <span style="color: #98fb98;">const_iterator</span> <span style="color: #eedd82;">i2</span>, <span style="color: #00ffff;">const</span> <span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">s</span>, <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">n</span><span style="color: #8c8c8c;">)</span>;
-<span style="color: #98fb98;">string</span>&amp; <span style="color: #87cefa;">replace</span> <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">pos</span>,        <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">len</span>,        <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">n</span>, <span style="color: #98fb98;">char</span> <span style="color: #eedd82;">c</span><span style="color: #8c8c8c;">)</span>;
-<span style="color: #98fb98;">string</span>&amp; <span style="color: #87cefa;">replace</span> <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">const_iterator</span> <span style="color: #eedd82;">i1</span>, <span style="color: #98fb98;">const_iterator</span> <span style="color: #eedd82;">i2</span>, <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">n</span>, <span style="color: #98fb98;">char</span> <span style="color: #eedd82;">c</span><span style="color: #8c8c8c;">)</span>;
-<span style="color: #00ffff;">template</span> <span style="color: #8c8c8c;">&lt;</span><span style="color: #00ffff;">class</span> <span style="color: #98fb98;">InputIterator</span><span style="color: #8c8c8c;">&gt;</span>
-<span style="color: #98fb98;">string</span>&amp; <span style="color: #87cefa;">replace</span> <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">const_iterator</span> <span style="color: #eedd82;">i1</span>, <span style="color: #98fb98;">const_iterator</span> <span style="color: #eedd82;">i2</span>,
-                   <span style="color: #98fb98;">InputIterator</span> <span style="color: #eedd82;">first</span>, <span style="color: #98fb98;">InputIterator</span> <span style="color: #eedd82;">last</span><span style="color: #8c8c8c;">)</span>;
-<span style="color: #98fb98;">string</span>&amp; <span style="color: #87cefa;">replace</span> <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">const_iterator</span> <span style="color: #eedd82;">i1</span>, <span style="color: #98fb98;">const_iterator</span> <span style="color: #eedd82;">i2</span>, <span style="color: #98fb98;">initializer_list</span><span style="color: #93a8c6;">&lt;</span><span style="color: #98fb98;">char</span><span style="color: #93a8c6;">&gt;</span> <span style="color: #eedd82;">il</span><span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c++"><span style="color: #7FFFD4;">string</span>&amp; <span style="color: #1D68C4;">replace</span> <span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">pos</span>,        <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">len</span>,        <span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">string</span>&amp; <span style="color: #ffffaa;">str</span><span style="color: #e91e63;">)</span>;
+<span style="color: #7FFFD4;">string</span>&amp; <span style="color: #1D68C4;">replace</span> <span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">const_iterator</span> <span style="color: #ffffaa;">i1</span>, <span style="color: #7FFFD4;">const_iterator</span> <span style="color: #ffffaa;">i2</span>, <span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">string</span>&amp; <span style="color: #ffffaa;">str</span><span style="color: #e91e63;">)</span>;
+<span style="color: #7FFFD4;">string</span>&amp; <span style="color: #1D68C4;">replace</span> <span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">pos</span>,        <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">len</span>,        <span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">string</span>&amp; <span style="color: #ffffaa;">str</span>,
+                 <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">subpos</span>, <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">sublen</span> = npos<span style="color: #e91e63;">)</span>;
+<span style="color: #7FFFD4;">string</span>&amp; <span style="color: #1D68C4;">replace</span> <span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">pos</span>,        <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">len</span>,        <span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">char</span>* <span style="color: #ffffaa;">s</span><span style="color: #e91e63;">)</span>;
+<span style="color: #7FFFD4;">string</span>&amp; <span style="color: #1D68C4;">replace</span> <span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">const_iterator</span> <span style="color: #ffffaa;">i1</span>, <span style="color: #7FFFD4;">const_iterator</span> <span style="color: #ffffaa;">i2</span>, <span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">char</span>* <span style="color: #ffffaa;">s</span><span style="color: #e91e63;">)</span>;
+<span style="color: #7FFFD4;">string</span>&amp; <span style="color: #1D68C4;">replace</span> <span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">pos</span>,        <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">len</span>,        <span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">char</span>* <span style="color: #ffffaa;">s</span>, <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">n</span><span style="color: #e91e63;">)</span>;
+<span style="color: #7FFFD4;">string</span>&amp; <span style="color: #1D68C4;">replace</span> <span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">const_iterator</span> <span style="color: #ffffaa;">i1</span>, <span style="color: #7FFFD4;">const_iterator</span> <span style="color: #ffffaa;">i2</span>, <span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">char</span>* <span style="color: #ffffaa;">s</span>, <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">n</span><span style="color: #e91e63;">)</span>;
+<span style="color: #7FFFD4;">string</span>&amp; <span style="color: #1D68C4;">replace</span> <span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">pos</span>,        <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">len</span>,        <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">n</span>, <span style="color: #7FFFD4;">char</span> <span style="color: #ffffaa;">c</span><span style="color: #e91e63;">)</span>;
+<span style="color: #7FFFD4;">string</span>&amp; <span style="color: #1D68C4;">replace</span> <span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">const_iterator</span> <span style="color: #ffffaa;">i1</span>, <span style="color: #7FFFD4;">const_iterator</span> <span style="color: #ffffaa;">i2</span>, <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">n</span>, <span style="color: #7FFFD4;">char</span> <span style="color: #ffffaa;">c</span><span style="color: #e91e63;">)</span>;
+<span style="color: #5FB7CC;">template</span> <span style="color: #e91e63;">&lt;</span><span style="color: #5FB7CC;">class</span> <span style="color: #7FFFD4;">InputIterator</span><span style="color: #e91e63;">&gt;</span>
+<span style="color: #7FFFD4;">string</span>&amp; <span style="color: #1D68C4;">replace</span> <span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">const_iterator</span> <span style="color: #ffffaa;">i1</span>, <span style="color: #7FFFD4;">const_iterator</span> <span style="color: #ffffaa;">i2</span>,
+                   <span style="color: #7FFFD4;">InputIterator</span> <span style="color: #ffffaa;">first</span>, <span style="color: #7FFFD4;">InputIterator</span> <span style="color: #ffffaa;">last</span><span style="color: #e91e63;">)</span>;
+<span style="color: #7FFFD4;">string</span>&amp; <span style="color: #1D68C4;">replace</span> <span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">const_iterator</span> <span style="color: #ffffaa;">i1</span>, <span style="color: #7FFFD4;">const_iterator</span> <span style="color: #ffffaa;">i2</span>, <span style="color: #7FFFD4;">initializer_list</span><span style="color: #1565C0;">&lt;</span><span style="color: #7FFFD4;">char</span><span style="color: #1565C0;">&gt;</span> <span style="color: #ffffaa;">il</span><span style="color: #e91e63;">)</span>;
 </pre>
 </div>
 
@@ -144,9 +141,9 @@ And then, we try to find our own solution. the pseudocode may simply looks like:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++">len = A.size<span style="color: #8c8c8c;">()</span>
-pos = X.find<span style="color: #8c8c8c;">(</span>A<span style="color: #8c8c8c;">)</span>
-X.replace<span style="color: #8c8c8c;">(</span>pos, len, B<span style="color: #8c8c8c;">)</span>;
+<pre class="src src-c++">len = A.size<span style="color: #e91e63;">()</span>
+pos = X.find<span style="color: #e91e63;">(</span>A<span style="color: #e91e63;">)</span>
+X.replace<span style="color: #e91e63;">(</span>pos, len, B<span style="color: #e91e63;">)</span>;
 </pre>
 </div>
 <p>
@@ -162,10 +159,10 @@ There seems a built-in <code>find</code> function in <code>std::string</code>, l
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #98fb98;">size_t</span> <span style="color: #87cefa;">find</span> <span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">const</span> <span style="color: #98fb98;">string</span>&amp; <span style="color: #eedd82;">str</span>, <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">pos</span> = 0<span style="color: #8c8c8c;">)</span> <span style="color: #00ffff;">const</span> <span style="color: #98fb98;">noexcept</span>;
-<span style="color: #98fb98;">size_t</span> <span style="color: #87cefa;">find</span> <span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">const</span> <span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">s</span>, <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">pos</span> = 0<span style="color: #8c8c8c;">)</span> <span style="color: #00ffff;">const</span>;
-<span style="color: #98fb98;">size_t</span> <span style="color: #87cefa;">find</span> <span style="color: #8c8c8c;">(</span><span style="color: #00ffff;">const</span> <span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">s</span>, <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">pos</span>, <span style="color: #98fb98;">size_type</span> <span style="color: #eedd82;">n</span><span style="color: #8c8c8c;">)</span> <span style="color: #00ffff;">const</span>;
-<span style="color: #98fb98;">size_t</span> <span style="color: #87cefa;">find</span> <span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">char</span> <span style="color: #eedd82;">c</span>, <span style="color: #98fb98;">size_t</span> <span style="color: #eedd82;">pos</span> = 0<span style="color: #8c8c8c;">)</span> <span style="color: #00ffff;">const</span> <span style="color: #98fb98;">noexcept</span>;
+<pre class="src src-c++"><span style="color: #7FFFD4;">size_t</span> <span style="color: #1D68C4;">find</span> <span style="color: #e91e63;">(</span><span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">string</span>&amp; <span style="color: #ffffaa;">str</span>, <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">pos</span> = 0<span style="color: #e91e63;">)</span> <span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">noexcept</span>;
+<span style="color: #7FFFD4;">size_t</span> <span style="color: #1D68C4;">find</span> <span style="color: #e91e63;">(</span><span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">char</span>* <span style="color: #ffffaa;">s</span>, <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">pos</span> = 0<span style="color: #e91e63;">)</span> <span style="color: #5FB7CC;">const</span>;
+<span style="color: #7FFFD4;">size_t</span> <span style="color: #1D68C4;">find</span> <span style="color: #e91e63;">(</span><span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">char</span>* <span style="color: #ffffaa;">s</span>, <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">pos</span>, <span style="color: #7FFFD4;">size_type</span> <span style="color: #ffffaa;">n</span><span style="color: #e91e63;">)</span> <span style="color: #5FB7CC;">const</span>;
+<span style="color: #7FFFD4;">size_t</span> <span style="color: #1D68C4;">find</span> <span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">char</span> <span style="color: #ffffaa;">c</span>, <span style="color: #7FFFD4;">size_t</span> <span style="color: #ffffaa;">pos</span> = 0<span style="color: #e91e63;">)</span> <span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">noexcept</span>;
 </pre>
 </div>
 <p>
@@ -173,10 +170,10 @@ luckily, there are something what we need: the first one. Now we can develop our
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #98fb98;">void</span> <span style="color: #87cefa;">replace_first</span><span style="color: #8c8c8c;">(</span><span style="color: #98fb98;">string</span> <span style="color: #eedd82;">X</span>, <span style="color: #98fb98;">string</span> <span style="color: #eedd82;">A</span>, <span style="color: #98fb98;">string</span> <span style="color: #eedd82;">B</span><span style="color: #8c8c8c;">)</span>
-<span style="color: #8c8c8c;">{</span>
-  X.replace<span style="color: #93a8c6;">(</span>X.find<span style="color: #b0b1a3;">(</span>A<span style="color: #b0b1a3;">)</span>, A.size<span style="color: #b0b1a3;">()</span>, B<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+<pre class="src src-c++"><span style="color: #7FFFD4;">void</span> <span style="color: #1D68C4;">replace_first</span><span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">string</span> <span style="color: #ffffaa;">X</span>, <span style="color: #7FFFD4;">string</span> <span style="color: #ffffaa;">A</span>, <span style="color: #7FFFD4;">string</span> <span style="color: #ffffaa;">B</span><span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">{</span>
+  X.replace<span style="color: #1565C0;">(</span>X.find<span style="color: #EF6C00;">(</span>A<span style="color: #EF6C00;">)</span>, A.size<span style="color: #EF6C00;">()</span>, B<span style="color: #1565C0;">)</span>;
+<span style="color: #e91e63;">}</span>
 </pre>
 </div>
 
@@ -205,10 +202,10 @@ Sometimes we may want to build our own types, with <code>std::string</code> serv
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #00ffff;">struct</span> <span style="color: #98fb98;">MyType</span>
-<span style="color: #8c8c8c;">{</span>
-    <span style="color: #7fffd4;">std</span>::<span style="color: #98fb98;">string</span> <span style="color: #eedd82;">str</span>;
-<span style="color: #8c8c8c;">}</span>;
+<pre class="src src-c++"><span style="color: #5FB7CC;">struct</span> <span style="color: #7FFFD4;">MyType</span>
+<span style="color: #e91e63;">{</span>
+    <span style="color: #8dd7e9;">std</span>::<span style="color: #7FFFD4;">string</span> <span style="color: #ffffaa;">str</span>;
+<span style="color: #e91e63;">}</span>;
 </pre>
 </div>
 <p>
@@ -216,15 +213,15 @@ Of course constructors are needed, how do we implement our constructors? there i
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #00ffff;">struct</span> <span style="color: #98fb98;">MyType</span>
-<span style="color: #8c8c8c;">{</span>
-    <span style="color: #7fffd4;">std</span>::<span style="color: #98fb98;">string</span> <span style="color: #eedd82;">str</span>;
+<pre class="src src-c++"><span style="color: #5FB7CC;">struct</span> <span style="color: #7FFFD4;">MyType</span>
+<span style="color: #e91e63;">{</span>
+    <span style="color: #8dd7e9;">std</span>::<span style="color: #7FFFD4;">string</span> <span style="color: #ffffaa;">str</span>;
 
-    <span style="color: #87cefa;">MyType</span><span style="color: #93a8c6;">(</span><span style="color: #00ffff;">const</span> <span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">s</span><span style="color: #93a8c6;">)</span>
+    <span style="color: #1D68C4;">MyType</span><span style="color: #1565C0;">(</span><span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">char</span>* <span style="color: #ffffaa;">s</span><span style="color: #1565C0;">)</span>
         :
-        str<span style="color: #93a8c6;">{</span>s<span style="color: #93a8c6;">}</span>
-    <span style="color: #93a8c6;">{}</span>
-<span style="color: #8c8c8c;">}</span>;
+        str<span style="color: #1565C0;">{</span>s<span style="color: #1565C0;">}</span>
+    <span style="color: #1565C0;">{}</span>
+<span style="color: #e91e63;">}</span>;
 </pre>
 </div>
 <p>
@@ -232,10 +229,10 @@ This program is plausible, or seriously, it's wrong!!! what happens if we constr
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #98fb98;">void</span> <span style="color: #87cefa;">PossibleUsage</span><span style="color: #8c8c8c;">()</span>
-<span style="color: #8c8c8c;">{</span>
-    <span style="color: #00ffff;">auto</span> <span style="color: #98fb98;">t</span> = MyType<span style="color: #93a8c6;">(</span>nullptr<span style="color: #93a8c6;">)</span>;
-<span style="color: #8c8c8c;">}</span>
+<pre class="src src-c++"><span style="color: #7FFFD4;">void</span> <span style="color: #1D68C4;">PossibleUsage</span><span style="color: #e91e63;">()</span>
+<span style="color: #e91e63;">{</span>
+    <span style="color: #5FB7CC;">auto</span> <span style="color: #7FFFD4;">t</span> = MyType<span style="color: #1565C0;">(</span>nullptr<span style="color: #1565C0;">)</span>;
+<span style="color: #e91e63;">}</span>
 </pre>
 </div>
 <p>
@@ -252,14 +249,14 @@ always check the pointers
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #98fb98;">void</span> <span style="color: #87cefa;">PossibleUsage</span><span style="color: #8c8c8c;">()</span>
-<span style="color: #8c8c8c;">{</span>
-    <span style="color: #00ffff;">const</span> <span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">s</span> = DoSomething<span style="color: #93a8c6;">()</span>;
+<pre class="src src-c++"><span style="color: #7FFFD4;">void</span> <span style="color: #1D68C4;">PossibleUsage</span><span style="color: #e91e63;">()</span>
+<span style="color: #e91e63;">{</span>
+    <span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">char</span>* <span style="color: #ffffaa;">s</span> = DoSomething<span style="color: #1565C0;">()</span>;
 
-    <span style="color: #00ffff;">if</span> <span style="color: #93a8c6;">(</span>s != nullptr<span style="color: #93a8c6;">)</span> <span style="color: #93a8c6;">{</span>
-        <span style="color: #00ffff;">auto</span> <span style="color: #98fb98;">t</span> = MyType<span style="color: #b0b1a3;">(</span>s<span style="color: #b0b1a3;">)</span>;
-    <span style="color: #93a8c6;">}</span>
-<span style="color: #8c8c8c;">}</span>
+    <span style="color: #5FB7CC;">if</span> <span style="color: #1565C0;">(</span>s != nullptr<span style="color: #1565C0;">)</span> <span style="color: #1565C0;">{</span>
+        <span style="color: #5FB7CC;">auto</span> <span style="color: #7FFFD4;">t</span> = MyType<span style="color: #EF6C00;">(</span>s<span style="color: #EF6C00;">)</span>;
+    <span style="color: #1565C0;">}</span>
+<span style="color: #e91e63;">}</span>
 </pre>
 </div>
 <p>
@@ -267,20 +264,20 @@ And, sometime we can also write constructor like this:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #00ffff;">struct</span> <span style="color: #98fb98;">MyType</span>
-<span style="color: #8c8c8c;">{</span>
-    <span style="color: #7fffd4;">std</span>::<span style="color: #98fb98;">string</span> <span style="color: #eedd82;">str</span>;
+<pre class="src src-c++"><span style="color: #5FB7CC;">struct</span> <span style="color: #7FFFD4;">MyType</span>
+<span style="color: #e91e63;">{</span>
+    <span style="color: #8dd7e9;">std</span>::<span style="color: #7FFFD4;">string</span> <span style="color: #ffffaa;">str</span>;
 
-    <span style="color: #87cefa;">MyType</span><span style="color: #93a8c6;">(</span><span style="color: #00ffff;">const</span> <span style="color: #98fb98;">char</span>* <span style="color: #eedd82;">s</span><span style="color: #93a8c6;">)</span>
-    <span style="color: #93a8c6;">{</span>
-        <span style="color: #00ffff;">if</span> <span style="color: #b0b1a3;">(</span>s == nullptr<span style="color: #b0b1a3;">)</span> <span style="color: #b0b1a3;">{</span>
-          <span style="color: #00ffff;">return</span>;
-        <span style="color: #b0b1a3;">}</span>
-        <span style="color: #00ffff;">else</span> <span style="color: #b0b1a3;">{</span>
+    <span style="color: #1D68C4;">MyType</span><span style="color: #1565C0;">(</span><span style="color: #5FB7CC;">const</span> <span style="color: #7FFFD4;">char</span>* <span style="color: #ffffaa;">s</span><span style="color: #1565C0;">)</span>
+    <span style="color: #1565C0;">{</span>
+        <span style="color: #5FB7CC;">if</span> <span style="color: #EF6C00;">(</span>s == nullptr<span style="color: #EF6C00;">)</span> <span style="color: #EF6C00;">{</span>
+          <span style="color: #5FB7CC;">return</span>;
+        <span style="color: #EF6C00;">}</span>
+        <span style="color: #5FB7CC;">else</span> <span style="color: #EF6C00;">{</span>
             str = s;
-        <span style="color: #b0b1a3;">}</span>
-    <span style="color: #93a8c6;">}</span>
-<span style="color: #8c8c8c;">}</span>;
+        <span style="color: #EF6C00;">}</span>
+    <span style="color: #1565C0;">}</span>
+<span style="color: #e91e63;">}</span>;
 </pre>
 </div>
 </div>
@@ -302,7 +299,7 @@ And, sometime we can also write constructor like this:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
-<p class="date">Date: 2016-08-15 Mon 12:35</p>
+<p class="date">Date: 2016-09-07 Wed 15:56</p>
 </div>
 </body>
 </html>

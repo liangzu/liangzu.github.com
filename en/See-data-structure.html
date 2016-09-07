@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>See your data structures(c++)</title>
-<!-- 2016-08-15 Mon 12:30 -->
+<!-- 2016-09-07 Wed 15:56 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Liangzu Peng" />
@@ -57,9 +57,6 @@ for the JavaScript code in this tag.
 </script>
 </head>
 <body>
-<div id="preamble" class="status">
-<p><a href="http://www.zju.edu.cn">ZJU</a>  |  <a href="http://www.liangzu.org">Liangzu</a>  |  <a href="http://">Sina Weibo</a>  |  <a href="http://isocpp.org">C++</a></p>
-</div>
 <div id="content">
 <h1 class="title">See your data structures(c++)</h1>
 <div id="table-of-contents">
@@ -175,14 +172,14 @@ Let me illustrate this idea with some examples:
 <div class="outline-text-4" id="text-2-3-1">
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #98fb98;">void</span> <span style="color: #87cefa;">ugly</span><span style="color: #8c8c8c;">()</span>
-<span style="color: #8c8c8c;">{</span>
-    <span style="color: #98fb98;">int</span>* <span style="color: #eedd82;">leaker</span> = <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">int</span><span style="color: #93a8c6;">()</span>;
+<pre class="src src-c++"><span style="color: #7FFFD4;">void</span> <span style="color: #1D68C4;">ugly</span><span style="color: #e91e63;">()</span>
+<span style="color: #e91e63;">{</span>
+    <span style="color: #7FFFD4;">int</span>* <span style="color: #ffffaa;">leaker</span> = <span style="color: #5FB7CC;">new</span> <span style="color: #7FFFD4;">int</span><span style="color: #1565C0;">()</span>;
 
-    use_leaker<span style="color: #93a8c6;">()</span>;
+    use_leaker<span style="color: #1565C0;">()</span>;
 
-    <span style="color: #ff7f24;">// </span><span style="color: #ff7f24;">forget to delete leaker when exit</span>
-<span style="color: #8c8c8c;">}</span>
+    <span style="color: #a5a5a5;">// </span><span style="color: #a5a5a5;">forget to delete leaker when exit</span>
+<span style="color: #e91e63;">}</span>
 </pre>
 </div>
 <p>
@@ -192,13 +189,13 @@ What if <code>ugly()</code> is called many times?
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #98fb98;">void</span> <span style="color: #87cefa;">uglier</span><span style="color: #8c8c8c;">()</span>
-<span style="color: #8c8c8c;">{</span>
-    <span style="color: #00ffff;">while</span><span style="color: #93a8c6;">(</span><span style="color: #7fffd4;">true</span><span style="color: #93a8c6;">)</span>
-    <span style="color: #93a8c6;">{</span>
-        ugly<span style="color: #b0b1a3;">()</span>;
-    <span style="color: #93a8c6;">}</span>
-<span style="color: #8c8c8c;">}</span>
+<pre class="src src-c++"><span style="color: #7FFFD4;">void</span> <span style="color: #1D68C4;">uglier</span><span style="color: #e91e63;">()</span>
+<span style="color: #e91e63;">{</span>
+    <span style="color: #5FB7CC;">while</span><span style="color: #1565C0;">(</span><span style="color: #8dd7e9;">true</span><span style="color: #1565C0;">)</span>
+    <span style="color: #1565C0;">{</span>
+        ugly<span style="color: #EF6C00;">()</span>;
+    <span style="color: #1565C0;">}</span>
+<span style="color: #e91e63;">}</span>
 </pre>
 </div>
 
@@ -211,15 +208,15 @@ We can prohibit it by <code>delete leaker</code>, or if  <code>leaker</code> may
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #98fb98;">int</span>* <span style="color: #87cefa;">ugly</span><span style="color: #8c8c8c;">()</span>
-<span style="color: #8c8c8c;">{</span>
-    <span style="color: #98fb98;">int</span>* <span style="color: #eedd82;">leaker</span> = <span style="color: #00ffff;">new</span> <span style="color: #98fb98;">int</span><span style="color: #93a8c6;">()</span>;
+<pre class="src src-c++"><span style="color: #7FFFD4;">int</span>* <span style="color: #1D68C4;">ugly</span><span style="color: #e91e63;">()</span>
+<span style="color: #e91e63;">{</span>
+    <span style="color: #7FFFD4;">int</span>* <span style="color: #ffffaa;">leaker</span> = <span style="color: #5FB7CC;">new</span> <span style="color: #7FFFD4;">int</span><span style="color: #1565C0;">()</span>;
 
-    use_leaker<span style="color: #93a8c6;">()</span>;
+    use_leaker<span style="color: #1565C0;">()</span>;
 
-  <span style="color: #ff7f24;">// </span><span style="color: #ff7f24;">delete leaker;</span>
-    <span style="color: #00ffff;">return</span> leaker;
-<span style="color: #8c8c8c;">}</span>
+  <span style="color: #a5a5a5;">// </span><span style="color: #a5a5a5;">delete leaker;</span>
+    <span style="color: #5FB7CC;">return</span> leaker;
+<span style="color: #e91e63;">}</span>
 </pre>
 </div>
 <p>
@@ -281,26 +278,26 @@ The below is what my program reads:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-pascal"><span style="color: #00ffff;">program</span> <span style="color: #87cefa;">hello</span>;
-<span style="color: #98fb98;">var</span>
-    ans : <span style="color: #98fb98;">integer</span>;
+<pre class="src src-pascal"><span style="color: #5FB7CC;">program</span> <span style="color: #1D68C4;">hello</span>;
+<span style="color: #7FFFD4;">var</span>
+    ans : <span style="color: #7FFFD4;">integer</span>;
 
-<span style="color: #00ffff;">function</span> <span style="color: #87cefa;">gcd</span><span style="color: #8c8c8c;">(</span>a, b : <span style="color: #98fb98;">integer</span><span style="color: #8c8c8c;">)</span> : <span style="color: #98fb98;">integer</span>;
-<span style="color: #00ffff;">begin</span>
-    <span style="color: #00ffff;">if</span> b = 0 <span style="color: #00ffff;">then</span> <span style="color: #00ffff;">begin</span>
+<span style="color: #5FB7CC;">function</span> <span style="color: #1D68C4;">gcd</span><span style="color: #e91e63;">(</span>a, b : <span style="color: #7FFFD4;">integer</span><span style="color: #e91e63;">)</span> : <span style="color: #7FFFD4;">integer</span>;
+<span style="color: #5FB7CC;">begin</span>
+    <span style="color: #5FB7CC;">if</span> b = 0 <span style="color: #5FB7CC;">then</span> <span style="color: #5FB7CC;">begin</span>
         gcd := a;
-    <span style="color: #00ffff;">end</span>
-    <span style="color: #00ffff;">else</span> <span style="color: #00ffff;">begin</span>
-        gcd := gcd<span style="color: #8c8c8c;">(</span>b , a mod b<span style="color: #8c8c8c;">)</span>;
-    <span style="color: #00ffff;">end</span>
+    <span style="color: #5FB7CC;">end</span>
+    <span style="color: #5FB7CC;">else</span> <span style="color: #5FB7CC;">begin</span>
+        gcd := gcd<span style="color: #e91e63;">(</span>b , a mod b<span style="color: #e91e63;">)</span>;
+    <span style="color: #5FB7CC;">end</span>
     ;
-<span style="color: #00ffff;">end</span>
+<span style="color: #5FB7CC;">end</span>
 ;
 
-<span style="color: #00ffff;">begin</span>
-    ans := gcd<span style="color: #8c8c8c;">(</span>9 , 36<span style="color: #8c8c8c;">)</span> * gcd<span style="color: #8c8c8c;">(</span>3 , 6<span style="color: #8c8c8c;">)</span>;
-    writeln<span style="color: #8c8c8c;">(</span>ans<span style="color: #8c8c8c;">)</span>;
-<span style="color: #00ffff;">end</span>
+<span style="color: #5FB7CC;">begin</span>
+    ans := gcd<span style="color: #e91e63;">(</span>9 , 36<span style="color: #e91e63;">)</span> * gcd<span style="color: #e91e63;">(</span>3 , 6<span style="color: #e91e63;">)</span>;
+    writeln<span style="color: #e91e63;">(</span>ans<span style="color: #e91e63;">)</span>;
+<span style="color: #5FB7CC;">end</span>
 .
 </pre>
 </div>
@@ -323,7 +320,7 @@ if interested in it, You should learn to use it through the online document, but
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
-<p class="date">Date: 2016-08-15 Mon 12:30</p>
+<p class="date">Date: 2016-09-07 Wed 15:56</p>
 </div>
 </body>
 </html>
