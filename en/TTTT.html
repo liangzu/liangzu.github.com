@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Thread: Two Three Things</title>
+<!-- 2016-09-07 Wed 20:25 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Liangzu Peng" />
+<link rel="stylesheet" href="./css/my-css.css" type="text/css"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Thread: Two Three Things</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Introduction</a></li>
+<li><a href="#sec-2">Local variables can be shared between threads</a></li>
+<li><a href="#sec-3">Thread safety consideration</a></li>
+<li><a href="#sec-4">Scheduling shared resources by semaphore</a></li>
+<li><a href="#sec-5">Implementing user-level thread</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This article (TTTT) shares some notes after I read some chapters of <a href="http://www.eopl3.com/">EOPL3</a> and <a href="http://csapp.cs.cmu.edu/">CSAPP</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Local variables can be shared between threads</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+We all know that global and static variables can be shared between threads, but some tricky programs share their local variables. For instance:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #7FFFD4;">#include</span> <span style="color: #cd5c5c;">&lt;pthread.h&gt;</span>
+<span style="color: #7FFFD4;">#include</span> <span style="color: #cd5c5c;">&lt;stdio.h&gt;</span>
+
+<span style="color: #7FFFD4;">void</span>* <span style="color: #1D68C4;">thread</span><span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">void</span>* <span style="color: #ffffaa;">args</span><span style="color: #e91e63;">)</span>;
+
+<span style="color: #7FFFD4;">char</span> **<span style="color: #ffffaa;">pointer</span>;
+
+<span style="color: #7FFFD4;">int</span> <span style="color: #1D68C4;">main</span> <span style="color: #e91e63;">()</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #7FFFD4;">int</span> <span style="color: #ffffaa;">i</span>;
+    <span style="color: #7FFFD4;">pthread_t</span> <span style="color: #ffffaa;">tid</span>;
+    <span style="color: #7FFFD4;">char</span> *<span style="color: #ffffaa;">str</span><span style="color: #1565C0;">[]</span> = <span style="color: #1565C0;">{</span>
+        <span style="color: #cd5c5c;">"Hello, Thread!"</span>,
+        <span style="color: #cd5c5c;">"Thread, Hello!"</span>
+    <span style="color: #1565C0;">}</span>;
+
+    pointer = str;
+
+    pthread_create<span style="color: #1565C0;">(</span>&amp;tid, <span style="color: #8dd7e9;">NULL</span>, thread, <span style="color: #8dd7e9;">NULL</span><span style="color: #1565C0;">)</span>;
+
+    pthread_join<span style="color: #1565C0;">(</span>tid, <span style="color: #8dd7e9;">NULL</span><span style="color: #1565C0;">)</span>;
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #7FFFD4;">void</span>* <span style="color: #1D68C4;">thread</span><span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">void</span>* <span style="color: #ffffaa;">args</span><span style="color: #e91e63;">)</span> <span style="color: #e91e63;">{</span>
+    printf<span style="color: #1565C0;">(</span><span style="color: #cd5c5c;">"Use Local Variables&#58; %s"</span>, pointer<span style="color: #EF6C00;">[</span>0<span style="color: #EF6C00;">]</span><span style="color: #1565C0;">)</span>;
+
+    <span style="color: #5FB7CC;">return</span> <span style="color: #8dd7e9;">NULL</span>;
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+<p>
+The global variable <code>pointer</code> points to a local variable <code>str</code> in <code>main</code> thread, and thus other threads can access it.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">Thread safety consideration</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+How do we know whether a function is thread-safe or not? <a href="http://csapp.cs.cmu.edu/">CSAPP</a> has given a clear definition:
+</p>
+<dl class="org-dl">
+<dt> The function that doesn't protect the shared variables </dt><dd>Thread-unsafe.
+</dd>
+<dt> The function that returns a pointer to a static variable </dt><dd>Thread-unsafe.
+</dd>
+<dt> The function whose returned value depends on the previous returned value </dt><dd>Thread-unsafe
+</dd>
+<dt> The function which calls other thread-unsafe functions </dt><dd>Depends.
+</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Scheduling shared resources by semaphore</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<a href="http://csapp.cs.cmu.edu/">CSAPP</a> describes a concurrent queue to illustrate this idea.
+</p>
+
+<p>
+The code is as following(can not be run):
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #7FFFD4;">#include</span> <span style="color: #cd5c5c;">&lt;semaphore.h&gt;</span>
+<span style="color: #7FFFD4;">#include</span> <span style="color: #cd5c5c;">&lt;stdio.h&gt;</span>
+<span style="color: #7FFFD4;">#include</span> <span style="color: #cd5c5c;">&lt;stdlib.h&gt;</span>
+
+<span style="color: #5FB7CC;">typedef</span> <span style="color: #5FB7CC;">struct</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #7FFFD4;">int</span> *<span style="color: #ffffaa;">buf</span>;
+    <span style="color: #7FFFD4;">int</span> <span style="color: #ffffaa;">n</span>;
+    <span style="color: #7FFFD4;">int</span> <span style="color: #ffffaa;">front</span>;
+    <span style="color: #7FFFD4;">int</span> <span style="color: #ffffaa;">rear</span>;
+    <span style="color: #7FFFD4;">sem_t</span> <span style="color: #ffffaa;">mutex</span>;
+    <span style="color: #7FFFD4;">sem_t</span> <span style="color: #ffffaa;">slots</span>;
+    <span style="color: #7FFFD4;">sem_t</span> <span style="color: #ffffaa;">items</span>;
+<span style="color: #e91e63;">}</span> <span style="color: #7FFFD4;">sbuf_t</span>;
+
+
+<span style="color: #7FFFD4;">void</span> <span style="color: #1D68C4;">sbuf_init</span><span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">sbuf_t</span>* <span style="color: #ffffaa;">sp</span>, <span style="color: #7FFFD4;">int</span> <span style="color: #ffffaa;">n</span><span style="color: #e91e63;">)</span> <span style="color: #e91e63;">{</span>
+    sp-&gt;buf = calloc<span style="color: #1565C0;">(</span>n, <span style="color: #5FB7CC;">sizeof</span><span style="color: #EF6C00;">(</span><span style="color: #7FFFD4;">int</span><span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span>;
+    sp-&gt;n = n;
+    sp-&gt;front = sp-&gt;rear = 0;
+    sem_init<span style="color: #1565C0;">(</span>&amp;sp-&gt;mutex, 0, 1<span style="color: #1565C0;">)</span>;
+    sem_init<span style="color: #1565C0;">(</span>&amp;sp-&gt;slots, 0, n<span style="color: #1565C0;">)</span>;
+    sem_init<span style="color: #1565C0;">(</span>&amp;sp-&gt;items, 0, 0<span style="color: #1565C0;">)</span>;
+<span style="color: #e91e63;">}</span>
+
+<span style="color: #7FFFD4;">void</span> <span style="color: #1D68C4;">sbuf_insert</span><span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">sbuf_t</span>* <span style="color: #ffffaa;">sp</span>, <span style="color: #7FFFD4;">int</span> <span style="color: #ffffaa;">item</span><span style="color: #e91e63;">)</span> <span style="color: #e91e63;">{</span>
+    P<span style="color: #1565C0;">(</span>&amp;sp-&gt;slots<span style="color: #1565C0;">)</span>;   <span style="color: #a5a5a5;">// </span><span style="color: #a5a5a5;">Function P undefined...</span>
+    P<span style="color: #1565C0;">(</span>&amp;sp-&gt;mutex<span style="color: #1565C0;">)</span>;
+
+    sp-&gt;buf<span style="color: #1565C0;">[</span><span style="color: #EF6C00;">(</span>++sp-&gt;rear<span style="color: #EF6C00;">)</span> % <span style="color: #EF6C00;">(</span>sp-&gt;n<span style="color: #EF6C00;">)</span><span style="color: #1565C0;">]</span> = item;
+    V<span style="color: #1565C0;">(</span>&amp;sp-&gt;mutex<span style="color: #1565C0;">)</span>;
+    V<span style="color: #1565C0;">(</span>&amp;sp-&gt;items<span style="color: #1565C0;">)</span>;
+<span style="color: #e91e63;">}</span>
+<span style="color: #7FFFD4;">int</span> <span style="color: #1D68C4;">sbuf_remove</span><span style="color: #e91e63;">(</span><span style="color: #7FFFD4;">sbuf_t</span>* <span style="color: #ffffaa;">sp</span><span style="color: #e91e63;">)</span> <span style="color: #e91e63;">{</span>
+    <span style="color: #7FFFD4;">int</span> <span style="color: #ffffaa;">item</span>;
+    P<span style="color: #1565C0;">(</span>&amp;sp-&gt;items<span style="color: #1565C0;">)</span>;
+    P<span style="color: #1565C0;">(</span>&amp;sp-&gt;mutex<span style="color: #1565C0;">)</span>;
+
+    item = sp-&gt;buf<span style="color: #1565C0;">[</span><span style="color: #EF6C00;">(</span>++sp-&gt;front<span style="color: #EF6C00;">)</span> % <span style="color: #EF6C00;">(</span>sp-&gt;n<span style="color: #EF6C00;">)</span><span style="color: #1565C0;">]</span>;
+    V<span style="color: #1565C0;">(</span>&amp;sp-&gt;mutex<span style="color: #1565C0;">)</span>;
+    V<span style="color: #1565C0;">(</span>&amp;sp-&gt;slots<span style="color: #1565C0;">)</span>;
+    <span style="color: #5FB7CC;">return</span> item;
+<span style="color: #e91e63;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Implementing user-level thread</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+<a href="http://www.eopl3.com/">EOPL3</a> introduces the concepts of <code>continuation</code>. Continuation is an abstraction of <code>control context</code>. Once we can manage and control the continuation of the computation, we can implement threads simply in the user-level.
+</p>
+
+<p>
+If you are interested in <code>continuation</code> and <code>thread</code>, having a look at <code>chapter 5</code> in <code>EOPL</code>.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
+<p class="date">Date: 2016-09-07 Wed 20:25</p>
+</div>
+</body>
+</html>
