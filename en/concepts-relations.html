@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Concepts and their relations</title>
+<!-- 2016-09-08 Thu 14:28 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Liangzu Peng" />
+<link rel="stylesheet" href="./css/my-css.css" type="text/css"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Concepts and their relations</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Introduction</a></li>
+<li><a href="#sec-2">Concurrency VS Parallelism</a>
+<ul>
+<li><a href="#sec-2-1">Definitions</a></li>
+<li><a href="#sec-2-2">Relationships</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">LL(1) grammar VS LR(1) grammar</a>
+<ul>
+<li><a href="#sec-3-1">Why should we study them?</a></li>
+<li><a href="#sec-3-2">Relationships</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">P VS NP</a>
+<ul>
+<li><a href="#sec-4-1">Definitions</a></li>
+<li><a href="#sec-4-2">Relationships</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+People are always annoyed by complicated concepts, This post shares my point of view on some related but slightly different concepts and their relationships.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Concurrency VS Parallelism</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+I've heard too many definitions/explainations of concurrency and parallelism from people, none of them makes me happy&#x2026; until I saw the definition in <a href="http://csapp.cs.cmu.edu/">CSAPP</a>.
+</p>
+</div>
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">Definitions</h3>
+<div class="outline-text-3" id="text-2-1">
+<dl class="org-dl">
+<dt> Logical control flow </dt><dd>While a program is running, the sequence of PC(program counter) values is known as a <code>logical control flow</code>.
+</dd>
+<dt> Concurrent flow </dt><dd>A logical flow whose execution overlaps in time with another flow is called <code>concurrent flow</code>, and the two flows are said to <code>run concurrently</code>. More precisely, flows X and Y are concurrent with respect to each other if and only if X begins after Y begins and before Y finishes, or Y begins after X begins and before X finishes. Notice that the idea of concurrent flows is independent of the number of processor cores or computers that the flows are running on. If two flows overlap in time, then they are concurrent, even if they are running on the same processor.
+</dd>
+<dt> Parallel flow </dt><dd>If two flows are running concurrently on different processor cores or computers, then we say that they are <code>parallel</code> flows, that they are <code>running in parallel</code>, and have <code>parallel execution</code>.
+</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">Relationships</h3>
+<div class="outline-text-3" id="text-2-2">
+<pre class="example">
++-------------------+------------------+
+|                   |                  |
+|   Concurrent      |                  |
+|    Programs       |   Sequential     |
+|                   |    Programs      |
+|  +-------------+  |                  |
+|  | Parallel    |  |                  |
+|  |   Programs  |  |                  |
+|  +-------------+  |                  |
++-------------------+------------------+
+</pre>
+<p>
+According to their definition, we can summarize that:
+</p>
+<ul class="org-ul">
+<li>Parallel programs are a proper subset of Concurrent programs
+</li>
+<li>Programs are: concurrent programs or sequential programs
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">LL(1) grammar VS LR(1) grammar</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Why should we study them?</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Table-driven parsing algorithms are sometimes hard to implement and difficult to understand, and, at the same time, there are many parser-generator that we can utilize. Why do we study so many different grammars and parsing algorithms?
+</p>
+
+<p>
+The only reason we do so today is because we want to distinguish the ability of one parsing algorithm from another's. Once we could answer a question such as "which parsing algorithm can handle what kind of grammar", we can use the parser-generator (which implements this algorithm) to do our job(parsing a language).
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">Relationships</h3>
+<div class="outline-text-3" id="text-3-2">
+<pre class="example">
++--------------------------+
+| +--------+-------------+ |
+| | LL(1)  |             | |
+| | +-----+|   LR(1)     | |
+| | | RG  ||             | |
+| | +-----+|             | |
+| +--------+             | |
+| +----------------------+ |
+|   Context-free grammar   |
++--------------------------+
+</pre>
+<p>
+The above graph should be read as follows:
+</p>
+<ul class="org-ul">
+<li>Regular Grammar is a proper subset of LL(1) grammar,
+</li>
+<li>LL(1) Grammar is a proper subset of LR(1) grammar, and
+</li>
+<li>LR(1) Grammar is a proper subset of context-free grammar.
+</li>
+</ul>
+
+<p>
+LL(1) grammar:
+</p>
+<ul class="org-ul">
+<li>can not be left-recursive
+</li>
+<li>should do left-factoring to eliminate backtracking
+</li>
+<li>can be parsed by recursive-descent parsing
+</li>
+</ul>
+
+<p>
+LR(1) grammar doesn't have limits of LL(1) grammar and thus are more powerful.
+</p>
+
+<p>
+Grammars have more formal and rigorous definitions (defined by first/follow set etc&#x2026;), but we've known enough to solve our programming language parsing problem.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">P VS NP</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+People were surprised and said, "This problem is NP problem! I can not solve it!". I was surprised by what I heard.
+</p>
+
+<p>
+You will find an obviously logical error in what they said if you understand the relationships of <b>P</b> and <b>NP</b>. (This section is mostly from <a href="http://algs4.cs.princeton.edu/">Algorithms, 4th</a>.)
+</p>
+</div>
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">Definitions</h3>
+<div class="outline-text-3" id="text-4-1">
+<dl class="org-dl">
+<dt> Search problem </dt><dd>A <code>search problem</code> is a problem having solutions with the property that the time needed to <code>certify</code> that any solution is correct is bounded by a polynomial in the size of the input. We say that an algorithm <code>solves</code> a search problem is, given any input, it either produces a solution or reports that none exists.
+</dd>
+<dt> NP </dt><dd><b>NP</b> is the set of all search problems.
+</dd>
+<dt> P </dt><dd><b>P</b> is the set of all search problems that can be solved in polynomial time.
+</dd>
+<dt> NPC </dt><dd>A search problem A is said to be <code>NP-complete</code> if all problems in <b>NP</b> poly-time reduce to A.
+</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2">Relationships</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Their relationships can be considered as two conditions by Their definition.
+</p>
+
+<pre class="example">
+     if P = NP                                   if P != NP
++-----------------------+              +------------------------------+
+|                       |              |   +----+   NP                |
+|                       |              |   |    |         +---------+ |
+|    P   =   NP         |              |   | P  |         |   NPC   | |
+|                       |              |   +----+         +---------+ |
++-----------------------+              +------------------------------+
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
+<p class="date">Date: 2016-09-08 Thu 14:28</p>
+</div>
+</body>
+</html>
