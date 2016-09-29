@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>eq? eqv? or equal?</title>
-<!-- 2016-09-18 Sun 19:52 -->
+<!-- 2016-09-29 Thu 22:12 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Liangzu Peng" />
@@ -63,23 +63,110 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">Introduction</a></li>
+<li><a href="#sec-1">Have a try</a>
+<ul>
+<li><a href="#sec-1-1">eq?</a></li>
+<li><a href="#sec-1-2">eqv?</a></li>
+<li><a href="#sec-1-3">equal?</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">What do they even mean?</a></li>
+<li><a href="#sec-3">How dow we know which one to use?</a></li>
 </ul>
 </div>
 </div>
-
+<p>
+This post is just some notes from <a href="https://www.amazon.cn/dp/0262691361/ref=fs_rd_1">Scheme and the Art of Programming</a>.
+</p>
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Introduction</h2>
+<h2 id="sec-1">Have a try</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Younger schemers are always confused about when to use <code>eq?</code>, <code>eqv?</code> and <code>equal?</code>
+Type or copy the following code into your <code>REPL</code> to see what will happen and you can obtain an intuitive idea what are <code>eq?</code>, <code>eqv?</code> and <code>equal?</code>.
 </p>
+</div>
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">eq?</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span style="color: #e91e63;">(</span><span style="color: #5FB7CC;">define</span> <span style="color: #1D68C4;">ls-a</span> <span style="color: #1565C0;">(</span>cons 1 '<span style="color: #EF6C00;">(</span>2 3<span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span><span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span><span style="color: #5FB7CC;">define</span> <span style="color: #1D68C4;">ls-b</span> <span style="color: #1565C0;">(</span>cons 1 '<span style="color: #EF6C00;">(</span>2 3<span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span><span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span><span style="color: #5FB7CC;">define</span> <span style="color: #1D68C4;">ls-c</span> ls-a<span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>eq? <span style="color: #1565C0;">(</span>cons 1 '<span style="color: #EF6C00;">(</span>2 3<span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span> <span style="color: #1565C0;">(</span>cons 1 '<span style="color: #EF6C00;">(</span>2 3<span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span><span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>eq? ls-a '<span style="color: #1565C0;">(</span>cons 1 '<span style="color: #EF6C00;">(</span>2 3<span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span><span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>eq? ls-a ls-b<span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>eq? ls-a ls-c<span style="color: #e91e63;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">eqv?</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span style="color: #e91e63;">(</span>eqv? <span style="color: #1565C0;">(</span>+ 2 3<span style="color: #1565C0;">)</span> <span style="color: #1565C0;">(</span>- 10 5<span style="color: #1565C0;">)</span><span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>eqv? 5 6<span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>eqv? 5 'five<span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>eqv? 'cat 'cat<span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>eqv? 'cat 'kitten<span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>eqv? <span style="color: #1565C0;">(</span>car '<span style="color: #EF6C00;">(</span>a a a <span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span> <span style="color: #1565C0;">(</span>car <span style="color: #EF6C00;">(</span>cdr '<span style="color: #B388FF;">(</span>a a a<span style="color: #B388FF;">)</span><span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span><span style="color: #e91e63;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">equal?</h3>
+<div class="outline-text-3" id="text-1-3">
+<div class="org-src-container">
+
+<pre class="src src-scheme"><span style="color: #e91e63;">(</span>equal? 3 <span style="color: #1565C0;">(</span>/ 6 2<span style="color: #1565C0;">)</span><span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>equal? 'cat 'cat<span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>equal? '<span style="color: #1565C0;">(</span>a b c<span style="color: #1565C0;">)</span> <span style="color: #1565C0;">(</span>cons 'a '<span style="color: #EF6C00;">(</span>b c<span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span><span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>equal? <span style="color: #1565C0;">(</span>cons 1'<span style="color: #EF6C00;">(</span>2 3<span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span> <span style="color: #1565C0;">(</span>cons 1 '<span style="color: #EF6C00;">(</span>2 3<span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span><span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>equal? '<span style="color: #1565C0;">(</span>a <span style="color: #EF6C00;">(</span>b c<span style="color: #EF6C00;">)</span> d<span style="color: #1565C0;">)</span> '<span style="color: #1565C0;">(</span>a <span style="color: #EF6C00;">(</span>b c<span style="color: #EF6C00;">)</span> d<span style="color: #1565C0;">)</span><span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>equal? '<span style="color: #1565C0;">(</span>a <span style="color: #EF6C00;">(</span>b c<span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span> '<span style="color: #1565C0;">(</span>a <span style="color: #EF6C00;">(</span>c b<span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span><span style="color: #e91e63;">)</span>
+<span style="color: #e91e63;">(</span>equal? <span style="color: #1565C0;">(</span>cdr '<span style="color: #EF6C00;">(</span>a c d<span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span> <span style="color: #1565C0;">(</span>cdr '<span style="color: #EF6C00;">(</span>b c d<span style="color: #EF6C00;">)</span><span style="color: #1565C0;">)</span><span style="color: #e91e63;">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">What do they even mean?</h2>
+<div class="outline-text-2" id="text-2">
+<dl class="org-dl">
+<dt> eq? </dt><dd>The predicate <code>eq?</code> returns <code>#t</code> if its two arguments are identical in all respects; otherwise it returns <code>#f</code>.
+</dd>
+<dt> eqv? </dt><dd>When we want to include numbers, symbols and booleans in the types of objects the predicate tests for sameness, we can use the predicate <code>eqv?</code>.
+</dd>
+<dt> equal? </dt><dd>If we want a universal sameness predicate that can be applied to test numbers, symbols, booleans, procedures, and lists(and strings, characters, and vectors), we use the predicate <code>equal?</code>.
+</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">How dow we know which one to use?</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>for numbers, use =;
+</li>
+<li>for symbols, use <code>eq?</code>;
+</li>
+<li>use <code>eqv?</code> for testing only numbers or symbols, but
+</li>
+<li>when to use <code>equal?</code> ?, I guess you know.
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
-<p class="date">Date: 2016-09-17 Sat 09:33</p>
+<p class="date">Date: 2016-09-29 Thu 22:12</p>
 </div>
 </body>
 </html>
