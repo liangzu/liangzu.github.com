@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="741" height="576" viewBox="0 0 741 576">
+<style type="text/css"><![CDATA[
+text { font:12px Dialog; }
+]]></style>
+<rect x="-485" y="-485" width="1711" height="1546" style="fill:rgb(235,233,220);stroke:none" />
+<clipPath id="clip1"><path d="M15,15 L726,15 L726,561 L15,561 Z M18,18 L18,89 L380,89 L380,18 Z M18,18 Z M18,18" /></clipPath>
+<path d="M199,99 L199,141 C199,145.4140625 202.5859375,149 207,149 L221,149" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip1)" />
+<clipPath id="clip2"><path d="M15,15 L726,15 L726,561 L15,561 Z M18,18 L18,89 L380,89 L380,18 Z M18,18 Z M18,18" /></clipPath>
+<path d="M199,99 L199,250 C199,254.4140625 202.5859375,258 207,258 L221,258" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip2)" />
+<clipPath id="clip3"><path d="M15,15 L726,15 L726,561 L15,561 Z M18,18 L18,89 L380,89 L380,18 Z M18,18 Z M18,18" /></clipPath>
+<path d="M199,99 L199,419 C199,423.4140625 202.5859375,427 207,427 L221,427" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip3)" />
+<clipPath id="clip4"><path d="M14,14 L727,14 L727,562 L14,562 L14,14 Z" /></clipPath>
+<path d="M199,89 L199,99" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip4)" />
+<clipPath id="clip5"><path d="M14,14 L385,14 L385,94 L14,94 L14,14 Z" /></clipPath>
+<path d="M18,18 L18,89 L380,89 L380,18 Z M18,18" style="fill:rgb(255,255,255);stroke:none" clip-path="url(#clip5)" />
+<clipPath id="clip6"><path d="M14,14 L385,14 L385,94 L14,94 L14,14 Z" /></clipPath>
+<path d="M18,18 L18,89 L380,89 L380,18 Z M18,18" style="fill:none;stroke:rgb(19,21,13);stroke-width:5" clip-path="url(#clip6)" />
+<text x="54" y="58" style="font:20px Arvo">2016.10.4 =&gt; 2016.10.20</text>
+<clipPath id="clip7"><path d="M219,124 L680,124 L680,223 L219,223 Z M221,126 L221,172 L310,172 L310,126 Z M221,126 Z M221,126" /></clipPath>
+<path d="M265.6835938,186 L265.6835938,208 L275,208" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip7)" />
+<clipPath id="clip8"><path d="M218,123 L681,123 L681,224 L218,224 L218,123 Z" /></clipPath>
+<path d="M265.6132813,172 L265.6835938,186" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip8)" />
+<clipPath id="clip9"><path d="M218,123 L314,123 L314,176 L218,176 L218,123 Z" /></clipPath>
+<path d="M221,126 L221,172 L310,172 L310,126 Z M221,126" style="fill:rgb(121,123,115);stroke:none" clip-path="url(#clip9)" />
+<clipPath id="clip10"><path d="M218,123 L314,123 L314,176 L218,176 L218,123 Z" /></clipPath>
+<path d="M221,126 L221,172 L310,172 L310,126 Z M221,126" style="fill:none;stroke:rgb(19,21,13);stroke-width:3" clip-path="url(#clip10)" />
+<text x="237" y="152" style="font:16px Roboto Slab">Goals</text>
+<clipPath id="clip11"><path d="M260,174 L273,174 L273,187 L260,187 L260,174 Z" /></clipPath>
+<path d="M270.5,180 C270.5,177.515625 268.484375,175.5 266,175.5 C263.515625,175.5 261.5,177.515625 261.5,180 C261.5,182.484375 263.515625,184.5 266,184.5 C268.484375,184.5 270.5,182.484375 270.5,180 Z M270.5,180" style="fill:rgb(250,250,250);stroke:none" clip-path="url(#clip11)" />
+<clipPath id="clip12"><path d="M260,174 L273,174 L273,187 L260,187 L260,174 Z" /></clipPath>
+<path d="M270.5,180 C270.5,177.515625 268.484375,175.5 266,175.5 C263.515625,175.5 261.5,177.515625 261.5,180 C261.5,182.484375 263.515625,184.5 266,184.5 C268.484375,184.5 270.5,182.484375 270.5,180 Z M270.5,180" style="fill:none;stroke:rgb(31,20,0)" clip-path="url(#clip12)" />
+<clipPath id="clip13"><path d="M260,174 L273,174 L273,187 L260,187 L260,174 Z" /></clipPath>
+<path d="M264,180 L268,180" style="fill:none;stroke:rgb(150,160,200)" clip-path="url(#clip13)" />
+<clipPath id="clip14"><path d="M273,193 L681,193 L681,224 L273,224 L273,193 Z" /></clipPath>
+<path d="M275,195 L275,221 L678,221 L678,195 Z M275,195" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip14)" />
+<text x="286" y="210" style="font:10px Roboto Slab">Mastering Linear Algebra, both intuitively and mathematically</text>
+<clipPath id="clip15"><path d="M219,233 L726,233 L726,392 L219,392 Z M221,235 L221,281 L316,281 L316,235 Z M221,235 Z M221,235" /></clipPath>
+<path d="M268.6835938,295 L268.6835938,317 L278,317" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip15)" />
+<clipPath id="clip16"><path d="M219,233 L726,233 L726,392 L219,392 Z M221,235 L221,281 L316,281 L316,235 Z M221,235 Z M221,235" /></clipPath>
+<path d="M268.6835938,295 L268.6835938,347 L278,347" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip16)" />
+<clipPath id="clip17"><path d="M219,233 L726,233 L726,392 L219,392 Z M221,235 L221,281 L316,281 L316,235 Z M221,235 Z M221,235" /></clipPath>
+<path d="M268.6835938,295 L268.6835938,377 L278,377" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip17)" />
+<clipPath id="clip18"><path d="M218,232 L727,232 L727,393 L218,393 L218,232 Z" /></clipPath>
+<path d="M268.6132813,281 L268.6835938,295" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip18)" />
+<clipPath id="clip19"><path d="M218,232 L320,232 L320,285 L218,285 L218,232 Z" /></clipPath>
+<path d="M221,235 L221,281 L316,281 L316,235 Z M221,235" style="fill:rgb(121,123,115);stroke:none" clip-path="url(#clip19)" />
+<clipPath id="clip20"><path d="M218,232 L320,232 L320,285 L218,285 L218,232 Z" /></clipPath>
+<path d="M221,235 L221,281 L316,281 L316,235 Z M221,235" style="fill:none;stroke:rgb(19,21,13);stroke-width:3" clip-path="url(#clip20)" />
+<text x="237" y="261" style="font:16px Roboto Slab">Books</text>
+<clipPath id="clip21"><path d="M263,283 L276,283 L276,296 L263,296 L263,283 Z" /></clipPath>
+<path d="M273.5,289 C273.5,286.515625 271.484375,284.5 269,284.5 C266.515625,284.5 264.5,286.515625 264.5,289 C264.5,291.484375 266.515625,293.5 269,293.5 C271.484375,293.5 273.5,291.484375 273.5,289 Z M273.5,289" style="fill:rgb(250,250,250);stroke:none" clip-path="url(#clip21)" />
+<clipPath id="clip22"><path d="M263,283 L276,283 L276,296 L263,296 L263,283 Z" /></clipPath>
+<path d="M273.5,289 C273.5,286.515625 271.484375,284.5 269,284.5 C266.515625,284.5 264.5,286.515625 264.5,289 C264.5,291.484375 266.515625,293.5 269,293.5 C271.484375,293.5 273.5,291.484375 273.5,289 Z M273.5,289" style="fill:none;stroke:rgb(31,20,0)" clip-path="url(#clip22)" />
+<clipPath id="clip23"><path d="M263,283 L276,283 L276,296 L263,296 L263,283 Z" /></clipPath>
+<path d="M267,289 L271,289" style="fill:none;stroke:rgb(150,160,200)" clip-path="url(#clip23)" />
+<clipPath id="clip24"><path d="M276,302 L579,302 L579,333 L276,333 L276,302 Z" /></clipPath>
+<path d="M278,304 L278,330 L576,330 L576,304 Z M278,304" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip24)" />
+<text x="289" y="319" style="font:10px Roboto Slab">Introduction to Linear Algebra, Gilbert Strang</text>
+<clipPath id="clip25"><path d="M276,332 L557,332 L557,363 L276,363 L276,332 Z" /></clipPath>
+<path d="M278,334 L278,360 L554,360 L554,334 Z M278,334" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip25)" />
+<text x="289" y="349" style="font:10px Roboto Slab">Linear Algebra Done Right, Sheldon Axler</text>
+<clipPath id="clip26"><path d="M276,362 L727,362 L727,393 L276,393 L276,362 Z" /></clipPath>
+<path d="M278,364 L278,390 L724,390 L724,364 Z M278,364" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip26)" />
+<text x="289" y="379" style="font:10px Roboto Slab">Flatland: A Romance of Many Dimensions, Edwin A. Abbott (optional)</text>
+<clipPath id="clip27"><path d="M219,402 L705,402 L705,561 L219,561 Z M221,404 L221,450 L325,450 L325,404 Z M221,404 Z M221,404" /></clipPath>
+<path d="M273,464 L273,486 L282,486" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip27)" />
+<clipPath id="clip28"><path d="M219,402 L705,402 L705,561 L219,561 Z M221,404 L221,450 L325,450 L325,404 Z M221,404 Z M221,404" /></clipPath>
+<path d="M273,464 L273,516 L282,516" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip28)" />
+<clipPath id="clip29"><path d="M219,402 L705,402 L705,561 L219,561 Z M221,404 L221,450 L325,450 L325,404 Z M221,404 Z M221,404" /></clipPath>
+<path d="M273,464 L273,546 L282,546" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip29)" />
+<clipPath id="clip30"><path d="M218,401 L706,401 L706,562 L218,562 L218,401 Z" /></clipPath>
+<path d="M273,450 L273,464" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip30)" />
+<clipPath id="clip31"><path d="M218,401 L329,401 L329,454 L218,454 L218,401 Z" /></clipPath>
+<path d="M221,404 L221,450 L325,450 L325,404 Z M221,404" style="fill:rgb(121,123,115);stroke:none" clip-path="url(#clip31)" />
+<clipPath id="clip32"><path d="M218,401 L329,401 L329,454 L218,454 L218,401 Z" /></clipPath>
+<path d="M221,404 L221,450 L325,450 L325,404 Z M221,404" style="fill:none;stroke:rgb(19,21,13);stroke-width:3" clip-path="url(#clip32)" />
+<text x="237" y="430" style="font:16px Roboto Slab">Details</text>
+<clipPath id="clip33"><path d="M267,452 L280,452 L280,465 L267,465 L267,452 Z" /></clipPath>
+<path d="M277.5,458 C277.5,455.515625 275.484375,453.5 273,453.5 C270.515625,453.5 268.5,455.515625 268.5,458 C268.5,460.484375 270.515625,462.5 273,462.5 C275.484375,462.5 277.5,460.484375 277.5,458 Z M277.5,458" style="fill:rgb(250,250,250);stroke:none" clip-path="url(#clip33)" />
+<clipPath id="clip34"><path d="M267,452 L280,452 L280,465 L267,465 L267,452 Z" /></clipPath>
+<path d="M277.5,458 C277.5,455.515625 275.484375,453.5 273,453.5 C270.515625,453.5 268.5,455.515625 268.5,458 C268.5,460.484375 270.515625,462.5 273,462.5 C275.484375,462.5 277.5,460.484375 277.5,458 Z M277.5,458" style="fill:none;stroke:rgb(31,20,0)" clip-path="url(#clip34)" />
+<clipPath id="clip35"><path d="M267,452 L280,452 L280,465 L267,465 L267,452 Z" /></clipPath>
+<path d="M271,458 L275,458" style="fill:none;stroke:rgb(150,160,200)" clip-path="url(#clip35)" />
+<clipPath id="clip36"><path d="M280,471 L446,471 L446,502 L280,502 L280,471 Z" /></clipPath>
+<path d="M282,473 L282,499 L443,499 L443,473 Z M282,473" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip36)" />
+<text x="293" y="488" style="font:10px Roboto Slab">Watch MIT18.06 videos</text>
+<clipPath id="clip37"><path d="M280,501 L540,501 L540,532 L280,532 L280,501 Z" /></clipPath>
+<path d="M282,503 L282,529 L537,529 L537,503 Z M282,503" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip37)" />
+<text x="293" y="518" style="font:10px Roboto Slab">Finish &gt;50% execises of the textbooks</text>
+<clipPath id="clip38"><path d="M280,531 L706,531 L706,562 L280,562 L280,531 Z" /></clipPath>
+<path d="M282,533 L282,559 L703,559 L703,533 Z M282,533" style="fill:none;stroke:rgb(31,20,0);stroke-width:2" clip-path="url(#clip38)" />
+<text x="293" y="548" style="font:10px Roboto Slab">try to prove ALL the related theorems and lemmas independently</text>
+</svg>
