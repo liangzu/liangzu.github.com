@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Paper Reading Notebook</title>
+<!-- 2017-06-29 Thu 16:01 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Liangzu Peng" />
+<link rel="stylesheet" href="./css/my-css.css" type="text/css"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Paper Reading Notebook</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">2017.6.29-2017.9.10</a>
+<ul>
+<li><a href="#sec-1-1">Transformation-Grouned Image Generation Network for Novel 3D View Synthesis</a>
+<ul>
+<li><a href="#sec-1-1-1">Problem Description(Novel View Synthesis)</a></li>
+<li><a href="#sec-1-1-2">Solution Description</a></li>
+<li><a href="#sec-1-1-3"><span class="todo TODO">TODO</span> Mathematical Details</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2">Weakly supervised disentangling</a>
+<ul>
+<li><a href="#sec-1-2-1">Main Contribution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<blockquote>
+<p>
+"<i>The palest ink is better than the best memory.</i>"
+</p>
+
+<p>
+&#x2014;&#x2014; <i>a old saying</i>
+</p>
+</blockquote>
+
+<p>
+This page is used to share my recent paper reading for
+writing-training and "report/lie to advisor" purpose. The
+notes are mostly copied from the paper, I will use my own
+word to write if the word itself comes to my mind.
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">2017.6.29-2017.9.10</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Transformation-Grouned Image Generation Network for Novel 3D View Synthesis</h3>
+<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1">Problem Description(Novel View Synthesis)</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Given a single view of an object in an arbitrary pose, the goal is to
+synthesize an image of the object after a specified transformation of
+viewpoint.
+</p>
+
+<p>
+Novel view synthesis could be seen as a combination of the following
+three scenarios:
+</p>
+<ol class="org-ol">
+<li>pixels in the input view that remain visible in the target view are
+moved to their corresponding positions,
+</li>
+<li>remaining pixels in the input view disappear due to occlusions,
+</li>
+<li>previously unseen pixels are revealed or disoccluded in the target
+view.
+</li>
+</ol>
+
+<p>
+This problem is not merely <code>important</code> because it has a variety of practical
+applications in vision, graphics and robotics, but also generally
+<code>challenging</code> due to unspecified input viewing angle and the ambiguities
+of 3D shape observed in only a single view.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2">Solution Description</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+to solve the problem memtioned above, we need to sequentially solve two
+sub-problem described as follows:
+</p>
+<ol class="org-ol">
+<li>designing a network to transform the pixels of the input view that
+remain visible(<b>DOAFN</b> in the paper).
+</li>
+<li>designing a network that infers the unseen pixels of the target
+view given theses transformed pixels(view completion network in the
+paper).
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3"><span class="todo TODO">TODO</span> Mathematical Details</h4>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Weakly supervised disentangling</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+This paper proposed a recurrent convolutional encoder-decoder network
+with <b>action units</b> to model the process of pose manifold traversal,
+consisting of four components:
+</p>
+<ol class="org-ol">
+<li>a deep convolutional encoder,<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>
+</li>
+<li>shared identity units,
+</li>
+<li>recurrent pose units with rotation action inputs, and
+</li>
+<li>a deep convolutional decoder<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1">Main Contribution</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+The main contributions of this work are:
+</p>
+<ol class="org-ol">
+<li>a new network was developed for learning to apply out-of-plane
+rotations to human faces and 3D chair models.
+</li>
+<li>the learned model can generate realistic rotation trajectories with
+a control signal supplied at each step by the user.
+</li>
+<li>despite only trained to synthesize images, this model learns
+discriminative view-invariant features without using class labels.
+This weakly-supervised disentangling is especially notable with
+longer-term prediction.
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p>DEFINITION NOT FOUND.</p></div>
+
+<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p>DEFINITION NOT FOUND.</p></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
+<p class="date">Date: 2017-06-29 Thu 16:01</p>
+</div>
+</body>
+</html>
