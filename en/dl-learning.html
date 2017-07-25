@@ -1,86 +1,203 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!doctype html>
+<html lang="en">
 <head>
 <title>Learning Deep Learning</title>
-<!-- 2017-07-20 四 19:00 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Liangzu Peng" />
-<link rel="stylesheet" href="./css/my-css.css" type="text/css"/>
+<!-- 2017-07-24 一 20:52 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Liangzu Peng">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style type="text/css">
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
+$(function() {
+    'use strict';
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+    $('.bs-docs-sidebar li').first().addClass('active');
 
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
 
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+    $('.bs-docs-sidebar').affix();
+});
 </script>
 </head>
 <body>
-<div id="content">
-<h1 class="title">Learning Deep Learning</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">Goals</a></li>
-<li><a href="#sec-2">Basics</a>
-<ul>
-<li><a href="#sec-2-1">Getting Started</a></li>
-<li><a href="#sec-2-2">Core</a></li>
-<li><a href="#sec-2-3">Tools to learn</a></li>
-<li><a href="#sec-2-4">Beware</a></li>
-</ul>
-</li>
-<li><a href="#sec-3">Research</a></li>
-</ul>
-</div>
-</div>
+<div id="content" class="container">
+<div class="row"><div class="col-md-9"><h1 class="title">Learning Deep Learning</h1>
 <p>
 (much more contents will be added in the future.)
 </p>
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Goals</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> Goals</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Your goal is to as quickly as possible pick up the essential
@@ -89,10 +206,10 @@ knowledge, and then dive directly into the research papers.
 </div>
 </div>
 <div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Basics</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> Basics</h2>
 <div class="outline-text-2" id="text-2">
 </div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1">Getting Started</h3>
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Getting Started</h3>
 <div class="outline-text-3" id="text-2-1">
 <dl class="org-dl">
 <dt> <a href="https://classroom.udacity.com/courses/ud810">Computer Vision course on Udacity</a> </dt><dd>watch videos(1A-L1 to 2A-L3) to
@@ -107,7 +224,7 @@ These two slides(<a href="http://vision.stanford.edu/teaching/cs131_fall1617/lec
 </div>
 
 <div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2">Core</h3>
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Core</h3>
 <div class="outline-text-3" id="text-2-2">
 <dl class="org-dl">
 <dt> <a href="http://cs231n.stanford.edu/">Stanford CS231n</a> (<a href="https://www.youtube.com/results?search_query=cs231n">Winter2016 videos</a>) </dt><dd>It's just enough once you are
@@ -119,7 +236,7 @@ are special topics.
 </div>
 
 <div id="outline-container-sec-2-3" class="outline-3">
-<h3 id="sec-2-3">Tools to learn</h3>
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> Tools to learn</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>Python
@@ -131,7 +248,7 @@ are special topics.
 </div>
 
 <div id="outline-container-sec-2-4" class="outline-3">
-<h3 id="sec-2-4">Beware</h3>
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> Beware</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 You, as a curious student, are not supposed to learn only what I
@@ -146,7 +263,7 @@ internet.
 </div>
 
 <div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">Research</h2>
+<h2 id="sec-3"><span class="section-number-2">3</span> Research</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Due to my ignorance of other research areas, I can only share my
@@ -155,10 +272,29 @@ to work with you on <b>Novel View Synthesis</b> in the future.
 </p>
 </div>
 </div>
+</div><div class="col-md-3"><nav id="table-of-contents">
+<div id="text-table-of-contents" class="bs-docs-sidebar">
+<ul class="nav">
+<li><a href="#sec-1">1. Goals</a></li>
+<li><a href="#sec-2">2. Basics</a>
+<ul class="nav">
+<li><a href="#sec-2-1">2.1. Getting Started</a></li>
+<li><a href="#sec-2-2">2.2. Core</a></li>
+<li><a href="#sec-2-3">2.3. Tools to learn</a></li>
+<li><a href="#sec-2-4">2.4. Beware</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. Research</a></li>
+</ul>
 </div>
-<div id="postamble" class="status">
-<p class="author">Author: Liangzu Peng (<a href="mailto:faithofplz@hotmail.com">faithofplz@hotmail.com</a>)</p>
-<p class="date">Date: 2017-07-20 四 19:00</p>
+</nav>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Liangzu Peng</p>
+<p class="email">Email: <a href="mailto:faithofplz@gmail.com">faithofplz@gmail.com</a></p>
+<p class="date">Created: 2017-07-24 一 20:52</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.0.50 (<a href="http://orgmode.org">Org-mode</a> 9.0.9)</p>
 </div>
+</footer>
 </body>
 </html>
