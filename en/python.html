@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title>code the python way</title>
-<!-- 2017-08-11 五 18:23 -->
+<!-- 2018-01-08 一 10:12 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -198,15 +198,15 @@ $(function() {
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #e69f00; font-weight: bold;">cities</span> = <span style="color: #707183;">[</span><span style="color: #848ea9;">'Marseille'</span>, <span style="color: #848ea9;">'Amsterdam'</span>, <span style="color: #848ea9;">'New York'</span>, <span style="color: #848ea9;">'London'</span><span style="color: #707183;">]</span>
-<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">the bad way</span>
-<span style="color: #e69f00; font-weight: bold;">i</span> = <span style="color: #d55e00; font-weight: bold;">0</span>
-<span style="color: #56b4e9; font-weight: bold;">for</span> city <span style="color: #56b4e9; font-weight: bold;">in</span> cities:
-    <span style="color: #56b4e9; font-weight: bold;">print</span><span style="color: #707183;">(</span>i, city<span style="color: #707183;">)</span>
-    <span style="color: #e69f00; font-weight: bold;">i</span> += <span style="color: #d55e00; font-weight: bold;">1</span>
-<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">the good way</span>
-<span style="color: #56b4e9; font-weight: bold;">for</span> i, city <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">enumerate</span><span style="color: #707183;">(</span>cities<span style="color: #707183;">)</span>:
-    <span style="color: #56b4e9; font-weight: bold;">print</span><span style="color: #707183;">(</span>i, city<span style="color: #707183;">)</span>
+<pre class="src src-python"><span style="color: #7590db;">cities</span> = <span style="color: #4f97d7;">[</span><span style="color: #2d9574;">'Marseille'</span>, <span style="color: #2d9574;">'Amsterdam'</span>, <span style="color: #2d9574;">'New York'</span>, <span style="color: #2d9574;">'London'</span><span style="color: #4f97d7;">]</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the bad way</span>
+<span style="color: #7590db;">i</span> = <span style="color: #a45bad;">0</span>
+<span style="color: #4f97d7; font-weight: bold;">for</span> city <span style="color: #4f97d7; font-weight: bold;">in</span> cities:
+    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>i, city<span style="color: #4f97d7;">)</span>
+    <span style="color: #7590db;">i</span> += <span style="color: #a45bad;">1</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the good way</span>
+<span style="color: #4f97d7; font-weight: bold;">for</span> i, city <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">enumerate</span><span style="color: #4f97d7;">(</span>cities<span style="color: #4f97d7;">)</span>:
+    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>i, city<span style="color: #4f97d7;">)</span>
 </pre>
 </div>
 </div>
@@ -216,16 +216,16 @@ $(function() {
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #e69f00; font-weight: bold;">x_list</span> = <span style="color: #707183;">[</span><span style="color: #d55e00; font-weight: bold;">1</span>,<span style="color: #d55e00; font-weight: bold;">2</span>,<span style="color: #d55e00; font-weight: bold;">3</span><span style="color: #707183;">]</span>
-<span style="color: #e69f00; font-weight: bold;">y_list</span> = <span style="color: #707183;">[</span><span style="color: #d55e00; font-weight: bold;">2</span>,<span style="color: #d55e00; font-weight: bold;">4</span>,<span style="color: #d55e00; font-weight: bold;">6</span><span style="color: #707183;">]</span>
-<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">the bad way</span>
-<span style="color: #56b4e9; font-weight: bold;">for</span> i <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">range</span><span style="color: #707183;">(</span><span style="color: #0072b2;">len</span><span style="color: #7388d6;">(</span>x_list<span style="color: #7388d6;">)</span><span style="color: #707183;">)</span>:
-    <span style="color: #e69f00; font-weight: bold;">x</span> = x_list<span style="color: #707183;">[</span>i<span style="color: #707183;">]</span>
-    <span style="color: #e69f00; font-weight: bold;">y</span> = y_list<span style="color: #707183;">[</span>i<span style="color: #707183;">]</span>
-    <span style="color: #56b4e9; font-weight: bold;">print</span><span style="color: #707183;">(</span>x, y<span style="color: #707183;">)</span>
-<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">the good way</span>
-<span style="color: #56b4e9; font-weight: bold;">for</span> x, y <span style="color: #56b4e9; font-weight: bold;">in</span> <span style="color: #0072b2;">zip</span><span style="color: #707183;">(</span>x_list, y_list<span style="color: #707183;">)</span>:
-    <span style="color: #56b4e9; font-weight: bold;">print</span><span style="color: #707183;">(</span>x, y<span style="color: #707183;">)</span>
+<pre class="src src-python"><span style="color: #7590db;">x_list</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">1</span>,<span style="color: #a45bad;">2</span>,<span style="color: #a45bad;">3</span><span style="color: #4f97d7;">]</span>
+<span style="color: #7590db;">y_list</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">2</span>,<span style="color: #a45bad;">4</span>,<span style="color: #a45bad;">6</span><span style="color: #4f97d7;">]</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the bad way</span>
+<span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>x_list<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>:
+    <span style="color: #7590db;">x</span> = x_list<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span>
+    <span style="color: #7590db;">y</span> = y_list<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span>
+    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>x, y<span style="color: #4f97d7;">)</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the good way</span>
+<span style="color: #4f97d7; font-weight: bold;">for</span> x, y <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">zip</span><span style="color: #4f97d7;">(</span>x_list, y_list<span style="color: #4f97d7;">)</span>:
+    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>x, y<span style="color: #4f97d7;">)</span>
 </pre>
 </div>
 </div>
@@ -236,18 +236,18 @@ $(function() {
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #e69f00; font-weight: bold;">ages</span> = <span style="color: #707183;">{</span>
-    <span style="color: #848ea9;">'Mary'</span>: <span style="color: #d55e00; font-weight: bold;">31</span>,
-    <span style="color: #848ea9;">'Jonathan'</span>: <span style="color: #d55e00; font-weight: bold;">28</span>
-<span style="color: #707183;">}</span>
-<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">the bad way</span>
-<span style="color: #56b4e9; font-weight: bold;">if</span> <span style="color: #848ea9;">'Dick'</span> <span style="color: #56b4e9; font-weight: bold;">in</span> ages:
-    <span style="color: #e69f00; font-weight: bold;">age</span> = ages<span style="color: #707183;">[</span><span style="color: #848ea9;">'Dick'</span><span style="color: #707183;">]</span>
-<span style="color: #56b4e9; font-weight: bold;">else</span>:
-    <span style="color: #e69f00; font-weight: bold;">age</span> = <span style="color: #848ea9;">'Unknown'</span>
+<pre class="src src-python"><span style="color: #7590db;">ages</span> = <span style="color: #4f97d7;">{</span>
+    <span style="color: #2d9574;">'Mary'</span>: <span style="color: #a45bad;">31</span>,
+    <span style="color: #2d9574;">'Jonathan'</span>: <span style="color: #a45bad;">28</span>
+<span style="color: #4f97d7;">}</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the bad way</span>
+<span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #2d9574;">'Dick'</span> <span style="color: #4f97d7; font-weight: bold;">in</span> ages:
+    <span style="color: #7590db;">age</span> = ages<span style="color: #4f97d7;">[</span><span style="color: #2d9574;">'Dick'</span><span style="color: #4f97d7;">]</span>
+<span style="color: #4f97d7; font-weight: bold;">else</span>:
+    <span style="color: #7590db;">age</span> = <span style="color: #2d9574;">'Unknown'</span>
 
-<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">the good way</span>
-<span style="color: #e69f00; font-weight: bold;">age</span> = ages.get<span style="color: #707183;">(</span><span style="color: #848ea9;">'Dick'</span>, <span style="color: #848ea9;">'Unknown'</span><span style="color: #707183;">)</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the good way</span>
+<span style="color: #7590db;">age</span> = ages.get<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Dick'</span>, <span style="color: #2d9574;">'Unknown'</span><span style="color: #4f97d7;">)</span>
 </pre>
 </div>
 </div>
@@ -257,32 +257,82 @@ $(function() {
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #e69f00; font-weight: bold;">needle</span> = <span style="color: #848ea9;">'d'</span>
-<span style="color: #e69f00; font-weight: bold;">haystack</span> = <span style="color: #707183;">[</span><span style="color: #848ea9;">'a'</span>, <span style="color: #848ea9;">'b'</span>, <span style="color: #848ea9;">'c'</span>, <span style="color: #848ea9;">'d'</span><span style="color: #707183;">]</span>
-<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">the bad way</span>
-<span style="color: #e69f00; font-weight: bold;">found</span> = <span style="color: #d55e00; font-weight: bold;">False</span>
-<span style="color: #56b4e9; font-weight: bold;">for</span> letter <span style="color: #56b4e9; font-weight: bold;">in</span> haystack:
-    <span style="color: #56b4e9; font-weight: bold;">if</span> needle == letter:
-        <span style="color: #56b4e9; font-weight: bold;">print</span><span style="color: #707183;">(</span><span style="color: #848ea9;">'Found!'</span><span style="color: #707183;">)</span>
-        <span style="color: #e69f00; font-weight: bold;">found</span> = <span style="color: #d55e00; font-weight: bold;">True</span>
-        <span style="color: #56b4e9; font-weight: bold;">break</span>
+<pre class="src src-python"><span style="color: #7590db;">needle</span> = <span style="color: #2d9574;">'d'</span>
+<span style="color: #7590db;">haystack</span> = <span style="color: #4f97d7;">[</span><span style="color: #2d9574;">'a'</span>, <span style="color: #2d9574;">'b'</span>, <span style="color: #2d9574;">'c'</span>, <span style="color: #2d9574;">'d'</span><span style="color: #4f97d7;">]</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the bad way</span>
+<span style="color: #7590db;">found</span> = <span style="color: #a45bad;">False</span>
+<span style="color: #4f97d7; font-weight: bold;">for</span> letter <span style="color: #4f97d7; font-weight: bold;">in</span> haystack:
+    <span style="color: #4f97d7; font-weight: bold;">if</span> needle == letter:
+        <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Found!'</span><span style="color: #4f97d7;">)</span>
+        <span style="color: #7590db;">found</span> = <span style="color: #a45bad;">True</span>
+        <span style="color: #4f97d7; font-weight: bold;">break</span>
 
-<span style="color: #56b4e9; font-weight: bold;">if</span> <span style="color: #56b4e9; font-weight: bold;">not</span> found:
-    <span style="color: #56b4e9; font-weight: bold;">print</span><span style="color: #707183;">(</span><span style="color: #848ea9;">'Not found!'</span><span style="color: #707183;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7; font-weight: bold;">not</span> found:
+    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Not found!'</span><span style="color: #4f97d7;">)</span>
 
-<span style="color: #009e73; font-style: italic;"># </span><span style="color: #009e73; font-style: italic;">the good way</span>
-<span style="color: #56b4e9; font-weight: bold;">for</span> letter <span style="color: #56b4e9; font-weight: bold;">in</span> haystack:
-    <span style="color: #56b4e9; font-weight: bold;">if</span> needle == letter:
-        <span style="color: #56b4e9; font-weight: bold;">print</span><span style="color: #707183;">(</span><span style="color: #848ea9;">'Found!'</span><span style="color: #707183;">)</span>
-        <span style="color: #56b4e9; font-weight: bold;">break</span>
-<span style="color: #56b4e9; font-weight: bold;">else</span>:
-    <span style="color: #56b4e9; font-weight: bold;">print</span><span style="color: #707183;">(</span><span style="color: #848ea9;">'Not found!'</span><span style="color: #707183;">)</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the good way</span>
+<span style="color: #4f97d7; font-weight: bold;">for</span> letter <span style="color: #4f97d7; font-weight: bold;">in</span> haystack:
+    <span style="color: #4f97d7; font-weight: bold;">if</span> needle == letter:
+        <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Found!'</span><span style="color: #4f97d7;">)</span>
+
+        <span style="color: #4f97d7; font-weight: bold;">break</span>
+<span style="color: #4f97d7; font-weight: bold;">else</span>:
+    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Not found!'</span><span style="color: #4f97d7;">)</span>
 </pre>
 </div>
 </div>
 </div>
 <div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> d</h2>
+<h2 id="sec-5"><span class="section-number-2">5</span> File reading with 'with'</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the bad way</span>
+<span style="color: #7590db;">f</span> = <span style="color: #4f97d7;">open</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'pimpin-aint-easy.txt'</span><span style="color: #4f97d7;">)</span>
+<span style="color: #7590db;">text</span> = f.read<span style="color: #4f97d7;">()</span>
+<span style="color: #4f97d7; font-weight: bold;">for</span> line <span style="color: #4f97d7; font-weight: bold;">in</span> text.split<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'\n'</span><span style="color: #4f97d7;">)</span>:
+    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>line<span style="color: #4f97d7;">)</span>
+f.close<span style="color: #4f97d7;">()</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the better way</span>
+<span style="color: #7590db;">f</span> = <span style="color: #4f97d7;">open</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'pimpin-aint-easy.txt'</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">for</span> line <span style="color: #4f97d7; font-weight: bold;">in</span> f:
+    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>line<span style="color: #4f97d7;">)</span>
+f.close<span style="color: #4f97d7;">()</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">a even better way</span>
+<span style="color: #4f97d7; font-weight: bold;">with</span> <span style="color: #4f97d7;">open</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'pimpin-aint-easy.txt'</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7; font-weight: bold;">as</span> f:
+    <span style="color: #4f97d7; font-weight: bold;">for</span> line <span style="color: #4f97d7; font-weight: bold;">in</span> f:
+        <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>line<span style="color: #4f97d7;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Exception handling</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Converting!'</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">try</span>:
+    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">int</span><span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">'x'</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">except</span>:
+    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Conversion failed!'</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">else</span>:  <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">if no-except</span>
+    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Conversion successful'</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">finally</span>:  <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">always</span>
+    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Done!'</span><span style="color: #4f97d7;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Directory Access</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #4f97d7;">[</span>d <span style="color: #4f97d7; font-weight: bold;">for</span> d <span style="color: #4f97d7; font-weight: bold;">in</span> os.listdir<span style="color: #bc6ec5;">(</span><span style="color: #4f97d7;">dir</span><span style="color: #bc6ec5;">)</span> <span style="color: #4f97d7; font-weight: bold;">if</span> os.path.isdir<span style="color: #bc6ec5;">(</span>os.path.join<span style="color: #2d9574;">(</span><span style="color: #4f97d7;">dir</span>, d<span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">]</span>
+</pre>
+</div>
+</div>
 </div>
 </div><div class="col-md-3"><nav id="table-of-contents">
 <div id="text-table-of-contents" class="bs-docs-sidebar">
@@ -291,7 +341,9 @@ $(function() {
 <li><a href="#sec-2">2. Using zip()</a></li>
 <li><a href="#sec-3">3. Default dict values</a></li>
 <li><a href="#sec-4">4. For &#x2026; else</a></li>
-<li><a href="#sec-5">5. d</a></li>
+<li><a href="#sec-5">5. File reading with 'with'</a></li>
+<li><a href="#sec-6">6. Exception handling</a></li>
+<li><a href="#sec-7">7. Directory Access</a></li>
 </ul>
 </div>
 </nav>
@@ -299,8 +351,8 @@ $(function() {
 <footer id="postamble" class="">
 <div><p class="author">Author: Liangzu Peng</p>
 <p class="email">Email: <a href="mailto:faithofplz@gmail.com">faithofplz@gmail.com</a></p>
-<p class="date">Created: 2017-08-11 五 18:23</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.0.50 (<a href="http://orgmode.org">Org-mode</a> 9.0.9)</p>
+<p class="date">Created: 2018-01-08 一 10:12</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 27.0.50 (<a href="http://orgmode.org">Org-mode</a> 9.1.8)</p>
 </div>
 </footer>
 </body>

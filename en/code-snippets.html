@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title>Useful Code Snippets</title>
-<!-- 2017-08-09 三 12:48 -->
+<!-- 2018-01-08 一 10:12 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -194,13 +194,13 @@ $(function() {
 <div id="content" class="container">
 <div class="row"><div class="col-md-9"><h1 class="title">Useful Code Snippets</h1>
 <p>
-This article is just really full of snippets, functioning as a 
+This article is just really full of snippets, functioning as a
 memorandum, which
 prevents me from the repeating recurrence.
 </p>
 
 <p>
-Also it helps serve us to set something up once and for all so 
+Also it helps serve us to set something up once and for all so
 as to get something else done.
 </p>
 
@@ -219,11 +219,11 @@ sudo apt-get -y dist-upgrade
 sudo apt-get -y autoremove
 
 <span style="color: #4f97d7;">echo</span> <span style="color: #2d9574;">"Most frequently used third-party packages"</span>
-sudo apt-get install -y build-essential cmake pkg-config libpng-dev libjpeg-dev 
+sudo apt-get install -y build-essential cmake pkg-config libpng-dev libjpeg-dev
 sudo apt-get install -y libtiff-dev zlib1g-dev libssl-dev libx11-dev
 sudo apt-get install -y libxrandr-dev libxxf86dga-dev libxcursor-dev bison flex
-sudo apt-get install -y libfreetype6-dev libvorbis-dev libeigen3-dev 
-sudo apt-get install -y libode-dev libgl1-mesa-dev libopenal-dev 
+sudo apt-get install -y libfreetype6-dev libvorbis-dev libeigen3-dev
+sudo apt-get install -y libode-dev libgl1-mesa-dev libopenal-dev
 sudo apt-get install -y libbullet-dev nvidia-cg-toolkit libgtk2.0-dev
 
 <span style="color: #4f97d7;">echo</span> <span style="color: #2d9574;">"ssh"</span>
@@ -245,6 +245,10 @@ sudo apt install uget
 sudo add-apt-repository -y ppa:ubuntu-elisp
 sudo apt-get update
 sudo apt-get -y install emacs-snapshot
+
+<span style="color: #4f97d7;">echo</span> <span style="color: #2d9574;">"Latex"</span>
+sudo apt-get -y texlive-full
+
 
 <span style="color: #4f97d7;">echo</span> <span style="color: #2d9574;">"Google Chrome"</span>
 sudo wget http://www.linuxidc.com/files/repo/google-chrome.list -P /etc/apt/sources.list.d/
@@ -287,6 +291,8 @@ sudo apt-get install -y faketime htop lshw pdftk
 <pre class="src src-bash">gnome-screenshot -a
 <span style="color: #4f97d7;">source</span> ~/pyVir/py3/bin/activate
 glxinfo | grep OpenGL
+
+<span style="color: #4f97d7;">echo</span> <span style="color: #4f97d7;">{</span><span style="color: #a45bad;">01..15</span><span style="color: #4f97d7;">}</span>
 </pre>
 </div>
 <p>
@@ -337,7 +343,7 @@ virtualenv --system-site-packages -p python3 ~/pyVir/py3
 pip install matplotlib numpy scipy tensorflow spider ipython jupyter
 
 <span style="color: #4f97d7;">echo</span> <span style="color: #2d9574;">"pytorch, requiring python3.5 and cuda8"</span>
-pip install http://download.pytorch.org/whl/cu80/torch-0.2.0.post1-cp35-cp35m-manylinux1_x86_64.whl 
+pip install http://download.pytorch.org/whl/cu80/torch-0.2.0.post1-cp35-cp35m-manylinux1_x86_64.whl
 pip install torchvision
 
 
@@ -416,9 +422,9 @@ sudo apt-get install -y qt5-default libvtk6-dev
 sudo apt-get install -y zlib1g-dev libjpeg-dev libwebp-dev libpng-dev libtiff5-dev libjasper-dev libopenexr-dev libgdal-dev
 
 <span style="color: #4f97d7;">echo</span> <span style="color: #2d9574;">"Video I/O"</span>
-sudo apt-get install -y libdc1394-22-dev libavcodec-dev libvorbis-dev 
-sudo apt-get install -y libavformat-dev libswscale-dev libtheora-dev 
-sudo apt-get install -y libxvidcore-dev libx264-dev yasm libopencore-amrnb-dev 
+sudo apt-get install -y libdc1394-22-dev libavcodec-dev libvorbis-dev
+sudo apt-get install -y libavformat-dev libswscale-dev libtheora-dev
+sudo apt-get install -y libxvidcore-dev libx264-dev yasm libopencore-amrnb-dev
 sudo apt-get install -y libopencore-amrwb-dev libv4l-dev libxine2-dev
 
 <span style="color: #4f97d7;">echo</span> <span style="color: #2d9574;">"Parallelism and linear algebra libraries"</span>
@@ -460,8 +466,8 @@ sudo ldconfig
 
 <pre class="src src-bash">sudo apt-get install -y build-essential libgl1-mesa-dev libglu1-mesa-dev
 sudo apt-get install -y freeglut3-dev <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">or libglut-dev</span>
-sudo apt-get install -y libglew-dev libsdl2-dev libsdl2-image-dev 
-sudo apt-get install -y libglm-dev libfreetype6-dev
+sudo apt-get install -y libglew-dev libsdl2-dev libsdl2-image-dev
+sudo apt-get install -y libglm-dev libglfw3-dev libfreetype6-dev
 sudo apt-get install -y libfreeimage-dev libfreeimage3 libfreeimage3-dbg libfreeimage3-dbgsym
 sudo apt-get install -y libfreeimageplus3-dev libfreeimageplus3 libfreeimageplus3-dbg libfreeimageplus3-dbgsym
 </pre>
@@ -522,6 +528,8 @@ sudo apt-get install -y libfreeimageplus3-dev libfreeimageplus3 libfreeimageplus
 </div>
 </div>
 
+
+
 <div id="outline-container-sec-9" class="outline-2">
 <h2 id="sec-9"><span class="section-number-2">9</span> Reference</h2>
 <div class="outline-text-2" id="text-9">
@@ -532,7 +540,7 @@ sudo apt-get install -y libfreeimageplus3-dev libfreeimageplus3 libfreeimageplus
 </li>
 <li><a href="https://github.com/syl20bnr/spacemacs/tree/master/layers/+lang/python">Spacemacs Python Layer</a>
 </li>
-<li>PyopenGL: <a href="http://pyopengl.sourceforge.net/">http://pyopengl.sourceforge.net/</a> 
+<li>PyopenGL: <a href="http://pyopengl.sourceforge.net/">http://pyopengl.sourceforge.net/</a>
 </li>
 <li>Panda3D: <a href="https://github.com/panda3d/panda3d">https://github.com/panda3d/panda3d</a>
 </li>
@@ -564,8 +572,8 @@ sudo apt-get install -y libfreeimageplus3-dev libfreeimageplus3 libfreeimageplus
 <footer id="postamble" class="">
 <div><p class="author">Author: Liangzu Peng</p>
 <p class="email">Email: <a href="mailto:faithofplz@gmail.com">faithofplz@gmail.com</a></p>
-<p class="date">Created: 2017-08-09 三 12:48</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.0.50 (<a href="http://orgmode.org">Org-mode</a> 9.0.9)</p>
+<p class="date">Created: 2018-01-08 一 10:12</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 27.0.50 (<a href="http://orgmode.org">Org-mode</a> 9.1.8)</p>
 </div>
 </footer>
 </body>
