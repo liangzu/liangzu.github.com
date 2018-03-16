@@ -109,6 +109,12 @@ code {
 	max-height: 80%;
 	overflow: auto;
 }
+
+#table-of-contents .todo,
+#table-of-contents .done {
+    font-size: 80%;
+}
+
 #table-of-contents h2 {
 	font-size: 13pt;
 	max-width: 9em;
@@ -140,11 +146,18 @@ code {
 /* org-html-default-style */
 
 .todo {
-    color: #990000;
+    color: red;
     font-weight: bold;
 }
+
+.todo.STARTED {
+    color: blue;
+    font-weight: bold;
+}
+
+
 .done {
-    color: #006666;
+    color: green;
     font-weight: bold;
 }
 

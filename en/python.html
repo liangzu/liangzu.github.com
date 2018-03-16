@@ -1,359 +1,213 @@
-<!doctype html>
-<html lang="en">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2018-03-16 五 17:42 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <title>code the python way</title>
-<!-- 2018-01-08 一 10:12 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="Org-mode">
-<meta name="author" content="Liangzu Peng">
-
-<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<style type="text/css">
-/* org mode styles on top of twbs */
-
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-body {
-    font-size: 18px;
-    margin-bottom: 105px;
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 101px;
-    background-color: #f5f5f5;
-}
-
-footer > div {
-    padding: 10px;
-}
-
-footer p {
-    margin: 0 0 5px;
-    text-align: center;
-    font-size: 16px;
-}
-
-#table-of-contents {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-blockquote p {
-    font-size: 18px;
-}
-
-pre {
-    font-size: 16px;
-}
-
-.footpara {
-    display: inline-block;
-}
-
-figcaption {
-  font-size: 16px;
-  color: #666;
-  font-style: italic;
-  padding-bottom: 15px;
-}
-
-/* from twbs docs */
-
-.bs-docs-sidebar.affix {
-    position: static;
-}
-@media (min-width: 768px) {
-    .bs-docs-sidebar {
-        padding-left: 20px;
-    }
-}
-
-/* All levels of nav */
-.bs-docs-sidebar .nav > li > a {
-    display: block;
-    padding: 4px 20px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #999;
-}
-.bs-docs-sidebar .nav > li > a:hover,
-.bs-docs-sidebar .nav > li > a:focus {
-    padding-left: 19px;
-    color: #A1283B;
-    text-decoration: none;
-    background-color: transparent;
-    border-left: 1px solid #A1283B;
-}
-.bs-docs-sidebar .nav > .active > a,
-.bs-docs-sidebar .nav > .active:hover > a,
-.bs-docs-sidebar .nav > .active:focus > a {
-    padding-left: 18px;
-    font-weight: bold;
-    color: #A1283B;
-    background-color: transparent;
-    border-left: 2px solid #A1283B;
-}
-
-/* Nav: second level (shown on .active) */
-.bs-docs-sidebar .nav .nav {
-    display: none; /* Hide by default, but at >768px, show it */
-    padding-bottom: 10px;
-}
-.bs-docs-sidebar .nav .nav > li > a {
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-left: 30px;
-    font-size: 12px;
-    font-weight: normal;
-}
-.bs-docs-sidebar .nav .nav > li > a:hover,
-.bs-docs-sidebar .nav .nav > li > a:focus {
-    padding-left: 29px;
-}
-.bs-docs-sidebar .nav .nav > .active > a,
-.bs-docs-sidebar .nav .nav > .active:hover > a,
-.bs-docs-sidebar .nav .nav > .active:focus > a {
-    padding-left: 28px;
-    font-weight: 500;
-}
-
-/* Nav: third level (shown on .active) */
-.bs-docs-sidebar .nav .nav .nav {
-    padding-bottom: 10px;
-}
-.bs-docs-sidebar .nav .nav .nav > li > a {
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-left: 40px;
-    font-size: 12px;
-    font-weight: normal;
-}
-.bs-docs-sidebar .nav .nav .nav > li > a:hover,
-.bs-docs-sidebar .nav .nav .nav > li > a:focus {
-    padding-left: 39px;
-}
-.bs-docs-sidebar .nav .nav .nav > .active > a,
-.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
-.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
-    padding-left: 38px;
-    font-weight: 500;
-}
-
-/* Show and affix the side nav when space allows it */
-@media (min-width: 992px) {
-    .bs-docs-sidebar .nav > .active > ul {
-        display: block;
-    }
-    /* Widen the fixed sidebar */
-    .bs-docs-sidebar.affix,
-    .bs-docs-sidebar.affix-bottom {
-        width: 213px;
-    }
-    .bs-docs-sidebar.affix {
-        position: fixed; /* Undo the static from mobile first approach */
-        top: 20px;
-    }
-    .bs-docs-sidebar.affix-bottom {
-        position: absolute; /* Undo the static from mobile first approach */
-    }
-    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
-        margin-top: 0;
-        margin-bottom: 0
-    }
-}
-@media (min-width: 1200px) {
-    /* Widen the fixed sidebar again */
-    .bs-docs-sidebar.affix-bottom,
-    .bs-docs-sidebar.affix {
-        width: 263px;
-    }
-}
-</style>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Liangzu Peng" />
+<link rel="stylesheet" href="./css/my-css.css" type="text/css"/>
 <script type="text/javascript">
-$(function() {
-    'use strict';
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
 
-    $('.bs-docs-sidebar li').first().addClass('active');
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
-    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
 
-    $('.bs-docs-sidebar').affix();
-});
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
-<div id="content" class="container">
-<div class="row"><div class="col-md-9"><h1 class="title">code the python way</h1>
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Using enumerate()</h2>
-<div class="outline-text-2" id="text-1">
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #7590db;">cities</span> = <span style="color: #4f97d7;">[</span><span style="color: #2d9574;">'Marseille'</span>, <span style="color: #2d9574;">'Amsterdam'</span>, <span style="color: #2d9574;">'New York'</span>, <span style="color: #2d9574;">'London'</span><span style="color: #4f97d7;">]</span>
-<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the bad way</span>
-<span style="color: #7590db;">i</span> = <span style="color: #a45bad;">0</span>
-<span style="color: #4f97d7; font-weight: bold;">for</span> city <span style="color: #4f97d7; font-weight: bold;">in</span> cities:
-    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>i, city<span style="color: #4f97d7;">)</span>
-    <span style="color: #7590db;">i</span> += <span style="color: #a45bad;">1</span>
-<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the good way</span>
-<span style="color: #4f97d7; font-weight: bold;">for</span> i, city <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">enumerate</span><span style="color: #4f97d7;">(</span>cities<span style="color: #4f97d7;">)</span>:
-    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>i, city<span style="color: #4f97d7;">)</span>
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Using zip()</h2>
-<div class="outline-text-2" id="text-2">
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #7590db;">x_list</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">1</span>,<span style="color: #a45bad;">2</span>,<span style="color: #a45bad;">3</span><span style="color: #4f97d7;">]</span>
-<span style="color: #7590db;">y_list</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">2</span>,<span style="color: #a45bad;">4</span>,<span style="color: #a45bad;">6</span><span style="color: #4f97d7;">]</span>
-<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the bad way</span>
-<span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>x_list<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>:
-    <span style="color: #7590db;">x</span> = x_list<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span>
-    <span style="color: #7590db;">y</span> = y_list<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span>
-    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>x, y<span style="color: #4f97d7;">)</span>
-<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the good way</span>
-<span style="color: #4f97d7; font-weight: bold;">for</span> x, y <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">zip</span><span style="color: #4f97d7;">(</span>x_list, y_list<span style="color: #4f97d7;">)</span>:
-    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>x, y<span style="color: #4f97d7;">)</span>
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Default dict values</h2>
-<div class="outline-text-2" id="text-3">
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #7590db;">ages</span> = <span style="color: #4f97d7;">{</span>
-    <span style="color: #2d9574;">'Mary'</span>: <span style="color: #a45bad;">31</span>,
-    <span style="color: #2d9574;">'Jonathan'</span>: <span style="color: #a45bad;">28</span>
-<span style="color: #4f97d7;">}</span>
-<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the bad way</span>
-<span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #2d9574;">'Dick'</span> <span style="color: #4f97d7; font-weight: bold;">in</span> ages:
-    <span style="color: #7590db;">age</span> = ages<span style="color: #4f97d7;">[</span><span style="color: #2d9574;">'Dick'</span><span style="color: #4f97d7;">]</span>
-<span style="color: #4f97d7; font-weight: bold;">else</span>:
-    <span style="color: #7590db;">age</span> = <span style="color: #2d9574;">'Unknown'</span>
-
-<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the good way</span>
-<span style="color: #7590db;">age</span> = ages.get<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Dick'</span>, <span style="color: #2d9574;">'Unknown'</span><span style="color: #4f97d7;">)</span>
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> For &#x2026; else</h2>
-<div class="outline-text-2" id="text-4">
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #7590db;">needle</span> = <span style="color: #2d9574;">'d'</span>
-<span style="color: #7590db;">haystack</span> = <span style="color: #4f97d7;">[</span><span style="color: #2d9574;">'a'</span>, <span style="color: #2d9574;">'b'</span>, <span style="color: #2d9574;">'c'</span>, <span style="color: #2d9574;">'d'</span><span style="color: #4f97d7;">]</span>
-<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the bad way</span>
-<span style="color: #7590db;">found</span> = <span style="color: #a45bad;">False</span>
-<span style="color: #4f97d7; font-weight: bold;">for</span> letter <span style="color: #4f97d7; font-weight: bold;">in</span> haystack:
-    <span style="color: #4f97d7; font-weight: bold;">if</span> needle == letter:
-        <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Found!'</span><span style="color: #4f97d7;">)</span>
-        <span style="color: #7590db;">found</span> = <span style="color: #a45bad;">True</span>
-        <span style="color: #4f97d7; font-weight: bold;">break</span>
-
-<span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7; font-weight: bold;">not</span> found:
-    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Not found!'</span><span style="color: #4f97d7;">)</span>
-
-<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the good way</span>
-<span style="color: #4f97d7; font-weight: bold;">for</span> letter <span style="color: #4f97d7; font-weight: bold;">in</span> haystack:
-    <span style="color: #4f97d7; font-weight: bold;">if</span> needle == letter:
-        <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Found!'</span><span style="color: #4f97d7;">)</span>
-
-        <span style="color: #4f97d7; font-weight: bold;">break</span>
-<span style="color: #4f97d7; font-weight: bold;">else</span>:
-    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Not found!'</span><span style="color: #4f97d7;">)</span>
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> File reading with 'with'</h2>
-<div class="outline-text-2" id="text-5">
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the bad way</span>
-<span style="color: #7590db;">f</span> = <span style="color: #4f97d7;">open</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'pimpin-aint-easy.txt'</span><span style="color: #4f97d7;">)</span>
-<span style="color: #7590db;">text</span> = f.read<span style="color: #4f97d7;">()</span>
-<span style="color: #4f97d7; font-weight: bold;">for</span> line <span style="color: #4f97d7; font-weight: bold;">in</span> text.split<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'\n'</span><span style="color: #4f97d7;">)</span>:
-    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>line<span style="color: #4f97d7;">)</span>
-f.close<span style="color: #4f97d7;">()</span>
-<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">the better way</span>
-<span style="color: #7590db;">f</span> = <span style="color: #4f97d7;">open</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'pimpin-aint-easy.txt'</span><span style="color: #4f97d7;">)</span>
-<span style="color: #4f97d7; font-weight: bold;">for</span> line <span style="color: #4f97d7; font-weight: bold;">in</span> f:
-    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>line<span style="color: #4f97d7;">)</span>
-f.close<span style="color: #4f97d7;">()</span>
-<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">a even better way</span>
-<span style="color: #4f97d7; font-weight: bold;">with</span> <span style="color: #4f97d7;">open</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'pimpin-aint-easy.txt'</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7; font-weight: bold;">as</span> f:
-    <span style="color: #4f97d7; font-weight: bold;">for</span> line <span style="color: #4f97d7; font-weight: bold;">in</span> f:
-        <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span>line<span style="color: #4f97d7;">)</span>
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> Exception handling</h2>
-<div class="outline-text-2" id="text-6">
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Converting!'</span><span style="color: #4f97d7;">)</span>
-<span style="color: #4f97d7; font-weight: bold;">try</span>:
-    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">int</span><span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">'x'</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
-<span style="color: #4f97d7; font-weight: bold;">except</span>:
-    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Conversion failed!'</span><span style="color: #4f97d7;">)</span>
-<span style="color: #4f97d7; font-weight: bold;">else</span>:  <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">if no-except</span>
-    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Conversion successful'</span><span style="color: #4f97d7;">)</span>
-<span style="color: #4f97d7; font-weight: bold;">finally</span>:  <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">always</span>
-    <span style="color: #4f97d7; font-weight: bold;">print</span><span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'Done!'</span><span style="color: #4f97d7;">)</span>
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> Directory Access</h2>
-<div class="outline-text-2" id="text-7">
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #4f97d7;">[</span>d <span style="color: #4f97d7; font-weight: bold;">for</span> d <span style="color: #4f97d7; font-weight: bold;">in</span> os.listdir<span style="color: #bc6ec5;">(</span><span style="color: #4f97d7;">dir</span><span style="color: #bc6ec5;">)</span> <span style="color: #4f97d7; font-weight: bold;">if</span> os.path.isdir<span style="color: #bc6ec5;">(</span>os.path.join<span style="color: #2d9574;">(</span><span style="color: #4f97d7;">dir</span>, d<span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">]</span>
-</pre>
-</div>
-</div>
-</div>
-</div><div class="col-md-3"><nav id="table-of-contents">
-<div id="text-table-of-contents" class="bs-docs-sidebar">
-<ul class="nav">
-<li><a href="#sec-1">1. Using enumerate()</a></li>
-<li><a href="#sec-2">2. Using zip()</a></li>
-<li><a href="#sec-3">3. Default dict values</a></li>
-<li><a href="#sec-4">4. For &#x2026; else</a></li>
-<li><a href="#sec-5">5. File reading with 'with'</a></li>
-<li><a href="#sec-6">6. Exception handling</a></li>
-<li><a href="#sec-7">7. Directory Access</a></li>
+<div id="content">
+<h1 class="title">code the python way</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgab903c9">1. Using enumerate()</a></li>
+<li><a href="#orge8b465a">2. Using zip()</a></li>
+<li><a href="#orga914fad">3. Default dict values</a></li>
+<li><a href="#org8084245">4. For &#x2026; else</a></li>
+<li><a href="#orgf1b19ea">5. File reading with 'with'</a></li>
+<li><a href="#org9cf0047">6. Exception handling</a></li>
+<li><a href="#org5570079">7. Directory Access</a></li>
 </ul>
 </div>
-</nav>
-</div></div></div>
-<footer id="postamble" class="">
-<div><p class="author">Author: Liangzu Peng</p>
-<p class="email">Email: <a href="mailto:faithofplz@gmail.com">faithofplz@gmail.com</a></p>
-<p class="date">Created: 2018-01-08 一 10:12</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 27.0.50 (<a href="http://orgmode.org">Org-mode</a> 9.1.8)</p>
 </div>
-</footer>
+<div id="outline-container-orgab903c9" class="outline-2">
+<h2 id="orgab903c9"><span class="section-number-2">1</span> Using enumerate()</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #FF84C9;">cities</span> = [<span style="color: #C1CAFF;">'Marseille'</span>, <span style="color: #C1CAFF;">'Amsterdam'</span>, <span style="color: #C1CAFF;">'New York'</span>, <span style="color: #C1CAFF;">'London'</span>]
+<span style="color: #646F84;"># </span><span style="color: #646F84;">the bad way</span>
+<span style="color: #FF84C9;">i</span> = 0
+<span style="color: #66D9EF;">for</span> city <span style="color: #66D9EF;">in</span> cities:
+    <span style="color: #66D9EF;">print</span>(i, city)
+    <span style="color: #FF84C9;">i</span> += 1
+<span style="color: #646F84;"># </span><span style="color: #646F84;">the good way</span>
+<span style="color: #66D9EF;">for</span> i, city <span style="color: #66D9EF;">in</span> <span style="color: #A6E22E;">enumerate</span>(cities):
+    <span style="color: #66D9EF;">print</span>(i, city)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orge8b465a" class="outline-2">
+<h2 id="orge8b465a"><span class="section-number-2">2</span> Using zip()</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #FF84C9;">x_list</span> = [1,2,3]
+<span style="color: #FF84C9;">y_list</span> = [2,4,6]
+<span style="color: #646F84;"># </span><span style="color: #646F84;">the bad way</span>
+<span style="color: #66D9EF;">for</span> i <span style="color: #66D9EF;">in</span> <span style="color: #A6E22E;">range</span>(<span style="color: #A6E22E;">len</span>(x_list)):
+    <span style="color: #FF84C9;">x</span> = x_list[i]
+    <span style="color: #FF84C9;">y</span> = y_list[i]
+    <span style="color: #66D9EF;">print</span>(x, y)
+<span style="color: #646F84;"># </span><span style="color: #646F84;">the good way</span>
+<span style="color: #66D9EF;">for</span> x, y <span style="color: #66D9EF;">in</span> <span style="color: #A6E22E;">zip</span>(x_list, y_list):
+    <span style="color: #66D9EF;">print</span>(x, y)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga914fad" class="outline-2">
+<h2 id="orga914fad"><span class="section-number-2">3</span> Default dict values</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #FF84C9;">ages</span> = {
+    <span style="color: #C1CAFF;">'Mary'</span>: 31,
+    <span style="color: #C1CAFF;">'Jonathan'</span>: 28
+}
+<span style="color: #646F84;"># </span><span style="color: #646F84;">the bad way</span>
+<span style="color: #66D9EF;">if</span> <span style="color: #C1CAFF;">'Dick'</span> <span style="color: #66D9EF;">in</span> ages:
+    <span style="color: #FF84C9;">age</span> = ages[<span style="color: #C1CAFF;">'Dick'</span>]
+<span style="color: #66D9EF;">else</span>:
+    <span style="color: #FF84C9;">age</span> = <span style="color: #C1CAFF;">'Unknown'</span>
+
+<span style="color: #646F84;"># </span><span style="color: #646F84;">the good way</span>
+<span style="color: #FF84C9;">age</span> = ages.get(<span style="color: #C1CAFF;">'Dick'</span>, <span style="color: #C1CAFF;">'Unknown'</span>)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8084245" class="outline-2">
+<h2 id="org8084245"><span class="section-number-2">4</span> For &#x2026; else</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-python">
+<span style="color: #FF84C9;">needle</span> = <span style="color: #C1CAFF;">'d'</span>
+<span style="color: #FF84C9;">haystack</span> = [<span style="color: #C1CAFF;">'a'</span>, <span style="color: #C1CAFF;">'b'</span>, <span style="color: #C1CAFF;">'c'</span>, <span style="color: #C1CAFF;">'d'</span>]
+<span style="color: #646F84;"># </span><span style="color: #646F84;">the bad way</span>
+<span style="color: #FF84C9;">found</span> = <span style="color: #AE81FF;">False</span>
+<span style="color: #66D9EF;">for</span> letter <span style="color: #66D9EF;">in</span> haystack:
+    <span style="color: #66D9EF;">if</span> needle == letter:
+        <span style="color: #66D9EF;">print</span>(<span style="color: #C1CAFF;">'Found!'</span>)
+        <span style="color: #FF84C9;">found</span> = <span style="color: #AE81FF;">True</span>
+        <span style="color: #66D9EF;">break</span>
+
+<span style="color: #66D9EF;">if</span> <span style="color: #66D9EF;">not</span> found:
+    <span style="color: #66D9EF;">print</span>(<span style="color: #C1CAFF;">'Not found!'</span>)
+
+<span style="color: #646F84;"># </span><span style="color: #646F84;">the good way</span>
+<span style="color: #66D9EF;">for</span> letter <span style="color: #66D9EF;">in</span> haystack:
+    <span style="color: #66D9EF;">if</span> needle == letter:
+        <span style="color: #66D9EF;">print</span>(<span style="color: #C1CAFF;">'Found!'</span>)
+
+        <span style="color: #66D9EF;">break</span>
+<span style="color: #66D9EF;">else</span>:
+    <span style="color: #66D9EF;">print</span>(<span style="color: #C1CAFF;">'Not found!'</span>)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf1b19ea" class="outline-2">
+<h2 id="orgf1b19ea"><span class="section-number-2">5</span> File reading with 'with'</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #646F84;"># </span><span style="color: #646F84;">the bad way</span>
+<span style="color: #FF84C9;">f</span> = <span style="color: #A6E22E;">open</span>(<span style="color: #C1CAFF;">'pimpin-aint-easy.txt'</span>)
+<span style="color: #FF84C9;">text</span> = f.read()
+<span style="color: #66D9EF;">for</span> line <span style="color: #66D9EF;">in</span> text.split(<span style="color: #C1CAFF;">'\n'</span>):
+    <span style="color: #66D9EF;">print</span>(line)
+f.close()
+<span style="color: #646F84;"># </span><span style="color: #646F84;">the better way</span>
+<span style="color: #FF84C9;">f</span> = <span style="color: #A6E22E;">open</span>(<span style="color: #C1CAFF;">'pimpin-aint-easy.txt'</span>)
+<span style="color: #66D9EF;">for</span> line <span style="color: #66D9EF;">in</span> f:
+    <span style="color: #66D9EF;">print</span>(line)
+f.close()
+<span style="color: #646F84;"># </span><span style="color: #646F84;">a even better way</span>
+<span style="color: #66D9EF;">with</span> <span style="color: #A6E22E;">open</span>(<span style="color: #C1CAFF;">'pimpin-aint-easy.txt'</span>) <span style="color: #66D9EF;">as</span> f:
+    <span style="color: #66D9EF;">for</span> line <span style="color: #66D9EF;">in</span> f:
+        <span style="color: #66D9EF;">print</span>(line)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9cf0047" class="outline-2">
+<h2 id="org9cf0047"><span class="section-number-2">6</span> Exception handling</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #66D9EF;">print</span>(<span style="color: #C1CAFF;">'Converting!'</span>)
+<span style="color: #66D9EF;">try</span>:
+    <span style="color: #66D9EF;">print</span>(<span style="color: #A6E22E;">int</span>(<span style="color: #C1CAFF;">'x'</span>))
+<span style="color: #66D9EF;">except</span>:
+    <span style="color: #66D9EF;">print</span>(<span style="color: #C1CAFF;">'Conversion failed!'</span>)
+<span style="color: #66D9EF;">else</span>:  <span style="color: #646F84;"># </span><span style="color: #646F84;">if no-except</span>
+    <span style="color: #66D9EF;">print</span>(<span style="color: #C1CAFF;">'Conversion successful'</span>)
+<span style="color: #66D9EF;">finally</span>:  <span style="color: #646F84;"># </span><span style="color: #646F84;">always</span>
+    <span style="color: #66D9EF;">print</span>(<span style="color: #C1CAFF;">'Done!'</span>)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5570079" class="outline-2">
+<h2 id="org5570079"><span class="section-number-2">7</span> Directory Access</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-src-container">
+<pre class="src src-python">[d <span style="color: #66D9EF;">for</span> d <span style="color: #66D9EF;">in</span> os.listdir(<span style="color: #A6E22E;">dir</span>) <span style="color: #66D9EF;">if</span> os.path.isdir(os.path.join(<span style="color: #A6E22E;">dir</span>, d))]
+</pre>
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>
