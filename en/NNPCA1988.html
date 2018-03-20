@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-20 二 19:08 -->
+<!-- 2018-03-20 二 19:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <title>On Understanding NNPCA1988</title>
 <meta name="generator" content="Org mode" />
@@ -85,7 +85,12 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org967c3b1">1. Preliminaries</a></li>
+<li><a href="#org967c3b1">1. Preliminaries</a>
+<ul>
+<li><a href="#org9d3c02b">1.1. The first lemma in APPENDIX A</a></li>
+<li><a href="#org8f474cc">1.2. Proofs for the main results</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -93,23 +98,26 @@ for the JavaScript code in this tag.
 This post is my mathematical re-implementation of <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.408.1839&amp;rep=rep1&amp;type=pdf">Neural Networks and
 PCA: Learning Without Local Minima</a> (1989), ignoring the problem
 setting and any related background, which you can read from the paper, but
-detailing the missing mathematics. Here is the reason: The
-mathematical facts known by
-experts (hence proofs are omitted) are
+detailing the missing mathematics. Here is the reason of why do I post
+like this: The mathematical facts known by experts (hence proofs are omitted) are
 usually unknown to the fresh students.
 </p>
 
 <p>
-It requires some linear algebra, calculus, and <a href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">Optimization</a> (first 3
-chapter) to begin with.
+It requires some linear algebra, calculus, and <a href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">optimization</a> (first 3
+chapter is just enough) to begin with.
 </p>
 <div id="outline-container-org967c3b1" class="outline-2">
 <h2 id="org967c3b1"><span class="section-number-2">1</span> Preliminaries</h2>
 <div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org9d3c02b" class="outline-3">
+<h3 id="org9d3c02b"><span class="section-number-3">1.1</span> The first lemma in APPENDIX A</h3>
+<div class="outline-text-3" id="text-1-1">
 <ol class="org-ol">
 <li>The quadratic function \[F(z)=||c-Mz||_2^2=c^Tc-2c^TMz+z^TM^TMz\,,\] where \(c,z\in
-   \mathbb{R}^n,M\in\mathbb{R}^{n\times n}\) is convex (I assume \(M\) is
-square matrix for the sake of simplicity). A short proof
+   \mathbb{R}^n,M\in\mathbb{R}^{n\times n}\) is convex (Let \(M\) be
+square for the sake of simplicity). A short proof
 is given here:\[F(\theta_1 z_1 + \theta_2 z_2)= ||c-M(\theta_1
    z_1 + \theta_2
    z_2)||_2^2=||\theta_1(c-Mz_1)+\theta_2(c-Mz_2)||_2^2\leq\theta_1F(z_1)+\theta_2F(z_2)\,.\]</li>
@@ -119,12 +127,33 @@ is given here:\[F(\theta_1 z_1 + \theta_2 z_2)= ||c-M(\theta_1
 To compute \(\nabla F(z)\), you have to realize that (or prove it:)
 <ul class="org-ul">
 <li>the <a href="https://en.wikipedia.org/wiki/Gradient">gradient</a> of \(f(b)=a^Tb\) <code>w.r.t</code> \(b\) is \(a\), and</li>
-<li>the gradient of \(g(a)=a^TXa\) <code>w.r.t.</code> \(a\) is \(Xa\).</li>
+<li>the gradient of \(g(a)=a^TXa\) <code>w.r.t.</code> \(a\) is \(Xa\). (<code>hint</code>: \(a^TXa=\Sigma_{i,j}x_{ij}a_ia_j\).)</li>
 </ul></li>
 
 <li>If in addition \(M^TM\) is positive definite, then \(F\) is strictly
-convex and the <b>unique minimum</b> of \(F\) is attained for \(z=(M^TM)^{-1}Mc\).</li>
+convex and the <b>unique minimum</b> of \(F\) is attained for
+\(z=(M^TM)^{-1}Mc\). This statement gives rise to several questions:
+
+<dl class="org-dl">
+<dt>Is \(M^TM\) invertible?</dt><dd>The answer is YES since for \(M^TM\) to be
+positive definite, we have \(||Mx||_2^2=x^TM^TMx>0,\forall x
+        \in\mathbb{R}^n\), which means \(Mx\neq 0,\forall x
+        \in\mathbb{R}^n\). Hence \(M\) is invertible.</dd>
+
+<dt>Why \(F\) is then strictly convex?</dt><dd>Because \(\nabla^2 F(z)\) is
+positive definite. To compute it, you should know that The
+gradient of \(f(x)=Ax\) is \(A\), where \(A\) is a matrix and \(x\) is
+a vector (see <a href="https://en.wikipedia.org/wiki/Matrix_calculus">vector by vector section</a>).</dd>
+
+<dt>Why the minimum is suddenly unique?</dt><dd>Immediate. Given that \(M^TM\)
+is invertible, the solution of \(M^TMz=M^Tc\) is unique.</dd>
+</dl></li>
 </ol>
+</div>
+</div>
+
+<div id="outline-container-org8f474cc" class="outline-3">
+<h3 id="org8f474cc"><span class="section-number-3">1.2</span> Proofs for the main results</h3>
 </div>
 </div>
 </div>
