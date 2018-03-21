@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-20 二 19:57 -->
+<!-- 2018-03-21 三 12:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <title>On Understanding NNPCA1988</title>
 <meta name="generator" content="Org mode" />
@@ -96,16 +96,16 @@ for the JavaScript code in this tag.
 </div>
 <p>
 This post is my mathematical re-implementation of <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.408.1839&amp;rep=rep1&amp;type=pdf">Neural Networks and
-PCA: Learning Without Local Minima</a> (1989), ignoring the problem
-setting and any related background, which you can read from the paper, but
-detailing the missing mathematics. Here is the reason of why do I post
-like this: The mathematical facts known by experts (hence proofs are omitted) are
+PCA: Learning Without Local Minima</a> (1989), with an absence of the problem
+setting and of any related background (you can read them from the paper), but
+with details of the missing mathematics. Here is the reason of why I post
+like this: The mathematical facts known by experts (hence proofs are oftentimes omitted) are
 usually unknown to the fresh students.
 </p>
 
 <p>
 It requires some linear algebra, calculus, and <a href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">optimization</a> (first 3
-chapter is just enough) to begin with.
+chapter is just really enough) to begin with.
 </p>
 <div id="outline-container-org967c3b1" class="outline-2">
 <h2 id="org967c3b1"><span class="section-number-2">1</span> Preliminaries</h2>
@@ -141,7 +141,7 @@ positive definite, we have \(||Mx||_2^2=x^TM^TMx>0,\forall x
         \in\mathbb{R}^n\). Hence \(M\) is invertible.</dd>
 
 <dt>Why \(F\) is then strictly convex?</dt><dd>Because \(\nabla^2 F(z)\) is
-positive definite. To compute it, you should know that The
+positive definite. To compute it, you should know that the
 gradient of \(f(x)=Ax\) is \(A\), where \(A\) is a matrix and \(x\) is
 a vector (see <a href="https://en.wikipedia.org/wiki/Matrix_calculus">vector by vector section</a>).</dd>
 
