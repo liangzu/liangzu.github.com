@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-21 三 12:22 -->
+<!-- 2018-03-21 三 12:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <title>On Understanding NNPCA1988</title>
 <meta name="generator" content="Org mode" />
@@ -103,6 +103,7 @@ like this: The mathematical facts known by experts (hence proofs are oftentimes 
 usually unknown to the fresh students.
 </p>
 
+
 <p>
 It requires some linear algebra, calculus, and <a href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">optimization</a> (first 3
 chapter is just really enough) to begin with.
@@ -126,8 +127,8 @@ is given here:\[F(\theta_1 z_1 + \theta_2 z_2)= ||c-M(\theta_1
 \(F\) if and only if \(\nabla F(z)=0\), i.e., \[M^TMz=M^Tc\,.\]
 To compute \(\nabla F(z)\), you have to realize that (or prove it:)
 <ul class="org-ul">
-<li>the <a href="https://en.wikipedia.org/wiki/Gradient">gradient</a> of \(f(b)=a^Tb\) <code>w.r.t</code> \(b\) is \(a\), and</li>
-<li>the gradient of \(g(a)=a^TXa\) <code>w.r.t.</code> \(a\) is \(Xa\). (<code>hint</code>: \(a^TXa=\Sigma_{i,j}x_{ij}a_ia_j\).)</li>
+<li>the <a href="https://en.wikipedia.org/wiki/Gradient">gradient</a> of \(f(b)=a^Tb\) <i>w.r.t</i> \(b\) is \(a\), and</li>
+<li>the gradient of \(g(a)=a^TXa\) <i>w.r.t.</i> \(a\) is \(Xa\). (<i>hint</i>: \(a^TXa=\Sigma_{i,j}x_{ij}a_ia_j\).)</li>
 </ul></li>
 
 <li>If in addition \(M^TM\) is positive definite, then \(F\) is strictly
