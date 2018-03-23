@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-23 五 15:07 -->
+<!-- 2018-03-23 五 17:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <title>Mathematical Facts</title>
 <meta name="generator" content="Org mode" />
@@ -93,10 +93,10 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#org19c57af">2. Optimization</a></li>
+<li><a href="#orgc8b3b48">3. On Making Practical Assumptions</a></li>
 </ul>
 </div>
 </div>
-
 
 <div id="outline-container-org53bab72" class="outline-2">
 <h2 id="org53bab72"><span class="section-number-2">1</span> Linear Algebra and Matrix</h2>
@@ -110,12 +110,13 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
+
 <div id="outline-container-org0091c8e" class="outline-3">
 <h3 id="org0091c8e"><span class="section-number-3">1.2</span> Matrix Calculus</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>The gradient of \(f(b)=a^Tb\) is \(a\).</li>
-<li>The gradient of \(f(a)=a^TXa\) is \(Xa\). (<i>hint</i>: \(a^TXa=\Sigma_{i,j}x_{ij}a_ia_j\).)</li>
+<li>The gradient of \(f(a)=a^TXa\) is \((X^T+X)a\). (<i>hint</i>: \(a^TXa=\Sigma_{i,j}x_{ij}a_ia_j\).)</li>
 <li>The gradient of \(f(x)=Ax\) is \(A\).</li>
 </ul>
 </div>
@@ -169,11 +170,22 @@ is \(\Sigma_i b_{1i}Ax_i\), as desired.</li>
 </div>
 
 
-
-
-
 <div id="outline-container-org19c57af" class="outline-2">
 <h2 id="org19c57af"><span class="section-number-2">2</span> Optimization</h2>
+</div>
+
+
+<div id="outline-container-orgc8b3b48" class="outline-2">
+<h2 id="orgc8b3b48"><span class="section-number-2">3</span> On Making Practical Assumptions</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>(Suppose that \(\Sigma_{XX}\) and \(\Sigma{YX}\) are of full rank&#x2026;)
+Full rank matrices are dense and in a realistic environment with
+noise and finite precision, we can always slightly perturb the
+conditions so as to make \(\Sigma\) invertible and with distinct
+eigenvalues (<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.408.1839&amp;rep=rep1&amp;type=pdf">NNPCA1988</a>).</li>
+</ul>
+</div>
 </div>
 </div>
 </body>
