@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-03-23 五 17:12 -->
+<!-- 2018-04-22 日 18:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <title>Mathematical Facts</title>
 <meta name="generator" content="Org mode" />
@@ -93,11 +93,24 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#org19c57af">2. Optimization</a></li>
-<li><a href="#orgc8b3b48">3. On Making Practical Assumptions</a></li>
+<li><a href="#org40e9f10">3. Misc</a>
+<ul>
+<li><a href="#org7cf0962">3.1. Convolution and Cross Correlation for Images</a>
+<ul>
+<li><a href="#orgafc3c67">3.1.1. Reference</a></li>
+</ul>
+</li>
+<li><a href="#orgbc218e0">3.2. On Making Practical Assumptions</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
-
+<p>
+The math documented here, for
+which though some simple proofs are given, is by no means rigirous. I
+believe this will not be a problem for curious readers.
+</p>
 <div id="outline-container-org53bab72" class="outline-2">
 <h2 id="org53bab72"><span class="section-number-2">1</span> Linear Algebra and Matrix</h2>
 <div class="outline-text-2" id="text-1">
@@ -175,16 +188,84 @@ is \(\Sigma_i b_{1i}Ax_i\), as desired.</li>
 </div>
 
 
-<div id="outline-container-orgc8b3b48" class="outline-2">
-<h2 id="orgc8b3b48"><span class="section-number-2">3</span> On Making Practical Assumptions</h2>
+<div id="outline-container-org40e9f10" class="outline-2">
+<h2 id="org40e9f10"><span class="section-number-2">3</span> Misc</h2>
 <div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org7cf0962" class="outline-3">
+<h3 id="org7cf0962"><span class="section-number-3">3.1</span> Convolution and Cross Correlation for Images</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+The fact here applies only to images. Convolution said here means "2D
+discrete convolution".
+</p>
+
+<p>
+Let \(h\in\mathbb{R}^{(2k+1)\times(2k+1)}\) be a filter and \(I\) an
+image with its size larger than \(h\)'s. They will be stored in your
+program as multi-dimensional arrays, and you may write code like
+\(a=h[0,0]\) (access the first element in the memory for \(h\)) to access
+them. For mathematical convinience, we assume that the first element
+of \(h\) in the memory of your comtuper is \(h[-k, -k]\), or that \((0,0)\)
+is the "center" of the filter \(h\). We also assume, for again
+mathematical convinience, that the value of \(h[i,j]\) or \(I[i,j]\) is \(0\) if
+the index is out of boundary (zero padding). Not everyone entering
+into the realm of computer vision has a background in signal
+processing, and explicitly stating these
+two assumptions, or conventions, therefore makes formulas more
+accessable and more understandable.
+</p>
+
+
+<p>
+The cross correlation
+\(G\) between \(h\) and \(I\), written as \(G=h\otimes I\), is defined by the
+following formula: \[G[i,j]=\Sigma_{u=-k}^{k}\Sigma_{v=-k}^{k} h[u,v]
+I[i+u,j+v]\,.\]
+People who try to be clever may write it as
+\[G[i,j]=\Sigma_{u=i-k}^{i+k}\Sigma_{v=i-k}^{i+k}h[u-i,v-j]I[u,v]\,,\]
+as \[G[i,j]=\Sigma_{u,v}h[u-i,v-j]I[u,v]\,,\]
+or even as \[G_{i,j}=\Sigma_{u,v}h_{u-i,v-j}I_{u,v}\,.\]
+</p>
+
+<p>
+A crucial observation is that these four formulas are equivalent.
+</p>
+
+<p>
+The convolution \(G'\) between \(h\) and \(I\), written as \(G'=h*I\), is
+defined by the following formulas:
+\[G'[i,j]=\Sigma_{u=-k}^{k}\Sigma_{v=-k}^{k} h[u,v]I_[i-u,j-v]\,,\]
+\[G'[i,j]=\Sigma_{u=i-k}^{i+k}\Sigma_{v=i-k}^{i+k}h[i-u,j-v]I[u,v]\,,\]
+\[G'[i,j]=\Sigma_{u,v}h[i-u,j-v]I[u,v]\,,\]
+or \[G'_{i,j}=\Sigma_{u,v}h_{i-u,j-v}I_{u,v}\,.\]
+</p>
+</div>
+
+
+<div id="outline-container-orgafc3c67" class="outline-4">
+<h4 id="orgafc3c67"><span class="section-number-4">3.1.1</span> Reference</h4>
+<div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
-<li>(Suppose that \(\Sigma_{XX}\) and \(\Sigma{YX}\) are of full rank&#x2026;)
+<li><a href="https://www.youtube.com/watch?v=C3EEy8adxvc">Convolution and Cross Correlation</a> on Youtube</li>
+<li><a href="https://www.amazon.com/Computer-Vision-Modern-Approach-2nd/dp/013608592X">Computer Vision: A Modern Approach</a>, Forsyth and Ponce</li>
+<li><a href="http://szeliski.org/Book/">Computer Vision: Algorithms and Applications</a>, Szeliski</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbc218e0" class="outline-3">
+<h3 id="orgbc218e0"><span class="section-number-3">3.2</span> On Making Practical Assumptions</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>(Suppose that \(\Sigma_{XX}\) and \(\Sigma_{YX}\) are of full rank&#x2026;)
 Full rank matrices are dense and in a realistic environment with
 noise and finite precision, we can always slightly perturb the
 conditions so as to make \(\Sigma\) invertible and with distinct
 eigenvalues (<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.408.1839&amp;rep=rep1&amp;type=pdf">NNPCA1988</a>).</li>
 </ul>
+</div>
 </div>
 </div>
 </div>
