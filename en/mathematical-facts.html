@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2018-04-22 日 18:51 -->
+<!-- 2018-04-24 二 15:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <title>Mathematical Facts</title>
 <meta name="generator" content="Org mode" />
@@ -92,15 +92,20 @@ for the JavaScript code in this tag.
 <li><a href="#org175a66f">1.3. Kronecker Product</a></li>
 </ul>
 </li>
-<li><a href="#org19c57af">2. Optimization</a></li>
-<li><a href="#org40e9f10">3. Misc</a>
+<li><a href="#org19c57af">2. Optimization</a>
 <ul>
-<li><a href="#org7cf0962">3.1. Convolution and Cross Correlation for Images</a>
-<ul>
-<li><a href="#orgafc3c67">3.1.1. Reference</a></li>
+<li><a href="#org41514e8">2.1. Theory</a></li>
+<li><a href="#org7e861bf">2.2. Gradient Descent</a></li>
 </ul>
 </li>
-<li><a href="#orgbc218e0">3.2. On Making Practical Assumptions</a></li>
+<li><a href="#org83911a0">3. Misc</a>
+<ul>
+<li><a href="#orgb382430">3.1. Convolution and Cross Correlation for Images</a>
+<ul>
+<li><a href="#orga10a583">3.1.1. Reference</a></li>
+</ul>
+</li>
+<li><a href="#org79dd174">3.2. On Making Practical Assumptions</a></li>
 </ul>
 </li>
 </ul>
@@ -185,15 +190,69 @@ is \(\Sigma_i b_{1i}Ax_i\), as desired.</li>
 
 <div id="outline-container-org19c57af" class="outline-2">
 <h2 id="org19c57af"><span class="section-number-2">2</span> Optimization</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org41514e8" class="outline-3">
+<h3 id="org41514e8"><span class="section-number-3">2.1</span> Theory</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>A twice-differentiable function \(f\) is said to be \(\mu\text{-strongly}\)
+convex and \(l\text{-smooth}\) if \[0\preceq \mu I\preceq f(x)\preceq lI,
+  \forall x.\]</li>
+</ul>
+</div>
 </div>
 
+<div id="outline-container-org7e861bf" class="outline-3">
+<h3 id="org7e861bf"><span class="section-number-3">2.2</span> Gradient Descent</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Given a differentiable function \(f:\mathbb{R}^{d}\to\mathbb{R}\), we want to
+algorithmically find its
+(local or global) minimum if any. Let's start with an
+arbitrary point \(x_0\in \mathbb{R}^d\), and construct a sequence
+\(x_0,x_1,\dots, x_n,\dots\), such that \[f(x_{t+1})\lt f(x_t) \text{ for each
+$t=0,1,2,\dots$}\,.\]
+To this end, we just simply let \[x_{t+1}=x_{t}+\lambda_t v^t\,,\] where
+\(\lambda_t\) is a pre-assigned positive number, called <i>learning rate</i>
+or <i>step size</i>, and \(v^t\in \mathbb{R}^d\) is such that
+\(\nabla f(x_t)^T v_t\lt 0\). \(\nabla f(x_t)^T v_t\) is the <a href="https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/gradient-and-directional-derivatives/v/directional-derivative">directional
+derivative</a> at point \(x_t\) along direction \(v_t\), and hence, provided that
+\(\lambda_t\gt 0\) and \(\lambda_t\) is small enough, \(\nabla f(x_t)^T
+v_t\lt 0\) will ensure that \[f(x_{t+1})=f(x_{t}+\lambda_t v^t)\lt f(x_t)\,.\]
+</p>
 
-<div id="outline-container-org40e9f10" class="outline-2">
-<h2 id="org40e9f10"><span class="section-number-2">3</span> Misc</h2>
+<p>
+The next to do is find \(\lambda_t\) and the direction \(v_t\) for each
+point \(x_t\). \(\lambda_t\). \(v_t=-\frac{\nabla
+f(x_t)}{||f(x_t)||_2}\) will do it.
+</p>
+
+<p>
+To summarize, we can construct the
+desired sequence by the following algorithm, known as <a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient
+descent</a>, \[x_{t+1}=x_{t}-\lambda_t \nabla f(x_t)\,.\]
+</p>
+
+
+<p>
+Finally it remains to be asked that can this algorithmically
+constructed sequence, or say, the gradient descent algorithm, can
+actually lead us to the (local or global) minimum? The answer is no if
+we know beforehand that the given function
+\(f:\mathbb{R}^{d}\to\mathbb{R}\) has no minimum at all. But how do we
+know whether a function has or doesn't have optimal points?
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org83911a0" class="outline-2">
+<h2 id="org83911a0"><span class="section-number-2">3</span> Misc</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org7cf0962" class="outline-3">
-<h3 id="org7cf0962"><span class="section-number-3">3.1</span> Convolution and Cross Correlation for Images</h3>
+<div id="outline-container-orgb382430" class="outline-3">
+<h3 id="orgb382430"><span class="section-number-3">3.1</span> Convolution and Cross Correlation for Images</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 The fact here applies only to images. Convolution said here means "2D
@@ -243,8 +302,8 @@ or \[G'_{i,j}=\Sigma_{u,v}h_{i-u,j-v}I_{u,v}\,.\]
 </div>
 
 
-<div id="outline-container-orgafc3c67" class="outline-4">
-<h4 id="orgafc3c67"><span class="section-number-4">3.1.1</span> Reference</h4>
+<div id="outline-container-orga10a583" class="outline-4">
+<h4 id="orga10a583"><span class="section-number-4">3.1.1</span> Reference</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <ul class="org-ul">
 <li><a href="https://www.youtube.com/watch?v=C3EEy8adxvc">Convolution and Cross Correlation</a> on Youtube</li>
@@ -255,8 +314,8 @@ or \[G'_{i,j}=\Sigma_{u,v}h_{i-u,j-v}I_{u,v}\,.\]
 </div>
 </div>
 
-<div id="outline-container-orgbc218e0" class="outline-3">
-<h3 id="orgbc218e0"><span class="section-number-3">3.2</span> On Making Practical Assumptions</h3>
+<div id="outline-container-org79dd174" class="outline-3">
+<h3 id="org79dd174"><span class="section-number-3">3.2</span> On Making Practical Assumptions</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>(Suppose that \(\Sigma_{XX}\) and \(\Sigma_{YX}\) are of full rank&#x2026;)
