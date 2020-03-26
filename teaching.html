@@ -53,6 +53,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -73,8 +95,12 @@ for the JavaScript code in this tag.
 <div id="toptitle">
 <h1>Teaching</h1>
 </div>
+
+<div id="outline-container-orgd8008bd" class="outline-2">
+<h2 id="orgd8008bd">As Teaching Assistant</h2>
+<div class="outline-text-2" id="text-orgd8008bd">
 <ul class="org-ul">
-<li>Fall 2019, <i>Subspace Learning</i>, TA.</li>
+<li>Fall \space 2019, <i>Subspace Learning</i>, TA.</li>
 <li>Spring 2019, <i>Applied Algebraic Geometry</i>, TA.</li>
 <li>Spring 2019, <i>Advanced C++ Programming</i>, TA.</li>
 <li>Spring 2018, <i>Advanced Geonetry</i>, TA (<a href="./en/ag-notes.html">lecture notes</a>).</li>
@@ -85,6 +111,8 @@ for the JavaScript code in this tag.
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 </body>
 </html>
