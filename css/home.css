@@ -350,17 +350,17 @@ img.eqwl {
 	margin: 0;
 }
 
-table {
+/*table {
 	border: 2px solid black;
 	border-collapse: collapse;
-}
+}*/
 
 td {
 	padding: 2px;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 	text-align: left;
-	border: 1px solid gray;
+/*	border: 1px solid gray;*/
 }
 /*  */
 
@@ -370,7 +370,7 @@ table + table {
 
 tr.heading {
 	font-weight: bold;
-	border-bottom: 2px solid black;
+	/*border-bottom: 2px solid black;*/
 }
 
 img {
