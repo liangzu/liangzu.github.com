@@ -1,6 +1,6 @@
 body {
     background-color: #dddddd;
-    font-family: Georgia, "Microsoft YaHei", Lucida, sans-serif, monospace;
+    font-family: "Times New Roman", Lucida, sans-serif, monospace;
     font-size: 18px;
     margin: 5% 20% 5% 20%;
 }
@@ -69,7 +69,7 @@ li {
 }
 
 code {
-    font-family: Georgia, "Courier New", serif;
+    font-family: "Courier New", serif;
     background-color: white;
     font-size: 16px;
     font-style: italic;
@@ -214,7 +214,7 @@ p.verse { margin-left: 3%; }
 pre {
     /* background-color: black;
        color: white; */
-    font-family: Monaco, Consolas, monospace;
+    font-family: "Times New Roman", Consolas, monospace;
     font-size: 11px;
 
     padding: 8pt;
