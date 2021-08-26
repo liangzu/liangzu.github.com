@@ -3,34 +3,57 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-06-20 Sun 15:21 -->
+<!-- 2021-08-26 四 15:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>微博</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Liangzu Peng" />
 <link rel="stylesheet" href="./css/my-css.css" type="text/css"/>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -62,11 +85,11 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8ed6221">2021</a></li>
-<li><a href="#orgf13b559">2020</a></li>
-<li><a href="#org57f1cd4">2019</a></li>
-<li><a href="#orgc64a338">2018</a></li>
-<li><a href="#org30d1d30">2017</a></li>
+<li><a href="#orgb07ec60">2021</a></li>
+<li><a href="#orga8d9797">2020</a></li>
+<li><a href="#org51b86cc">2019</a></li>
+<li><a href="#org2b92e07">2018</a></li>
+<li><a href="#orgf98d3c9">2017</a></li>
 </ul>
 </div>
 </div>
@@ -78,10 +101,12 @@
 <dt>2019/10/16：</dt><dd><a href="./blog.html">这个链接</a>收一些较长篇幅的文章。</dd>
 </dl>
 
-<div id="outline-container-org8ed6221" class="outline-2">
-<h2 id="org8ed6221">2021</h2>
-<div class="outline-text-2" id="text-org8ed6221">
+<div id="outline-container-orgb07ec60" class="outline-2">
+<h2 id="orgb07ec60">2021</h2>
+<div class="outline-text-2" id="text-orgb07ec60">
 <dl class="org-dl">
+<dt>08.17</dt><dd>坐地铁去做核酸检测让我首次感受到上海早高峰的福报。在躯体被局限在四平方分米的空间的时候，似乎唯一的救赎方式就是掏出手机苦中作乐，在朋友圈洗涤自己的灵魂（当然，当我们拥有四百平米的房子的时候我们可能也会选择刷朋友圈）。在这样的情形下，大家都站在一起玩手机，人均网速就会变差，于是快乐也被平均了。所以我们要么是在争夺有限的快乐，要么是在分享有限的快乐。但是既然我们已经在为多占一平方分米而周旋久矣，那不如还是和气一点，让我们一起来分享快乐吧。我是小气的，不爱分享，也就是说我没有刷朋友圈。在这种情形下，我的快乐源泉来自于创造和思考数学问题 &#x2014; 读者将马上发现这正是我的痛苦所在。简单来说，这个问题是关于数数的，而且它很自然就出现了：我所在的车厢到底能容纳多少人。假设每个人占地四平方分米，那么车厢面积除以四就是我需要的答案。遗憾的是，这个论证只对了一半，也就是半对。因为这个时候车門开了，没有人出去，但是有一个人进来。由于车厢总面积没有变化，所以我们的人均占地面积变小了，可能变成了3.8。这个数字听起来不错，但是随之而来的问题是，3.8的人均面积是在这个情况下的最小的可能的值吗？我想应该是吧，这里实在是塞不下任何人了。可是车門又开了，没有人出去，但是有三个人进来。这意味着我又没有做对这道题，我们的人均占地面积由3.8锐减至3.7平方分米。更进一步来说，这说明我受到了精神和肉体的双重打击。我很坚强，我马上释怀了。我对自己精神的安慰是，对某个问题给出紧的下界通常都是很难的。我对自己肉体的安慰是，获得可以自由移动的空间通常也是很难的。不对不对，我就不信了，有什么难题还能难倒我不成？经过反复琢磨本天才终于见着了曙光。到了隆德路之后，一半的人下车了，我的地盘野蛮生长到了8平方分米，又过了两站，又下车了一半的人，并且我获得了一个座位，也就是说我的疆土再次翻番，由此我陶醉在这种原本只属于成吉思汗的成就感当中。接下来的故事是不难想象的。当其他人全都离去之后，我所在的车厢人均占地面积即为车厢面积。同时也不难发现，车厢面积是我们先前考虑的问题的上界。这样说来未免有些简单，这个叫求下不得，求上有余。但是读者千万不要忽视一种特殊情况：如果我不把自己当人的话，我所在的车厢人均占地面积为正无穷，因为此时我们将车厢面积除以零。但是除以零时常是不可取的，于是这种特殊情况没必要再考虑。所以呢，不失一般性，大家不妨假设我是人。扯了这么多我要说的是今天我要坐飞机去美国了。我只希望这班飞机不要把我送到火星就好。</dd>
+
 <dt>06.20</dt><dd><p>
 小时候，我们讲究readership，值得炫耀的是我们读过什么书、看过什么电影、去过什么地方、享受了什么好处。Lady Gaga你都不知道？你咋机器学习的基础书都没读过？长大后，我们更爱authorship，考虑的全是写过什么文章、解决了什么问题、做出了什么贡献、编出来了什么剧、电影演的好不好。
 readership讲的是消遣，authorship讲的是创作。不过呢，我们这些写文章的，不考虑readership也不行。一方面我们得考虑文章的目标读者，另一方面我们也需要读书旅游看电影作为消遣。这样一来，我全都要，真正想要拥有的原来是“reathor”ship。
@@ -96,7 +121,7 @@ readership讲的是消遣，authorship讲的是创作。不过呢，我们这些
 </p>
 
 <p>
-乐观主义者认为 ignorance is bliss，消极的人反讽道 ignorance is power。相信这两点之一的人也一定相信人们不该读“哀吾生之须臾”与“哀民生之多艰”—— 既然你有自己的痛苦，就不要再去接纳苏轼和屈原的痛苦了。同时也一定相信，人们不该知道那个人为何抹了自己的脖子，不该知道那个人为何抹了别人脖子，不该提前了解本行业薪资待遇，不该知道房价到底多高，不该知道自己碌碌无为的老板在北京有三十八套房和三十八个二奶 —— 即七十六奶 —— 不该知道“凤凰男”和“剩女”的含义、“三胎”和“躺平”的缘由。在我们姹紫嫣红的童年里，我们不知道这一切。
+乐观主义者认为 ignorance is bliss，消极的人觉得 ignorance is power。相信这两点之一的人也一定相信人们不该读“哀吾生之须臾”与“哀民生之多艰”—— 既然你有自己的痛苦，就不要再去接纳苏轼和屈原的痛苦了。同时也一定相信，人们不该知道那个人为何抹了自己的脖子，不该知道那个人为何抹了别人脖子，不该提前了解本行业薪资待遇，不该知道房价到底多高，不该知道自己碌碌无为的老板在北京有三十八套房和三十八个二奶 —— 即七十六奶 —— 不该知道“凤凰男”和“剩女”的含义、“三胎”和“躺平”的缘由。在我们姹紫嫣红的童年里，我们不知道这一切。
 </p></dd>
 </dl>
 
@@ -126,9 +151,9 @@ the smallest</i>)。我的卑微的补充是，拥有的冲动占比越多的生
 </dl>
 </div>
 </div>
-<div id="outline-container-orgf13b559" class="outline-2">
-<h2 id="orgf13b559">2020</h2>
-<div class="outline-text-2" id="text-orgf13b559">
+<div id="outline-container-orga8d9797" class="outline-2">
+<h2 id="orga8d9797">2020</h2>
+<div class="outline-text-2" id="text-orga8d9797">
 <dl class="org-dl">
 <dt>12.27</dt><dd><p>
 最近流行看<a href="https://zh.wikipedia.org/wiki/%E5%90%8E%E7%BF%BC%E6%A3%84%E5%85%B5_(%E8%BF%B7%E4%BD%A0%E5%8A%87)">后翼弃兵</a>学赌棋 (The Queen's Gambit)，于是我就去看了
@@ -256,9 +281,9 @@ what……incredible……但又不如核弹深奥。一个外行人三五分钟
 </dl>
 </div>
 </div>
-<div id="outline-container-org57f1cd4" class="outline-2">
-<h2 id="org57f1cd4">2019</h2>
-<div class="outline-text-2" id="text-org57f1cd4">
+<div id="outline-container-org51b86cc" class="outline-2">
+<h2 id="org51b86cc">2019</h2>
+<div class="outline-text-2" id="text-org51b86cc">
 <dl class="org-dl">
 <dt>12.15</dt><dd>看了一下绕毅的举报信。其实不太理解做科研造假者的心理: 想要谋取名利就算了，还把自己作案证据放到全世界都看得到的地方。这还怎么闷声发大财？不过呢，作假的论文发出去也没人看，要是像韩秋雨那样搞大新闻发到好的刊物，有识之士也可以辨别出来，这样一来也就不至于流毒后世。有时候违背一下自己的崇高理想(如果有)灌点水以解决燃眉之急是可以理解的，出于无奈嘛: 为了自身所处环境写作。十七年如一日的水文章乃至造假那就很没意思了。或许这个东西会上瘾，干一行就爱一行，赚了一百万就想赚一千万。只是呢，做生物(或其他学科)的人造假的话，便是断了自家孩子学生物的可能性: 要是小兔崽子长大了读读你的文章，乌烟瘴气的，非得把你棺材盖掀开不可。</dd>
 
@@ -346,7 +371,7 @@ left; let's have a party", 沉醉于各种各样的小确幸以至于有些玩�
 </dl>
 
 
-<div id="orgc16e940" class="figure">
+<div class="figure">
 <p><img src="./images/specialty.png" alt="specialty.png" width="200/250/300/400/500/600px" />
 </p>
 </div>
@@ -423,9 +448,9 @@ Code Submission吧……就想快点结束之后赶紧回家然后继续新的�
 </dl>
 </div>
 </div>
-<div id="outline-container-orgc64a338" class="outline-2">
-<h2 id="orgc64a338">2018</h2>
-<div class="outline-text-2" id="text-orgc64a338">
+<div id="outline-container-org2b92e07" class="outline-2">
+<h2 id="org2b92e07">2018</h2>
+<div class="outline-text-2" id="text-org2b92e07">
 <dl class="org-dl">
 <dt>12.26</dt><dd>是不是下雨天的时候工作效率就猛降哦？不想跑实验写paper，狂想新的idea。还是老实一点吧，思而不学则殆。:P</dd>
 <dt>12.06</dt><dd>Now I have a <a href="./en/learn-math.html">new maintaining list</a> to document my readings
@@ -502,7 +527,7 @@ vanishes——silently, suddenly.”
 <dt>08.26</dt><dd>近期的经历可真多。寻找实习、技术咨询、打牌、打游戏、吃饭应酬、家庭、情感、科研。感情的困惑、错综复杂的社会关系、科研的压力、兴趣、喜欢、坚持、责任、道德、真实、监督、善良、奉献，似乎学会妥善处理好这一切是成为大人的开始。感激和告别过去吧，我已经变成了更懂事的人。这份懂事存在于喧嚣的沉默里，在与同样懂得的人的对视里，在波澜不惊的方寸心湖里。</dd>
 </dl>
 
-<div id="org55e9070" class="figure">
+<div class="figure">
 <p><img src="./images/venus.jpg" alt="venus.jpg" width="200/250/300/400/500/600px" />
 </p>
 </div>
@@ -528,7 +553,7 @@ vanishes——silently, suddenly.”
 <dt>08.22</dt><dd>最近是看到什么都想评头论足一番。我觉得这样的收银员挺有毒的。别人就买个东西又跟你不熟，你在这里乱用自己的温油给别人泡面。你要是长得帅过张国荣我就不说你了。好吧可能别人的感情就是这样开始的，我不太懂就是了。</dd>
 </dl>
 
-<div id="org676623a" class="figure">
+<div class="figure">
 <p><img src="./images/moment.jpg" alt="moment.jpg" width="200/250/300/400/500/600px" />
 </p>
 </div>
@@ -548,7 +573,7 @@ vanishes——silently, suddenly.”
 </p></dd>
 </dl>
 
-<div id="orgcde46f7" class="figure">
+<div class="figure">
 <p><img src="./images/wangyi_test.jpg" alt="wangyi_test.jpg" width="200/250/300/400/500/600px" />
 </p>
 </div>
@@ -644,7 +669,7 @@ LaTeX。
 <dt>08.18</dt><dd>吹酒喝牛是快乐的体验，昨晚的每一分钟都妙不可言。我骑车去复旦买酒，觉得骑车是一件开心的事情。我看完电影买了西瓜，觉得买西瓜真让人开心。我窝在操场草坪上吃喝，泸州老窖可真够辣！我是猪吗？一切都是兴之所至，真是随意而又任性！后来有一哥们看我玩得太嗨，问我需不需要帮助，我跟他说谢谢不需要。我酒品真好！</dd>
 </dl>
 
-<div id="org94ac8e7" class="figure">
+<div class="figure">
 <p><img src="./images/drink.jpg" alt="drink.jpg" width="200/250/300/400/500/600px" />
 </p>
 </div>
@@ -683,7 +708,7 @@ C不在学校的时候我就少了一个看电影的朋友，昨天七夕一个�
 Bertie <b>Higgins</b> 的<a href="https://y.qq.com/n/yqq/song/003BT1OX2tdfzr.html">Casablanca</a>。吐槽下图的歌词翻译:P</dd>
 </dl>
 
-<div id="org979ed3d" class="figure">
+<div class="figure">
 <p><img src="./images/casablanca.jpg" alt="casablanca.jpg" width="200/250/300/400/500/600px" />
 </p>
 </div>
@@ -776,7 +801,7 @@ K740是一列不那么仓促的火车:P。慢归慢，往者要归来啦，回�
 <dt>08.04</dt><dd><p>
 到底过去多久了呢？我终于有勇气来谈谈我的感情，大致可以概括成一个故事如下。
 </p>
-<div class="RIGHT" id="org3c12eaa">
+<div class="RIGHT">
 <p>
 "不知所谓的男孩一号和柔弱坚定的女孩相亲相爱，在山谷里屠龙，危机四伏，各自为战。女孩为恶龙所擒又被男孩二号所救。在这一擒一救之间有千万声呼喊，男孩一号本来可以听到，却没有。女孩倾听着自己的心声与追寻着自己对爱的感觉，爱上了男孩二号。"
 </p>
@@ -785,7 +810,7 @@ K740是一列不那么仓促的火车:P。慢归慢，往者要归来啦，回�
 <p>
 或者另一个故事如下。
 </p>
-<div class="RIGHT" id="org1469682">
+<div class="RIGHT">
 <p>
 "一男一女住在一起过日子，有一阵子男方来大姨妈不舒服，没怎么做饭给女方吃。女方理所当然地会饿，于是就去别人家吃。饿的时候吃到的饭分外甜，因此就不大记得男方也曾给她做过香甜的饭。这下好了，她说她不回来了，这辈子都想在别人家吃饭。"
 </p>
@@ -819,7 +844,7 @@ paper 毕业的苦衷，为此提前承认自己即将犯下的错误：我将�
 <dt>06.02</dt><dd><p>
 VPN坏了，没有Google学习效率陡降，于是打算读会书，<a href="https://book.douban.com/subject/27199470/">刺杀骑士团长</a>。里面一段话可以用作我近十年的总结，也可以让十年后的我对现在的我说：
 </p>
-<div class="RIGHT" id="org3d526c8">
+<div class="RIGHT">
 <p>
 “不过非我辩解，当时的我没有闲工夫判断自己所作所为是否正确。我仅仅是抓一块木板随波逐流而已。周围一片漆黑，天上星月皆无。只要紧紧扑在那块木板上就不至于淹死。至于自己此刻身在何处、往下朝向何方，我却是一无所知”。
 </p>
@@ -828,7 +853,7 @@ VPN坏了，没有Google学习效率陡降，于是打算读会书，<a href="ht
 <p>
 当然，“我”所想要辩解的事情会激发读者的好奇，于是一同摘录如下：
 </p>
-<div class="RIGHT" id="orgf2feb7b">
+<div class="RIGHT">
 <p>
 “而且，我在那里同两位人妻有了性关系。两人都来绘画班受我的‘指导’。就是说，就立场而言是我的学生(顺便交代一句，两人画的画都非常不坏)。至于作为教师——尽管是不具有正式资格的即席教师——那是不是应被允许的行为，则是苦于判断之处。虽然我基本认为成年男女在自愿基础上进行的性行为一般没什么问题，但以社会角度来看，则并非多么可圈可点的名堂也是事实”。
 </p>
@@ -868,9 +893,9 @@ world + save the file。</dd>
 </dl>
 </div>
 </div>
-<div id="outline-container-org30d1d30" class="outline-2">
-<h2 id="org30d1d30">2017</h2>
-<div class="outline-text-2" id="text-org30d1d30">
+<div id="outline-container-orgf98d3c9" class="outline-2">
+<h2 id="orgf98d3c9">2017</h2>
+<div class="outline-text-2" id="text-orgf98d3c9">
 <dl class="org-dl">
 <dt>12.27</dt><dd>学术界有两大美差事。一是用牛校的光环掩盖自己的无知，二是以易过时的知识（发文章）换取终身的教职。聪明与智慧只是一时的，唯有愚钝永恒。</dd>
 <dt>11.21</dt><dd>我的一天有两个状态。一是 Deep Learning状态。我想怎么学习都行，没人管我，所以这是无监督的。第二个状态是 Deep
