@@ -356,11 +356,15 @@ img.eqwl {
 	border-collapse: collapse;
 }*/
 
+th {
+    text-align: center;
+}
+
 td {
 	padding: 2px;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
-	text-align: left;
+	text-align: center;
 /*	border: 1px solid gray;*/
 }
 /*  */
@@ -380,7 +384,7 @@ img {
 
 table.imgtable, table.imgtable td {
 	border: none;
-	text-align: left;
+	text-align: center;
 }
 
 #courseinfo {border: none;}
