@@ -2,12 +2,12 @@
 table#tlayout {
 	border: none;
 	border-collapse: separate;
-	background: #FFFAF0;
+    /* background: #FFFAF0; */
 }
 
 body {
 	/* background: #dddddd; */
-    background: #FFFAF0;
+    /* background: #FFFAF0; */
 	font-family: Georgia, serif;
 	padding-bottom: 8px;
 	margin: 0;
@@ -28,7 +28,7 @@ body {
 }
 
 #layout-menu td {
-	background: #FFFAF0;
+	/*background: #FFFAF0; */
 	vertical-align: top;
 }
 
@@ -37,7 +37,7 @@ body {
 	padding-left: 1.0em;
 	padding-right: 1.0em;
 	border: none;
-	background: #FFFAF0;
+	/*background: #FFFAF0;*/
 	text-align: left;
 	vertical-align: top;
 	min-width: 900px;
@@ -130,7 +130,8 @@ strong {
 
 
 h1, h2, h3 {
-	color: #20b2aa;
+	/* color: #20b2aa; */
+    color: #7C9895;
 	margin-top: 0.7em;
 	margin-bottom: 0.3em;
 	padding-bottom: 0.2em;
